@@ -221,74 +221,74 @@ html {
   overflow: hidden;
 }
 
-@media (min-width: 1050px) {
-  .hamburgerMenu {
-    display: none;
-    background-color: none;
-  }
-  .showMenu {
-    display: none;
-  }
-}
-@media (max-width: 1050px) {
-  .hamburgerMenu {
-    display: block;
-    margin-right: 20px;
-    border: none;
-    background-color: transparent;
-  }
-  .showMenu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: -100%;
-    background-color: blue;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-  }
-  .showMenu.active {
-    left: 0;
-    width: 250px;
-    transition: 0.5s;
-  }
-  .showMenu .closeBtn {
-    border: none;
-    color: white;
-    background-color: green;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 40px;
-    margin-left: 50px;
-    cursor: pointer;
-  }
-  .navLeft {
-    display: none;
-  }
-  .logo {
-    display: flex;
-  }
-}
-nav {
-  display: flex;
-  justify-content: center;
-}
-
 .hamburgerMenu {
-  font-size: 30px;
-  cursor: pointer;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .menuNav {
-  display: flex;
-  width: 20%;
-  justify-content: space-between;
-  text-decoration: none;
-  color: black;
-  list-style: none;
-  font-size: 0.75rem;
-  margin: 23px 0 0;
-}/*# sourceMappingURL=styles.css.map */
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+    font-size: 18px;
+    margin: 23px 0 0;
+}
+
+@media (min-width: 1050px) {
+
+  .hamburgerMenu, .closeBtn {
+      display: none;
+      background-color: none;
+  }
+
+  /* .menuNav {
+      display: none;
+  } */
+}
+
+@media (max-width: 1050px) {
+
+  .hamburgerMenu {
+      display: block;
+      margin-right: 20px;
+      border: none;
+      background-color: transparent;
+  }
+
+  .menuNav {
+      height: 100%;
+      width: 0;
+      position: fixed; 
+      z-index: 100; 
+      top: 0; 
+      left: -100%;
+      background-color: blue; 
+      overflow-x: hidden; 
+      padding-top: 60px; 
+      transition: 0.5s;
+  }
+
+  .menuNav.active {
+      left: 0;
+      width: 250px;
+      transition: 0.5s;
+  }
+  
+  .menuNav .closeBtn {
+      border: none;
+      color: white;
+      background-color: green;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 40px;
+      margin-left: 50px;
+      cursor: pointer;
+  }
+
+}
+
+/*# sourceMappingURL=styles.scss */

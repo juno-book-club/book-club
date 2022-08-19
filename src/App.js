@@ -1,4 +1,4 @@
-import './styles/sass/styles.css'
+import './styles/styles.css'
 import About from './pages/About';
 import Home from './pages/Home';
 import Details from './pages/Details';
@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <main>
+        <div className='wrapper'>
         <header>
           <NavBar />
         </header>
@@ -24,7 +25,9 @@ function App() {
           <Route path='/about' element={ <About /> } />
           <Route path='/login' element={ <Login setIsAuth={setIsAuth} /> } />
         </Routes>
+        </div>
       </main>
+
     </div>
   );
 }

@@ -1,0 +1,20 @@
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.hamburgerMenu {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menuNav {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+    font-size: 0.75rem;
+    margin: 23px 0 0;
+}
