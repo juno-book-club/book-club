@@ -49,7 +49,7 @@ function Details() {
               <button>Delete</button>
             </div>
 
-            <Link to={`/`}>
+            <Link to={`/search/:search`}>
                <h2>Back</h2>
            </Link>
           </div> 

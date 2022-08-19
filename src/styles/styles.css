@@ -228,7 +228,6 @@ template {
 }
 
 .menuNav {
-  font-family: "Maitree";
   display: flex;
   width: 350px;
   justify-content: space-between;
@@ -283,9 +282,4 @@ template {
     margin-left: 50px;
     cursor: pointer;
   }
-}
-@font-face {
-  font-family: "Maitree";
-  src: url("https://fonts.googleapis.com/css2?family=Maitree&display=swap") format("truetype");
-  font-weight: normal;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.scss */
