@@ -1,10 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/sass/styles.css'
+import About from './pages/About';
+import Home from './pages/Home';
+import Details from './pages/Details';
+import Favourites from './pages/Favourites';
+import NavBar from './components/NavBar';
+import Login from './pages/Login';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+  const [ isAuth, setIsAuth ] = useState();
+
   return (
     <div className="App">
-      
+      <main>
+        <header>
+          <NavBar />
+        </header>
+        <Routes>
+          <Route path='/' element={ <Home isAuth={isAuth} /> } />
+          <Route path='/favourites' element={ <Favourites isAuth={isAuth} /> } />
+          <Route path='/details/:bookId' element={ <Details isAuth={isAuth} /> } />
+          <Route path='/about' element={ <About /> } />
+          <Route path='/login' element={ <Login setIsAuth={setIsAuth} /> } />
+        </Routes>
+      </main>
     </div>
   );
 }
