@@ -1,22 +1,24 @@
-import './styles/styles.css'
+import './App.scss';
 import About from './pages/About';
 import Home from './pages/Home';
 import Details from './pages/Details';
 import Favourites from './pages/Favourites';
 import NavBar from './components/NavBar';
+import SearchPage from './pages/Searchpage';
 import Login from './pages/Login';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { signOut} from 'firebase/auth'
 
 function App() {
-  const [ isAuth, setIsAuth ] = useState();
+  const [ isAuth, setIsAuth ] = useState(localStorage.getItem("isAuth"));
 
   return (
     <div className="App">
       <main>
         <div className='wrapper'>
         <header>
-          <NavBar />
+          <NavBar isAuth={isAuth} setIsAuth={setIsAuth} signOut={signOut}/>
         </header>
         <Routes>
           <Route path='/' element={ <Home isAuth={isAuth} /> } />
@@ -24,6 +26,7 @@ function App() {
           <Route path='/details/:bookId' element={ <Details isAuth={isAuth} /> } />
           <Route path='/about' element={ <About /> } />
           <Route path='/login' element={ <Login setIsAuth={setIsAuth} /> } />
+          <Route path='/search/:search' element={ <SearchPage setIsAuth={setIsAuth} /> } />
         </Routes>
         </div>
       </main>

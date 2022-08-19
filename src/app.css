@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -221,14 +222,85 @@ html {
   overflow: hidden;
 }
 
+body, h2, p, input, button {
+  font-family: "Maitree", normal;
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoTitle {
+  font-family: "Maitree", bold;
+  font-size: 30px;
+  display: inline;
+}
+
+.hamburgerMenu {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.menuNav {
+  font-family: "Maitree";
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  text-decoration: none;
+  color: #000;
+  list-style: none;
+  font-size: 18px;
+  margin: 23px 0 0;
+  padding-top: 5px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+}
+
+.navLink:hover {
+  color: #ace8cd;
+}
+
+.searchBarForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+input {
+  height: 40px;
+  width: 300px;
+  border: 1px solid #000;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.searchBtn {
+  display: inline;
+  background-color: #5da9c2;
+  width: 100px;
+  height: 40px;
+  border: none;
+}
+
 @media (min-width: 1050px) {
-  .hamburgerMenu {
+  .hamburgerMenu, .closeBtn {
     display: none;
     background-color: none;
   }
-  .showMenu {
-    display: none;
-  }
+  /* .menuNav {
+      display: none;
+  } */
 }
 @media (max-width: 1050px) {
   .hamburgerMenu {
@@ -237,7 +309,7 @@ html {
     border: none;
     background-color: transparent;
   }
-  .showMenu {
+  .menuNav {
     height: 100%;
     width: 0;
     position: fixed;
@@ -249,12 +321,12 @@ html {
     padding-top: 60px;
     transition: 0.5s;
   }
-  .showMenu.active {
+  .menuNav.active {
     left: 0;
     width: 250px;
     transition: 0.5s;
   }
-  .showMenu .closeBtn {
+  .menuNav .closeBtn {
     border: none;
     color: white;
     background-color: green;
@@ -265,30 +337,4 @@ html {
     margin-left: 50px;
     cursor: pointer;
   }
-  .navLeft {
-    display: none;
-  }
-  .logo {
-    display: flex;
-  }
-}
-nav {
-  display: flex;
-  justify-content: center;
-}
-
-.hamburgerMenu {
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.menuNav {
-  display: flex;
-  width: 20%;
-  justify-content: space-between;
-  text-decoration: none;
-  color: black;
-  list-style: none;
-  font-size: 0.75rem;
-  margin: 23px 0 0;
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=app.css.map */

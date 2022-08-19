@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react"
 import {useParams} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Details() {
 
@@ -10,36 +11,48 @@ function Details() {
 
   useEffect( () => {
     axios({
-        url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8`,
+        url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyAE3WolJuYtvS58lZwY-WvBk-LSl9WLU_Q
+        `,
         method: 'GET',
         dataResponse: 'json'
     }).then( (res) => {
         setBook(res.data.volumeInfo);
-        console.log(res.data.volumeInfo);
+        // console.log(res.data.volumeInfo);
+        // console.log(res.data)
     }).catch(() => {
         setError(true);
       })
   },[])
+
+  
+
     return (
-     
-      <section className="details">
+      
+      
+    <section className="details">
         <div className="wrapper">
-          <div className="imgContainer">
-            <img src={`https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w250-h400&source=gbs_api`} alt={book.title} />
+       <div className="imgContainer">
+             <img src={`https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w250-h400&source=gbs_api`} alt={book.title} />
           </div>
           <div className="detailContainer">
             <h2>{book.title}</h2>
             <div className="descriptionContainer">
-              <p>{book.description}</p>
-              <p>{book.categories.map((genre)=>{return(<p>{genre}</p>)})}</p>
-              <p></p>
+              {book.description  && <p
+              dangerouslySetInnerHTML={{__html: book.description}}/>}
+              {book.categories && book.categories[0]}
+              
+              
             </div>
 
             <div className="buttonContainer">
               <button>Mark as read</button>
               <button>Delete</button>
             </div>
-          </div>
+
+            <Link to={`/`}>
+               <h2>Back</h2>
+           </Link>
+          </div> 
         </div>
       </section>
     );

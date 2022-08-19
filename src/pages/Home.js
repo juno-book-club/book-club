@@ -1,50 +1,51 @@
 import axios from 'axios'
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import Form from '../components/Form';
+import DisplayBook from '../components/DisplayBook';
+import Instructions from "../components/Instructions"
 
 function Home() {
-  const [books, setBooks] = useState([]);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"))
+  // const [books, setBooks] = useState([]);
+  // const [input, setInput] = useState('');
 
-  useEffect( () => {
-    axios({
-    url: 'https://www.googleapis.com/books/v1/volumes?',
-    method: 'GET',
-    dataResponse: 'json',
-    params: {
-      key: 'AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8',
-      q: 'it',
-      maxResults: 40,
-      projection: "full"
-    }
-  }).then((res) => {
-    setBooks(res.data.items);
-  })
-},[])
+  // const searchBook = () => {
+  //     axios({
+  //     url: 'https://www.googleapis.com/books/v1/volumes?',
+  //     method: 'GET',
+  //     dataResponse: 'json',
+  //     params: {
+  //       key: 'AIzaSyAE3WolJuYtvS58lZwY-WvBk-LSl9WLU_Q',
+  //       // q: 'it',
+  //       q: input,
+  //       maxResults: 3,
+  //       projection: "full"
+  //     }
+  //   }).then((res) => {
+  //     setBooks(res.data.items);
+  //   })
+  // }
 
     return (
-      <section className="Home">      
-          { 
+      // <section className="Home">
+     <>
+          <Form />
+          {/* { 
             books && books.map( (book) => {
               const {title, genre, description, averageRating, author} = book.volumeInfo
+              console.log(book)
               return(
                 <li key={book.id}>
-                  <div className='bookCover'>
-                    <Link to={`/details/${book.id}`}>
-                      <img src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}/>   
-                    </Link>
-                      <div className='ratingFavContainer'>
-                      <div className='ratingContainer'>
-                      <h2>{averageRating}</h2>
-                      </div>
-                      <button>Favs</button>
-                      </div>
-                  </div>
+              <DisplayBook book={book}/>
                 </li>
-             
               )
             }) 
           }
-      </section>
+      </section> */}
+     { !isAuth && <Instructions />}
+     </>
+    
     );
   }
   

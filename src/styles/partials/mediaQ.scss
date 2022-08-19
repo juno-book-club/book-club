@@ -1,24 +1,25 @@
-@media (min-width: 1050px) {
-    .hamburgerMenu {
+  @media (min-width: 1050px) {
+  
+    .hamburgerMenu, .closeBtn {
         display: none;
         background-color: none;
     }
-
-    .showMenu {
+  
+    /* .menuNav {
         display: none;
-    }
-}
-
-@media (max-width: 1050px) {
-
+    } */
+  }
+  
+  @media (max-width: 1050px) {
+  
     .hamburgerMenu {
         display: block;
         margin-right: 20px;
         border: none;
         background-color: transparent;
     }
-
-    .showMenu {
+  
+    .menuNav {
         height: 100%;
         width: 0;
         position: fixed; 
@@ -30,14 +31,14 @@
         padding-top: 60px; 
         transition: 0.5s;
     }
-
-    .showMenu.active {
+  
+    .menuNav.active {
         left: 0;
         width: 250px;
         transition: 0.5s;
     }
     
-    .showMenu .closeBtn {
+    .menuNav .closeBtn {
         border: none;
         color: white;
         background-color: green;
@@ -48,12 +49,5 @@
         margin-left: 50px;
         cursor: pointer;
     }
-
-    .navLeft {
-        display: none;
-    }
-
-    .logo {
-        display: flex;
-    }
-}
+  
+  }

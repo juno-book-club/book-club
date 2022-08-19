@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
+body {
+  background-color: green;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -199,12 +204,8 @@ template {
   display: none;
 }
 
-html {
+* {
   box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
 }
 
 .sr-only {
@@ -222,73 +223,69 @@ html {
 }
 
 .hamburgerMenu {
-    font-size: 30px;
-    cursor: pointer;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .menuNav {
-    display: flex;
-    width: 20%;
-    justify-content: space-between;
-    text-decoration: none;
-    color: black;
-    list-style: none;
-    font-size: 18px;
-    margin: 23px 0 0;
+  font-family: "Maitree";
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  list-style: none;
+  font-size: 18px;
+  margin: 23px 0 0;
 }
 
 @media (min-width: 1050px) {
-
   .hamburgerMenu, .closeBtn {
-      display: none;
-      background-color: none;
+    display: none;
+    background-color: none;
   }
-
   /* .menuNav {
       display: none;
   } */
 }
-
 @media (max-width: 1050px) {
-
   .hamburgerMenu {
-      display: block;
-      margin-right: 20px;
-      border: none;
-      background-color: transparent;
+    display: block;
+    margin-right: 20px;
+    border: none;
+    background-color: transparent;
   }
-
   .menuNav {
-      height: 100%;
-      width: 0;
-      position: fixed; 
-      z-index: 100; 
-      top: 0; 
-      left: -100%;
-      background-color: blue; 
-      overflow-x: hidden; 
-      padding-top: 60px; 
-      transition: 0.5s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: -100%;
+    background-color: blue;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
   }
-
   .menuNav.active {
-      left: 0;
-      width: 250px;
-      transition: 0.5s;
+    left: 0;
+    width: 250px;
+    transition: 0.5s;
   }
-  
   .menuNav .closeBtn {
-      border: none;
-      color: white;
-      background-color: green;
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 40px;
-      margin-left: 50px;
-      cursor: pointer;
+    border: none;
+    color: white;
+    background-color: green;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    cursor: pointer;
   }
-
 }
-
-/*# sourceMappingURL=styles.scss */
+@font-face {
+  font-family: "Maitree";
+  src: url("https://fonts.googleapis.com/css2?family=Maitree&display=swap") format("truetype");
+  font-weight: normal;
+}/*# sourceMappingURL=styles.css.map */
