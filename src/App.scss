@@ -193,4 +193,27 @@ padding-left: 10px;
   
   }
 
+  /* style for loading animation */
+
+.loader {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    background: rgba(0, 0, 0, 0.834)
+        url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
+        no-repeat;
+    z-index: 1;
+
+
+  }
+  
+  .loader::after {
+    content: 'loading...';
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-size: 100px;
+  }
+
 
