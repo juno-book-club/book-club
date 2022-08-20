@@ -10,6 +10,7 @@ function Login({ setIsAuth }) {
     //create state to know if user made error logging in
     const [loginError, setLoginError] = useState(false);
 
+    //When page loads, scroll to the login element with "useRef"
     useEffect(() => {
         const executeScroll = () => {
             loginEl.current.scrollIntoView();
@@ -17,6 +18,7 @@ function Login({ setIsAuth }) {
         executeScroll();
     }, []);
 
+    //function that allows sign-in through Google. We set the login status, username and id into local storage for use. Then we navigate to search page
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -25,12 +27,14 @@ function Login({ setIsAuth }) {
                 localStorage.setItem("userId", auth.currentUser.uid);
                 setLoginError(false);
                 setIsAuth(true);
-                navigate("/");
+                navigate("/search");
             })
             .catch((error) => {
                 setLoginError(true);
             });
     };
+
+    //function that allows sign-in anonymously. We set the login status, username and id into local storage for use. Then we navigate to search page.
 
     const signInAnon = () => {
         signInAnonymously(auth)
@@ -38,7 +42,7 @@ function Login({ setIsAuth }) {
                 localStorage.setItem("isAuth", true);
                 setLoginError(false);
                 setIsAuth(true);
-                navigate("/");
+                navigate("/search");
             })
             .catch((error) => setLoginError(true));
     };
