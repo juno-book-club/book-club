@@ -9,8 +9,8 @@ function Home() {
     return (
         <>
             <Form input={input} setInput={setInput} />
-            {/* CHANGE ON MONDAY, because we have a search page now, the instructions should always be on the main page */}
-            {!isAuth && <Instructions />}
+
+            <Instructions />
         </>
     );
 }
