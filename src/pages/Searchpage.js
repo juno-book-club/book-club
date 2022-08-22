@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function SearchPage() {
     const { search } = useParams();
@@ -42,14 +42,16 @@ function SearchPage() {
                 )
             }
 
-            {books ? <DisplayBook books={books}/> :    <Link to='/'> 
-                <p>What you searched is not exist, click here to go back to Home Page</p>
-                </Link> />}
-
-          
-             
-            
-
+            {books ? (
+                <DisplayBook books={books} />
+            ) : (
+                <Link to="/">
+                    <p>
+                        What you searched is not exist, click here to go back to
+                        Home Page
+                    </p>
+                </Link>
+            )}
         </section>
     );
 }
