@@ -19,8 +19,6 @@ function Details() {
         })
             .then((res) => {
                 setBook(res.data.volumeInfo);
-                // console.log(res.data.volumeInfo);
-                // console.log(res.data)
             })
             .catch(() => {
                 setError(true);

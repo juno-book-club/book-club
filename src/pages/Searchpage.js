@@ -3,12 +3,24 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
+import { getDatabase, ref, onValue, remove } from "firebase/database";
+import firebase from "../firebase-config";
+
 
 function SearchPage() {
     const { search } = useParams();
     const [books, setBooks] = useState([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false)
+
+    useEffect(() => {
+        const database = getDatabase(firebase);
+        const dbRef = ref(database);
+
+        console.log(dbRef)
+        console.log('awlefji')
+    }, [])
 
     useEffect(() => {
         // before get result from API, setloading will be true
@@ -28,6 +40,8 @@ function SearchPage() {
             // after we got repsonse from API, setLoading will be false
             setLoading(false);
             setBooks(res.data.items);
+        }).catch((error) => {
+            setError(true);
         });
     }, [search]);
 
@@ -52,6 +66,13 @@ function SearchPage() {
                     </p>
                 </Link>
             )}
+
+            {error &&   <Link to="/">
+                    <p>
+                        What you searched is not exist, click here to go back to
+                        Home Page
+                    </p>
+                </Link>}
         </section>
     );
 }

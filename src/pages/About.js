@@ -13,23 +13,23 @@ function About() {
     {
       name: 'Charles Li',
       img: './',
-      description: 'About',
+      description: `I'm a determined problem solver who strives to write clean and accessible code.`,
       github: 'https://github.com/41CharlesLi',
-      portfolio: ''
+      portfolio: 'https://www.charlesli.ca'
     },
     {
       name: 'Jingru Xu',
-      img: './',
-      description: 'About',
+      img: 'http://placekitten.com/200/300',
+      description: `😊`,
       github: 'https://github.com/jxu710',
-      portfolio: ''
+      portfolio: 'https://www.jingruxu-web.com/'
     },
     {
       name: 'Sarah Bolton',
       img: './',
-      description: 'About',
+      description: `Sarah is a front-end developer with a background in healthcare and graphic design. When she's not building websites, you can find her painting, reading or chillin with her cats. ✨`,
       github: 'https://github.com/sarah-bolton',
-      portfolio: ''
+      portfolio: 'https://sarahbolton.ca'
     }
   ]
 

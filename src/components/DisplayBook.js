@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const DisplayBook = ({ books }) => {
-    console.log(books);
     return (
         <>
             {books &&
