@@ -18,7 +18,9 @@ const Form = ({ input, setInput}) => {
         <div className="form">
           <label htmlFor="search">Search for a book : </label>
             <form onSubmit={handleSubmit} className="searchBarForm">
-                <input type="text" htmlFor='search' placeholder="book" onChange={searchChange} value={input} />
+                <input type="text" htmlFor='search' placeholder="book" onChange={searchChange} value={input} 
+                required
+                />
 
                 <button type="submit" className="searchBtn">Search</button>
             </form>

@@ -45,7 +45,7 @@ function SearchPage() {
                 <Form input={input} setInput={setInput} />
             )
             }
-            {books && //refactor on Monday to have the map occur within display books component
+            {books ? //refactor on Monday to have the map occur within display books component
                 books.map((book) => {
                     // const {title, genre, description, averageRating, author} = book.volumeInfo <--might not be necessary, we need this info on search page
                     console.log(book);
@@ -54,7 +54,12 @@ function SearchPage() {
                             <DisplayBook book={book} />
                         </li>
                     );
-                })}
+                })
+                :
+                <Link to='/'> 
+                <p>What you searched is not exist, click here to go back to Home Page</p>
+                </Link>
+            }
         </section>
     );
 }

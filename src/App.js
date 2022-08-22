@@ -5,6 +5,7 @@ import Details from './pages/Details';
 import Favourites from './pages/Favourites';
 import NavBar from './components/NavBar';
 import SearchPage from './pages/Searchpage';
+import ErrorPage from './components/ErrorPage';
 import Login from './pages/Login';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -27,6 +28,7 @@ function App() {
           <Route path='/about' element={ <About /> } />
           <Route path='/login' element={ <Login setIsAuth={setIsAuth} /> } />
           <Route path='/search/:search' element={ <SearchPage setIsAuth={setIsAuth} /> } />
+          <Route path ='*' element = {<ErrorPage />} />
         </Routes>
         </div>
       </main>
