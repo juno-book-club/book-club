@@ -14,21 +14,21 @@ function About() {
       name: 'Charles Li',
       img: './',
       description: 'About',
-      github: '',
+      github: 'https://github.com/41CharlesLi',
       portfolio: ''
     },
     {
       name: 'Jingru Xu',
       img: './',
       description: 'About',
-      github: '',
+      github: 'https://github.com/jxu710',
       portfolio: ''
     },
     {
       name: 'Sarah Bolton',
       img: './',
       description: 'About',
-      github: '',
+      github: 'https://github.com/sarah-bolton',
       portfolio: ''
     }
   ]
