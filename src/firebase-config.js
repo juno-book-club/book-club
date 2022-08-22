@@ -13,8 +13,9 @@ const firebaseConfig = {
     projectId: "book-club-reads-359821",
     storageBucket: "book-club-reads-359821.appspot.com",
     messagingSenderId: "408194509106",
-    appId: "1:408194509106:web:578e98750c98a662868f2b"
-  };
+    appId: "1:408194509106:web:578e98750c98a662868f2b",
+};
+
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 export const db = getDatabase(firebase);

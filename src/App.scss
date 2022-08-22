@@ -345,23 +345,19 @@ input {
 
     .hamburgerMenu {
         display: none;
+        background-color: none;
     }
-}
-
-@media (max-width: 1050px) {
-
-    .navBar {
-        position: relative;
-    }
-
-    .navBar button {
-        position: fixed;
-        right: 40px;
-        top: 18px;
-        z-index: 10;
-        color: black;
-        cursor: pointer;
-        background: transparent;
+  
+    /* .menuNav {
+        display: none;
+    } */
+  }
+  
+  @media (max-width: 1050px) {
+  
+    .hamburgerMenu {
+        display: block;
+        margin-right: 20px;
         border: none;
     }
 

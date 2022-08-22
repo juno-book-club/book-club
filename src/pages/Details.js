@@ -19,8 +19,6 @@ function Details() {
         })
             .then((res) => {
                 setBook(res.data.volumeInfo);
-                // console.log(res.data.volumeInfo);
-                // console.log(res.data)
             })
             .catch(() => {
                 setError(true);
@@ -57,9 +55,13 @@ function Details() {
                         <button>Delete</button>
                     </div>
 
-                    <Link to={`/search/:search`}>
-                        <h2>Back</h2>
-                    </Link>
+                    <button
+                        onClick={() => {
+                            window.history.back();
+                        }}
+                    >
+                        Back
+                    </button>
                 </div>
             </div>
         </section>

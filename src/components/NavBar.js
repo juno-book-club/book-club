@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
-// import { Routes } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import {Routes} from 'react-router-dom';
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Favourites from "../pages/Favourites";
@@ -10,7 +10,7 @@ import { MdClose } from "react-icons/md"
 import { FiMenu } from "react-icons/fi"
 
 
-function NavBar({ isAuth, setIsAuth, signOut }) {
+function NavBar({isAuth, setIsAuth, signOut}) {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   const signUserOut = () => {
