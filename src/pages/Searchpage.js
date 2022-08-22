@@ -41,7 +41,15 @@ function SearchPage() {
                     <Form input={input} setInput={setInput} />
                 )
             }
-            {books && <DisplayBook books={books} />}
+
+            {books ? <DisplayBook books={books}/> :    <Link to='/'> 
+                <p>What you searched is not exist, click here to go back to Home Page</p>
+                </Link> />}
+
+          
+             
+            
+
         </section>
     );
 }
