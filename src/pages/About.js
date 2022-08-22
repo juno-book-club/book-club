@@ -1,4 +1,5 @@
 import danielPhoto from '../assets/images/danielSelfPort.jpg'
+import jingruPhoto from '../assets/images/jingruPhoto.PNG'
 
 function About() {
 
@@ -19,8 +20,8 @@ function About() {
     },
     {
       name: 'Jingru Xu',
-      img: 'http://placekitten.com/200/300',
-      description: `😊`,
+      img: jingruPhoto,
+      description: `I'm a dynamic front-end developer with passion in maintaining and building user-friendly websites. When I'm not working, you'll often find me watching movies, trying new restaurants and drinking wines.🥂`,
       github: 'https://github.com/jxu710',
       portfolio: 'https://www.jingruxu-web.com/'
     },
