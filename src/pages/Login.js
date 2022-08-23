@@ -2,10 +2,29 @@ import React, { useState, useRef, useEffect } from "react";
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup, signInAnonymously } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import {getDatabase, ref, push} from 'firebase/database';
+import firebase from "../firebase-config";
+
+
+
 
 function Login({ setIsAuth }) {
+    const[userDetails, setUserDetails]= useState(
+        {
+            userName: '',
+            userId: '',
+        }
+    );
     let navigate = useNavigate();
     const loginEl = useRef(null);
+    
+
+    const database = getDatabase(firebase);
+    const dbRef = ref(database, '/users');
+    
+
+
+    
 
     //create state to know if user made error logging in
     const [loginError, setLoginError] = useState(false);
@@ -20,6 +39,7 @@ function Login({ setIsAuth }) {
 
     //function that allows sign-in through Google. We set the login status, username and id into local storage for use. Then we navigate to search page
     const signInWithGoogle = () => {
+
         signInWithPopup(auth, provider)
             .then((result) => {
                 localStorage.setItem("isAuth", true);
@@ -27,7 +47,9 @@ function Login({ setIsAuth }) {
                 localStorage.setItem("userId", auth.currentUser.uid);
                 setLoginError(false);
                 setIsAuth(true);
-                navigate("/search");
+                navigate("/");
+                
+
             })
             .catch((error) => {
                 setLoginError(true);
@@ -40,9 +62,11 @@ function Login({ setIsAuth }) {
         signInAnonymously(auth)
             .then(() => {
                 localStorage.setItem("isAuth", true);
+                localStorage.setItem("userName", "anonymous");
+                localStorage.setItem("userId", "anonymousId");
                 setLoginError(false);
                 setIsAuth(true);
-                navigate("/search");
+                navigate("/");
             })
             .catch((error) => setLoginError(true));
     };

@@ -1,0 +1,44 @@
+# firebase pseudo code 
+
+# create a users object
+
+# every object within will be named with the user.id 
+
+# search page 
+# only render the favourites button for logged in users 
+
+# we need to pull user's booklist and match the id with the array of books returned from search 
+# if the ids match, disable the fav button 
+
+# fav button - use set hook from firebase to update user's fav booklist 
+
+
+# favourites page 
+
+# use localstorage userid and make a fetch call from database for user's booklist
+
+# useEffect: 
+# using a loop, we'll make an axios call for each book.id in user's list 
+# use DisplayBooks to render data from firebase
+
+# if favbutton is active and clicked on, remove the book using book.id from user's booklist, using remove()
+
+# if favbutton is not active and clicked on, add the book's id to the user's booklist, using set 
+
+# We can save the completion number in state, and set it equal to the length of the booklist array from firebase
+
+# whenever we check off a book as "read", we take 1 away from the completion number and add a class somewhere "read"
+
+# if user clicks on delete book, and there's a class of "read" on the book, do not take 1 away from completion number
+
+
+# details page 
+
+# only render the favourites button for logged in users 
+# useEffect() => {
+#     check if book.id exists in user's booklist 
+
+#     if it is, disable the favourites button 
+# }
+
+# we'll replace delete and read buttons with a fav button 

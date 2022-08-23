@@ -44,9 +44,7 @@ function NavBar({isAuth, setIsAuth, signOut}) {
           <li className="menuItem">
             <Link to="/"
               className="navLink"
-              activeClassName="active-link"
               onClick={() => closeMenu()}
-              exact
             >
               {" "}Home{" "}
             </Link></li>
@@ -54,9 +52,7 @@ function NavBar({isAuth, setIsAuth, signOut}) {
           <li className="menuItem">
             <Link to="/Favourites"
               className="navLink"
-              activeClassName="active-link"
               onClick={() => closeMenu()}
-              exact
             >
               {" "}Favourites{" "}
             </Link></li>
@@ -65,9 +61,7 @@ function NavBar({isAuth, setIsAuth, signOut}) {
           <li className="menuItem">
             <Link to="/About"
               className="navLink"
-              activeClassName="active-link"
               onClick={() => closeMenu()}
-              exact
             >
               {" "}About{" "}
             </Link></li>
@@ -75,9 +69,7 @@ function NavBar({isAuth, setIsAuth, signOut}) {
           <li className="menuItem">
             {isAuth ? <button onClick={signUserOut}>Log out</button> : <Link to="/Login"
               className="navLink"
-              activeClassName="active-link"
               onClick={() => closeMenu()}
-              exact
             >
               {" "}Log In{" "}
             </Link>}</li>

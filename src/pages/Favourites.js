@@ -1,7 +1,7 @@
 import Form from "../components/Form";
 import { useState } from "react";
 
-function Favourites() {
+function Favourites({addToFavourites}) {
     const [input, setInput] = useState("");
 
     return (
@@ -16,7 +16,7 @@ function Favourites() {
                         <div className="starContainer">
                             <p>rating</p>
                         </div>
-                        <button>Like Button</button>
+                        <button onClick={()=>{addToFavourites()}}>Like Button</button>
                     </div>
                 </div>
             </div>
