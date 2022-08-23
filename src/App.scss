@@ -347,17 +347,22 @@ input {
         display: none;
         background-color: none;
     }
-  
-    /* .menuNav {
-        display: none;
-    } */
-  }
-  
-  @media (max-width: 1050px) {
-  
-    .hamburgerMenu {
-        display: block;
-        margin-right: 20px;
+}
+
+@media (max-width: 1050px) {
+
+    .navBar {
+        position: relative;
+    }
+
+    .navBar button {
+        position: fixed;
+        right: 40px;
+        top: 14px;
+        z-index: 10;
+        color: black;
+        cursor: pointer;
+        background: transparent;
         border: none;
     }
 
@@ -384,7 +389,7 @@ input {
 
     .mdClose {
         margin: 5px;
-        z-index: 5;
+        z-index: 10;
     }
 
     .menuNav.showMenu {
@@ -399,6 +404,7 @@ input {
         text-transform: uppercase;
         font-weight: bold;
         margin: 20px;
+        z-index: 5;
     }
 }
 
