@@ -18,7 +18,13 @@ const DisplayBook = ({ books, addToFavourites }) => {
                                     <div className="ratingContainer">
                                         <h2>{book.averageRating}</h2>
                                     </div>
-                                    <button onClick={()=>{addToFavourites(book.id)}}>Favs</button>
+                                    <button
+                                        onClick={() => {
+                                            addToFavourites(book.id);
+                                        }}
+                                    >
+                                        Favs
+                                    </button>
                                 </div>
                             </div>
                         </li>
