@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const DisplayBook = ({ books }) => {
+const DisplayBook = ({ books, addToFavourites }) => {
     return (
         <>
             {books &&
@@ -18,7 +18,13 @@ const DisplayBook = ({ books }) => {
                                     <div className="ratingContainer">
                                         <h2>{book.averageRating}</h2>
                                     </div>
-                                    <button>Favs</button>
+                                    <button
+                                        onClick={() => {
+                                            addToFavourites(book.id);
+                                        }}
+                                    >
+                                        Favs
+                                    </button>
                                 </div>
                             </div>
                         </li>

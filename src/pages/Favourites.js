@@ -1,5 +1,6 @@
 import Form from "../components/Form";
 
+
 function Favourites() {
     return (
         <section className="Favourites">
@@ -7,6 +8,7 @@ function Favourites() {
             <div className="favouritesContainer">
                 <ul className="favouritesList"></ul>
                 <div className="paginationContainer"></div>
+
             </div>
         </section>
     );
