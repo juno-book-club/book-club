@@ -10,6 +10,8 @@ import {
     update,
     get,
     onValue,
+    remove,
+    set
 } from "firebase/database";
 import firebase from "../firebase-config";
 
@@ -23,10 +25,11 @@ function SearchPage() {
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
     const [userObject, setUserObject] = useState(null);
+
     useEffect(() => {
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users`);
-        console.log(allUserKeys);
+        // console.log(allUserKeys);
         onValue(userRef, (response) => {
             const data = response.val();
             let keyArray = [];
@@ -55,9 +58,9 @@ function SearchPage() {
             method: "GET",
             dataResponse: "json",
             params: {
-                key: "AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8",
+                key: "AIzaSyA73wo90bjFjcNUfYMOqKo_qiuKKH2ItL4",
                 q: search,
-                maxResults: 1,
+                maxResults: 3,
                 projection: "full",
             },
         })
@@ -71,58 +74,37 @@ function SearchPage() {
             });
     }, [search]);
 
-    //function add to favourites
-    //check db to see if userID exists
-    //if it doesn't, update users object with new object
-    //it should contain userName, userId, and an object with the bookID of the book being clicked on
+    // function addToFavourites(bookId) {
+    //     const database = getDatabase(firebase);
+    //     const dbRef = ref(database, "/users");
 
-    //if userID exists, we just want to push the bookID into user>list
-    // const database = getDatabase(firebase);
-    // const dbRef = ref(database, '/users');
+    //     const newRef = ref(database, `/users/${userId}/list`);
 
-    // const users = useDatabaseSnapshot(["users"], dbRef);
-    // const snapshot = users.data;
-    // console.log(snapshot)
+    //     push(newRef, bookId);
 
-    // if(dataSnapshot.exists()){
-    //     console.log('hello');
     // }
 
-    function addToFavourites(bookId) {
-        const database = getDatabase(firebase);
-        const dbRef = ref(database, "/users");
+    // function removeFromFavourites(bookId) {
+    //     const database = getDatabase(firebase);
+    //     const dbRef = ref(database, "/users");
+    //     let obj;
+    //     const listRef = ref(database, `/users/${userId}/list`);
+    //     get(listRef).then((snapshot) => {
+    //         if (snapshot.exists()) {
+    //             obj = snapshot.val()
+    //             for (let key in obj) {
+    //                 const bookRef = ref(database, `/users/${userId}/list/${key}`);
+    //                 if (obj[key] === bookId) {
+    //                     remove(bookRef)
+    //                 }
 
-        const newRef = ref(database, `/users/${userId}/list`);
-        get(dbRef)
-            .then((snapshot) => {
-                let newArray = [];
-                let usersArray = snapshot.val();
-                for (let key in usersArray) {
-                    newArray.push(key);
-                }
-                setAllUserKeys(newArray);
-                setUserObject({
-                    //bookID doesn't have to be an array. Push a string
-                    //into firebase, when a second string gets pushed in
-                    //firebase will turn list into array
-                    [userId]: { userName, userId, bookId },
-                });
-            })
-            .then(() => {
-                console.log(userObject);
-                if (!allUserKeys.includes(userId)) {
-                    console.log(
-                        `we're updating`,
-                        !allUserKeys.includes(userId),
-                        { userObject }
-                    );
-                    update(dbRef, userObject);
-                } else {
-                    push(newRef, bookId);
-                    console.log(`we're pushing`);
-                }
-            });
-    }
+    //             }
+    //         } else {
+    //             console.log('nothing exists')
+    //         }
+    //     });
+
+    // }
 
     return (
         <section className="Home">
@@ -134,9 +116,9 @@ function SearchPage() {
                     <Form input={input} setInput={setInput} books={books} />
                 )
             }
-
+            {/* addToFavourites={addToFavourites} removeFromFavourites={removeFromFavourites} */}
             {books ? (
-                <DisplayBook books={books} addToFavourites={addToFavourites} />
+                <DisplayBook books={books} />
             ) : (
                 <Link to="/">
                     <p>
