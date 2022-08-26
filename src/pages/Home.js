@@ -18,9 +18,9 @@ function Home() {
     useEffect(() => {
         const userId = localStorage.getItem("userId");
         const database = getDatabase(firebase);
-        const dbRef = ref(database, `/users`);
+        // const dbRef = ref(database, `/users`);
         const userRef = ref(database, `/users/${userId}`);
-        console.log(dbRef);
+        // console.log(dbRef);
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 return;

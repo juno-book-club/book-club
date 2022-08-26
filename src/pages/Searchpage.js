@@ -3,16 +3,7 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
-import {
-    getDatabase,
-    ref,
-    push,
-    update,
-    get,
-    onValue,
-    remove,
-    set
-} from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import firebase from "../firebase-config";
 
 function SearchPage() {
@@ -21,30 +12,11 @@ function SearchPage() {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [allUserKeys, setAllUserKeys] = useState([]);
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
-    const [userObject, setUserObject] = useState(null);
 
+    //sets userName and userId on page load
     useEffect(() => {
-        const database = getDatabase(firebase);
-        const userRef = ref(database, `/users`);
-        // console.log(allUserKeys);
-        onValue(userRef, (response) => {
-            const data = response.val();
-            let keyArray = [];
-            for (let key in data) {
-                // keyArray.push(data[key]);
-
-                keyArray.push(data[key].userId);
-            }
-            setAllUserKeys(keyArray);
-        });
-    }, []);
-
-    useEffect(() => {
-        const database = getDatabase(firebase);
-        const userRef = ref(database, `/users`);
         setUserName(localStorage.getItem("userName"));
         setUserId(localStorage.getItem("userId"));
     }, [userId, userName]);
@@ -62,49 +34,19 @@ function SearchPage() {
                 q: search,
                 maxResults: 3,
                 projection: "full",
+                printType: "books",
             },
         })
             .then((res) => {
                 // after we got repsonse from API, setLoading will be false
                 setLoading(false);
                 setBooks(res.data.items);
+                console.log(res.data);
             })
             .catch((error) => {
                 setError(true);
             });
     }, [search]);
-
-    // function addToFavourites(bookId) {
-    //     const database = getDatabase(firebase);
-    //     const dbRef = ref(database, "/users");
-
-    //     const newRef = ref(database, `/users/${userId}/list`);
-
-    //     push(newRef, bookId);
-
-    // }
-
-    // function removeFromFavourites(bookId) {
-    //     const database = getDatabase(firebase);
-    //     const dbRef = ref(database, "/users");
-    //     let obj;
-    //     const listRef = ref(database, `/users/${userId}/list`);
-    //     get(listRef).then((snapshot) => {
-    //         if (snapshot.exists()) {
-    //             obj = snapshot.val()
-    //             for (let key in obj) {
-    //                 const bookRef = ref(database, `/users/${userId}/list/${key}`);
-    //                 if (obj[key] === bookId) {
-    //                     remove(bookRef)
-    //                 }
-
-    //             }
-    //         } else {
-    //             console.log('nothing exists')
-    //         }
-    //     });
-
-    // }
 
     return (
         <section className="Home">
@@ -116,7 +58,6 @@ function SearchPage() {
                     <Form input={input} setInput={setInput} books={books} />
                 )
             }
-            {/* addToFavourites={addToFavourites} removeFromFavourites={removeFromFavourites} */}
             {books ? (
                 <DisplayBook books={books} />
             ) : (
