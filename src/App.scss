@@ -283,6 +283,14 @@ $white: #fff;
     margin: 0 auto;
 }
 
+button {
+    display: inline;
+    background-color: $blue;
+    width: 100px;
+    height: 40px;
+    border: none;
+}
+
 // navigation
 
 .navBarContainer {
@@ -331,17 +339,21 @@ input {
     height: 40px;
     width: 300px;
     border: 1px solid #000;
-    margin: 10px;
+    margin-right: 10px;
     padding-left: 10px;
 }
 
-.searchBtn {
-    display: inline;
-    background-color: $blue;
-    width: 100px;
-    height: 40px;
-    border: none;
+label {
+    margin-bottom: 10px;
 }
+
+// .searchBtn {
+//     display: inline;
+//     background-color: $blue;
+//     width: 100px;
+//     height: 40px;
+//     border: none;
+// }
 
 // app instructions
 
@@ -370,6 +382,32 @@ input {
 
 .footerBar p {
     padding-top: 17px;
+}
+
+.about {
+    margin: 0 auto;
+    padding: 20px;
+    margin: 20px 0px;
+}
+
+.about img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.aboutButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aboutButtons a {
+    text-decoration: none;
+    color: black;
+}
+
+.aboutButtons a:hover {
+    text-decoration: none;
+    color: $green
 }
 
 // media queries
