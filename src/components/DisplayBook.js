@@ -68,13 +68,12 @@ const DisplayBook = ({ books }) => {
             setAdding(false);
         });
     }
-    // console.log(localFavouriteList);
+    
     return (
         <>
             {books &&
                 books.map((book) => {
                     if (localFavouriteList.includes(book.id)) {
-                        
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -82,6 +81,7 @@ const DisplayBook = ({ books }) => {
                                         <img
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
+                                            className="coverImg"
                                         />
                                     </Link>
                                     <div className="ratingFavContainer">
@@ -119,6 +119,7 @@ const DisplayBook = ({ books }) => {
                                         <img
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
+                                            className="coverImg"
                                         />
                                     </Link>
                                     <div className="ratingFavContainer">

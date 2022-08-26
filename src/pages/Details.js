@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function Details() {
     const { bookId } = useParams();
@@ -27,15 +26,11 @@ function Details() {
 
     return (
         //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo
+
         <section className="details">
             <div className="wrapper">
-
-                <div className="detailImgContainer">
-                    <img
-                        src={`https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w250-h400&source=gbs_api`}
-                        alt={book.title}
-                    />
-                </div>
+                {
+                    !error &&
                 <div className="detailContainer">
                     <h2>{book.title}</h2>
                     {/* if author exist, loop through author array and display each author name */}
@@ -61,21 +56,8 @@ function Details() {
                         )}
                         
                     </div>
-
-                    <div className="buttonContainer">
-                        <button>Mark as read</button>
-                        <button>Delete</button>
-                    </div>
-
-                    <button className="backButton"
-                            onClick={() => {
-                                window.history.back();
-                            }}
-                        >
-                            Back
-                    </button>
-
                 </div>
+                }
             </div>
         </section>
     );
