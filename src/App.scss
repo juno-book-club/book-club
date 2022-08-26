@@ -552,4 +552,31 @@ left: 30%;
 z-index: -1;
 }
 
+.loginPage{
+    background-color: lightgray;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
 
+.loginContainer button{
+    background: $green;
+    cursor: pointer;
+    display: block;
+    margin-block: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:2px 0 10px 0 rgba(0, 0, 0, .521);
+    transition: 0.3s;
+    border: none;
+
+}
+.loginContainer button:hover{
+    transform: scale(1.2);
+}
+
+.loginContainer button:first-of-type{
+    margin-top: 100%;
+}
