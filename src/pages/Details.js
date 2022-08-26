@@ -12,7 +12,7 @@ function Details() {
     useEffect(() => {
         //when page loades, grab the book param from the URL and make an api call
         axios({
-            url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyALBwGUV_ppHD_4iFKjaGFEGBNA1H52_rc
+            url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8
         `,
             method: "GET",
             dataResponse: "json",
