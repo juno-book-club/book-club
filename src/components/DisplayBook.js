@@ -68,6 +68,7 @@ const DisplayBook = ({ books }) => {
             setAdding(false);
         });
     }
+    
     return (
         <>
             {books &&
@@ -85,7 +86,14 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            {/* if rating is not undefined, display it */}
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button
@@ -116,7 +124,13 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button

@@ -449,8 +449,11 @@ input {
     height: 100vh;
     position: absolute;
     left: 0;
-    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
+    background: rgba(0, 0, 0, 0.834)
+        url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
+        no-repeat;
     z-index: 1;
+
 }
 
 .loader::after {
@@ -523,4 +526,32 @@ h2 {
 
 .favourited {
     color: green;
+
 }
+
+.bookCover {
+    width: 250px;
+    height: 400px;
+    .coverImg {
+        height: 80%;
+        width: 80%;
+    }
+}
+
+
+// DisplayBook.js 
+
+.bookCover img{
+    position: relative;
+}
+
+.ratingFavContainer figcaption{
+font-size: 2rem;
+position: absolute;
+left: 30%;
+z-index: -1;
+}
+
+=======
+}
+
