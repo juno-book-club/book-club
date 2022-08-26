@@ -8,35 +8,43 @@ const DisplayBook = ({ books }) => {
     const userId = localStorage.getItem("userId");
     const isAuth = localStorage.getItem("isAuth");
     const [adding, setAdding] = useState(false);
+    const [bookIds, setBookIds] = useState([]);
 
     useEffect(() => {
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users/${userId}/list`);
         const bookArray = [];
+        const idArray = [];
         let listInDatabase;
 
         //it looks into the user's favourite list in firebase. If it exists, we push it into our localFavouriteList
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
+
                 for (let key in listInDatabase) {
                     bookArray.push(listInDatabase[key]);
+                    idArray.push(listInDatabase[key].id);
                 }
             }
+            setLocalFavouriteList(bookArray);
+            setBookIds(idArray);
         });
-        setLocalFavouriteList(bookArray);
     }, [userId]);
 
     useEffect(() => {}, []);
 
     //pushes the bookId into our firebase user's list and it pushes the bookId into our local list to keep both lists in sync
-    function addToFavourites(bookId) {
+    function addToFavourites(book) {
+        const tempBookIds = [...bookIds];
         const favouriteList = localFavouriteList;
         const database = getDatabase(firebase);
         const newRef = ref(database, `/users/${userId}/list`);
-        push(newRef, bookId);
-        favouriteList.push(bookId);
+        push(newRef, book);
+        favouriteList.push(book);
+        tempBookIds.push(book.id);
         setLocalFavouriteList(favouriteList);
+        setBookIds(tempBookIds);
         setAdding(true);
     }
 
@@ -45,36 +53,44 @@ const DisplayBook = ({ books }) => {
         const database = getDatabase(firebase);
         let listInDatabase;
         const listRef = ref(database, `/users/${userId}/list`);
+        const tempBookIds = [...bookIds];
+        console.log("temp Id", tempBookIds);
         get(listRef).then((snapshot) => {
             if (snapshot.exists()) {
                 //if our user's favourite list exists, then loop through the list and if we find a bookID that matches
                 //the book ID attached to the button, remove that book from our list
-                const favouriteList = localFavouriteList;
+                const favouriteList = [...localFavouriteList];
                 listInDatabase = snapshot.val();
                 for (let key in listInDatabase) {
                     const bookRef = ref(
                         database,
                         `/users/${userId}/list/${key}`
                     );
-                    if (listInDatabase[key] === bookId) {
+                    if (listInDatabase[key].id === bookId) {
                         remove(bookRef);
                         const newList = favouriteList.filter(
-                            (book) => book !== bookId
+                            (book) => book.id !== bookId
                         );
                         setLocalFavouriteList(newList);
                     }
                 }
+                if (tempBookIds.includes(bookId)) {
+                    const newList = tempBookIds.filter((id) => id !== bookId);
+                    setBookIds(newList);
+                }
             }
+            console.log(tempBookIds);
             setAdding(false);
+            console.log(bookIds);
         });
     }
-    console.log(localFavouriteList);
+
     return (
         <>
             {books &&
                 books.map((book) => {
-                    if (localFavouriteList.includes(book.id)) {
-                        console.log(book);
+                    console.log(book.id, bookIds);
+                    if (bookIds.includes(book.id)) {
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -121,7 +137,7 @@ const DisplayBook = ({ books }) => {
                                         {isAuth && (
                                             <button
                                                 onClick={() => {
-                                                    addToFavourites(book.id);
+                                                    addToFavourites(book);
                                                 }}
                                             >
                                                 Add
