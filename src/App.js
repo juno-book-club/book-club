@@ -1,17 +1,16 @@
-import './App.scss';
-import About from './pages/About';
-import Home from './pages/Home';
-import Details from './pages/Details';
-import Favourites from './pages/Favourites';
-import NavBar from './components/NavBar';
-import SearchPage from './pages/Searchpage';
-import ErrorPage from './components/ErrorPage';
-import Login from './pages/Login';
+import "./app.css";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
+import Favourites from "./pages/Favourites";
+import NavBar from "./components/NavBar";
+import SearchPage from "./pages/Searchpage";
+import ErrorPage from "./components/ErrorPage";
+import Login from "./pages/Login";
 import Footer from './components/Footer';
-import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { signOut } from 'firebase/auth'
-
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -19,23 +18,38 @@ function App() {
   return (
     <div className="App">
       <main>
-        <div className='wrapper'>
+        <div className="wrapper">
           <header>
-            <NavBar isAuth={isAuth} setIsAuth={setIsAuth} signOut={signOut} />
+            <NavBar
+              isAuth={isAuth}
+              setIsAuth={setIsAuth}
+              signOut={signOut}
+            />
           </header>
           <Routes>
-            <Route path='/' element={<Home isAuth={isAuth} />} />
-            <Route path='/favourites' element={<Favourites isAuth={isAuth} />} />
-            <Route path='/details/:bookId' element={<Details isAuth={isAuth} />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
-            <Route path='/search/:search' element={<SearchPage setIsAuth={setIsAuth} />} />
-            <Route path='*' element={<ErrorPage />} />
+            <Route path="/" element={<Home isAuth={isAuth} />} />
+            <Route
+              path="/favourites"
+              element={<Favourites isAuth={isAuth} />}
+            />
+            <Route
+              path="/details/:bookId"
+              element={<Details isAuth={isAuth} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/login"
+              element={<Login setIsAuth={setIsAuth} />}
+            />
+            <Route
+              path="/search/:search"
+              element={<SearchPage setIsAuth={setIsAuth} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
         <Footer />
       </main>
-
     </div>
   );
 }
@@ -74,7 +88,6 @@ export default App;
 //         on page load check if the book id is already in favourites list and disable it is it is
 //         push book id to firebase node of the user thats logged in
 
-
 // About page
 //     home button
 //         Link to
@@ -90,12 +103,10 @@ export default App;
 //     delete button
 //         grab the key from firebase and delete it from favourites
 
-
 // Favourites page
 //     display images of all the books from firebase
 //         allow user to Link back to the about book page when the image is clicked
 //     pagination if there are too many books displayed on the page
-
 
 // Bio page
 //     have pictures and descriptions of all of us
