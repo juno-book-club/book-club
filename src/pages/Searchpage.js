@@ -30,7 +30,7 @@ function SearchPage() {
             method: "GET",
             dataResponse: "json",
             params: {
-                key: "AIzaSyA73wo90bjFjcNUfYMOqKo_qiuKKH2ItL4",
+                key: "AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8",
                 q: search,
                 maxResults: 3,
                 projection: "full",
