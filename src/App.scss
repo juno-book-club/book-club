@@ -318,16 +318,20 @@ $white: #fff;
     color: $green;
 }
 
-.searchBarForm {
+// search bar
+
+.form {
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px;
 }
 
 input {
     height: 40px;
     width: 300px;
     border: 1px solid #000;
-    margin-right: 10px;
+    margin: 10px;
     padding-left: 10px;
 }
 
@@ -339,6 +343,34 @@ input {
     border: none;
 }
 
+// app instructions
+
+.instructions {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.instructionContainer {
+    width: 60%;
+    margin: 0 auto;
+    // list-style: none;
+    text-align: left;
+}
+
+// footer navigation
+.footerBar {
+    display: block;
+    background-color: $blue;
+    height: 50px;
+    width: 100vw;
+    text-align: center;
+    padding: 0px;
+}
+
+.footerBar p {
+    padding-top: 17px;
+}
+
 // media queries
 
 @media (min-width: 1050px) {
@@ -347,9 +379,12 @@ input {
         display: none;
         background-color: none;
     }
+
 }
 
 @media (max-width: 1050px) {
+
+    // header navigation 
 
     .navBar {
         position: relative;
@@ -406,6 +441,7 @@ input {
         margin: 20px;
         z-index: 5;
     }
+
 }
 
 /* style for loading animation */
@@ -430,56 +466,59 @@ input {
 
 // Details.js Page styles
 
-.details{
+.details {
     margin-top: 20vh;
 }
-.details .wrapper{
+
+.details .wrapper {
     display: flex;
     justify-content: space-between;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
-.detailContainer{
+.detailContainer {
     padding-inline: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-.detailImgContainer,.detailContainer{
+.detailImgContainer,
+.detailContainer {
     width: 48%;
     border: 2px solid goldenrod;
     max-height: 80vh;
-    box-shadow: 2px 0 10px 0 rgba(0,0,0,.521);;
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+    ;
 }
 
 
-.descriptionContainer{
+.descriptionContainer {
     height: 100%;
     overflow: scroll;
 }
 
-.detailImgContainer img{
+.detailImgContainer img {
     width: 100%;
     height: 100%;
 }
 
-.buttonContainer{
+.buttonContainer {
     position: absolute;
     bottom: -6%;
     max-width: 100%;
     align-self: center;
 }
 
-.buttonContainer button{
+.buttonContainer button {
     margin-inline: 10px;
 }
 
 
-.backButton{
+.backButton {
     position: absolute;
     right: 5%;
     top: -6%;
@@ -488,5 +527,3 @@ h2{
 .favourited {
     color: green;
 }
-
-

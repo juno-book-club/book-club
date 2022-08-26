@@ -55,8 +55,7 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                             className="navLink"
                             onClick={() => closeMenu()}
                         >
-                            {" "}
-                            Home{" "}
+                            {" "}Home{" "}
                         </Link>
                     </li>
 
@@ -67,8 +66,7 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                                 className="navLink"
                                 onClick={() => closeMenu()}
                             >
-                                {" "}
-                                Favourites{" "}
+                                {" "}Favourites{" "}
                             </Link>
                         </li>
                     )}
@@ -79,8 +77,7 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                             className="navLink"
                             onClick={() => closeMenu()}
                         >
-                            {" "}
-                            About{" "}
+                            {" "}About{" "}
                         </Link>
                     </li>
 
@@ -93,9 +90,9 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                                 className="navLink"
                                 onClick={() => closeMenu()}
                             >
-                                {" "}
-                                Log In{" "}
+                                {" "}Log In{" "}
                             </Link>
+                            
                         )}
                     </li>
                 </ul>
