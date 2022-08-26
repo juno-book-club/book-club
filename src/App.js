@@ -7,49 +7,51 @@ import NavBar from "./components/NavBar";
 import SearchPage from "./pages/Searchpage";
 import ErrorPage from "./components/ErrorPage";
 import Login from "./pages/Login";
+import Footer from './components/Footer';
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { signOut } from "firebase/auth";
 
 function App() {
-    const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
-    return (
-        <div className="App">
-            <main>
-                <div className="wrapper">
-                    <header>
-                        <NavBar
-                            isAuth={isAuth}
-                            setIsAuth={setIsAuth}
-                            signOut={signOut}
-                        />
-                    </header>
-                    <Routes>
-                        <Route path="/" element={<Home isAuth={isAuth} />} />
-                        <Route
-                            path="/favourites"
-                            element={<Favourites isAuth={isAuth} />}
-                        />
-                        <Route
-                            path="/details/:bookId"
-                            element={<Details isAuth={isAuth} />}
-                        />
-                        <Route path="/about" element={<About />} />
-                        <Route
-                            path="/login"
-                            element={<Login setIsAuth={setIsAuth} />}
-                        />
-                        <Route
-                            path="/search/:search"
-                            element={<SearchPage setIsAuth={setIsAuth} />}
-                        />
-                        <Route path="*" element={<ErrorPage />} />
-                    </Routes>
-                </div>
-            </main>
+  return (
+    <div className="App">
+      <main>
+        <div className="wrapper">
+          <header>
+            <NavBar
+              isAuth={isAuth}
+              setIsAuth={setIsAuth}
+              signOut={signOut}
+            />
+          </header>
+          <Routes>
+            <Route path="/" element={<Home isAuth={isAuth} />} />
+            <Route
+              path="/favourites"
+              element={<Favourites isAuth={isAuth} />}
+            />
+            <Route
+              path="/details/:bookId"
+              element={<Details isAuth={isAuth} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/login"
+              element={<Login setIsAuth={setIsAuth} />}
+            />
+            <Route
+              path="/search/:search"
+              element={<SearchPage setIsAuth={setIsAuth} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
         </div>
-    );
+        <Footer />
+      </main>
+    </div>
+  );
 }
 
 export default App;
