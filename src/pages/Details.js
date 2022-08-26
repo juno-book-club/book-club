@@ -25,12 +25,18 @@ function Details() {
     }, []);
 
     return (
-        //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo
 
+        !error &&
+        //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo   
         <section className="details">
             <div className="wrapper">
-                {
-                    !error &&
+                <div className="detailImgContainer">
+                        <img
+                            src={`https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w250-h400&source=gbs_api`}
+                            alt={book.title}
+                        />
+                </div>
+
                 <div className="detailContainer">
                     <h2>{book.title}</h2>
                     {/* if author exist, loop through author array and display each author name */}
@@ -56,8 +62,22 @@ function Details() {
                         )}
                         
                     </div>
-                </div>
-                }
+
+                        <div className="buttonContainer">
+                            <button>Mark as read</button>
+                            <button>Delete</button>
+                        </div>
+
+                        <button
+                            className="backButton"
+                            onClick={() => {
+                                window.history.back();
+                            }}
+                        >
+                            Back
+                        </button>
+                    </div>
+
             </div>
         </section>
     );
