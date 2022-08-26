@@ -68,13 +68,13 @@ const DisplayBook = ({ books }) => {
             setAdding(false);
         });
     }
-    console.log(localFavouriteList);
+    // console.log(localFavouriteList);
     return (
         <>
             {books &&
                 books.map((book) => {
                     if (localFavouriteList.includes(book.id)) {
-                        console.log(book);
+                        
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -86,7 +86,14 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            {/* if rating is not undefined, display it */}
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button
@@ -116,7 +123,13 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button

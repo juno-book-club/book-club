@@ -30,7 +30,7 @@ function SearchPage() {
             method: "GET",
             dataResponse: "json",
             params: {
-                key: "AIzaSyA73wo90bjFjcNUfYMOqKo_qiuKKH2ItL4",
+                key: "AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8",
                 q: search,
                 maxResults: 3,
                 projection: "full",
@@ -41,7 +41,6 @@ function SearchPage() {
                 // after we got repsonse from API, setLoading will be false
                 setLoading(false);
                 setBooks(res.data.items);
-                console.log(res.data);
             })
             .catch((error) => {
                 setError(true);

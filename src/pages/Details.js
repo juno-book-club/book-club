@@ -12,7 +12,7 @@ function Details() {
     useEffect(() => {
         //when page loades, grab the book param from the URL and make an api call
         axios({
-            url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyALBwGUV_ppHD_4iFKjaGFEGBNA1H52_rc
+            url: `https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8
         `,
             method: "GET",
             dataResponse: "json",
@@ -38,6 +38,16 @@ function Details() {
                 </div>
                 <div className="detailContainer">
                     <h2>{book.title}</h2>
+                    {/* if author exist, loop through author array and display each author name */}
+                    {/* {console.log(book.authors)} */}
+                    <h2>Author/Authors: {
+                    book.authors?
+                    book.authors.map((eachAuthor,index)=> <p key={index}>{eachAuthor}</p>)
+                    :
+                    <p>Unknown Author</p>
+                    }
+                    </h2>
+                    {/* {console.log(book.authors)} */}
                     <div className="descriptionContainer">
                     {book.categories && book.categories[0]}
                         {book.description && (
