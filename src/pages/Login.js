@@ -2,37 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup, signInAnonymously } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { getDatabase, ref, push, onValue } from "firebase/database";
-import firebase from "../firebase-config";
 
 function Login({ setIsAuth }) {
-    const [userDetails, setUserDetails] = useState({
-        userName: "",
-        userId: "",
-    });
-
-    const [allUserKeys, setAllUserKeys] = useState([]);
-    useEffect(() => {
-        const database = getDatabase(firebase);
-        const userRef = ref(database, `/users`);
-
-        onValue(userRef, (response) => {
-            const data = response.val();
-            let keyArray = [];
-            for (let key in data) {
-                // keyArray.push(data[key]);
-                console.log(key);
-                keyArray.push(data[key].userId);
-            }
-            setAllUserKeys(keyArray);
-        });
-        console.log(allUserKeys);
-    }, []);
     let navigate = useNavigate();
     const loginEl = useRef(null);
-
-    const database = getDatabase(firebase);
-    const dbRef = ref(database, "/users");
 
     //create state to know if user made error logging in
     const [loginError, setLoginError] = useState(false);
@@ -63,7 +36,6 @@ function Login({ setIsAuth }) {
     };
 
     //function that allows sign-in anonymously. We set the login status, username and id into local storage for use. Then we navigate to search page.
-
     const signInAnon = () => {
         signInAnonymously(auth)
             .then(() => {

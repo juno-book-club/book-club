@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function Details() {
     const { bookId } = useParams();
@@ -20,7 +19,7 @@ function Details() {
             .then((res) => {
                 setBook(res.data.volumeInfo);
             })
-            .catch(() => {
+            .catch((err) => {
                 setError(true);
             });
     }, []);
@@ -29,7 +28,6 @@ function Details() {
         //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo
         <section className="details">
             <div className="wrapper">
-
                 <div className="detailImgContainer">
                     <img
                         src={`https://books.google.com/books/publisher/content/images/frontcover/${bookId}?fife=w250-h400&source=gbs_api`}
@@ -39,7 +37,7 @@ function Details() {
                 <div className="detailContainer">
                     <h2>{book.title}</h2>
                     <div className="descriptionContainer">
-                    {book.categories && book.categories[0]}
+                        {book.categories && book.categories[0]}
                         {book.description && (
                             //dangerouslySetInnerHTML cleans out meta-data tags from your text and is a method that should only be used when you 100% trust the source of the information.
                             //behaves like innerHTML where malicious code can be injected within your site.
@@ -49,7 +47,6 @@ function Details() {
                                 }}
                             />
                         )}
-                        
                     </div>
 
                     <div className="buttonContainer">
@@ -57,14 +54,14 @@ function Details() {
                         <button>Delete</button>
                     </div>
 
-                    <button className="backButton"
-                            onClick={() => {
-                                window.history.back();
-                            }}
-                        >
-                            Back
+                    <button
+                        className="backButton"
+                        onClick={() => {
+                            window.history.back();
+                        }}
+                    >
+                        Back
                     </button>
-
                 </div>
             </div>
         </section>

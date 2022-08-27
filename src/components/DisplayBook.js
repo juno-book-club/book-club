@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import firebase from "../firebase-config";
 
 const DisplayBook = ({ books }) => {
-    const [localFavouriteList, setLocalFavouriteList] = useState([]);
     const userId = localStorage.getItem("userId");
     const isAuth = localStorage.getItem("isAuth");
     const [adding, setAdding] = useState(false);
@@ -17,49 +16,41 @@ const DisplayBook = ({ books }) => {
         const idArray = [];
         let listInDatabase;
 
-        //it looks into the user's favourite list in firebase. If it exists, we push it into our localFavouriteList
+        //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
-
                 for (let key in listInDatabase) {
                     bookArray.push(listInDatabase[key]);
                     idArray.push(listInDatabase[key].id);
                 }
             }
-            setLocalFavouriteList(bookArray);
             setBookIds(idArray);
         });
     }, [userId]);
 
-    useEffect(() => {}, []);
-
-    //pushes the bookId into our firebase user's list and it pushes the bookId into our local list to keep both lists in sync
+    //pushes the entire book obj into our user's firebase list
+    //we also push the bookId into our bookId list
     function addToFavourites(book) {
         const tempBookIds = [...bookIds];
-        const favouriteList = localFavouriteList;
         const database = getDatabase(firebase);
         const newRef = ref(database, `/users/${userId}/list`);
         push(newRef, book);
-        favouriteList.push(book);
         tempBookIds.push(book.id);
-        setLocalFavouriteList(favouriteList);
         setBookIds(tempBookIds);
         setAdding(true);
+        //setting adding state to help re-render the component to reflect whether to display add or remove button
     }
 
-    //removes the bookId into our firebase user's list and it removes the bookId into our local list to keep both lists in sync
     function removeFromFavourites(bookId) {
         const database = getDatabase(firebase);
         let listInDatabase;
         const listRef = ref(database, `/users/${userId}/list`);
         const tempBookIds = [...bookIds];
-        console.log("temp Id", tempBookIds);
         get(listRef).then((snapshot) => {
             if (snapshot.exists()) {
                 //if our user's favourite list exists, then loop through the list and if we find a bookID that matches
                 //the book ID attached to the button, remove that book from our list
-                const favouriteList = [...localFavouriteList];
                 listInDatabase = snapshot.val();
                 for (let key in listInDatabase) {
                     const bookRef = ref(
@@ -68,20 +59,17 @@ const DisplayBook = ({ books }) => {
                     );
                     if (listInDatabase[key].id === bookId) {
                         remove(bookRef);
-                        const newList = favouriteList.filter(
-                            (book) => book.id !== bookId
-                        );
-                        setLocalFavouriteList(newList);
                     }
                 }
+                //we created a tempBookIds array that's a copy of bookIds state. If the tempBookIds contain the
+                //id of the book that's clicked, filter it out and set our bookIds to the newList
                 if (tempBookIds.includes(bookId)) {
-                    const newList = tempBookIds.filter((id) => id !== bookId);
-                    setBookIds(newList);
+                    const newIdList = tempBookIds.filter((id) => id !== bookId);
+                    setBookIds(newIdList);
                 }
             }
-            console.log(tempBookIds);
+            //setAdding to re-render buttons
             setAdding(false);
-            console.log(bookIds);
         });
     }
 
@@ -89,7 +77,8 @@ const DisplayBook = ({ books }) => {
         <>
             {books &&
                 books.map((book) => {
-                    console.log(book.id, bookIds);
+                    //if the book being render has an id that is contained in our bookIds array, show the remove button
+                    //else, show the book with an add button
                     if (bookIds.includes(book.id)) {
                         return (
                             <li key={book.id}>
