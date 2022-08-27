@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
-import { getDatabase, ref, onValue } from "firebase/database";
-import firebase from "../firebase-config";
 
 function SearchPage() {
     const { search } = useParams();
