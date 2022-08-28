@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import { ref, push, remove, get, getDatabase } from "firebase/database";
+import { ref, push, remove, get, getDatabase, update } from "firebase/database";
 import { useEffect, useState } from "react";
 import firebase from "../firebase-config";
 
-const DisplayBook = ({ books }) => {
+const DisplayBook = ({ books, markRead }) => {
     const userId = localStorage.getItem("userId");
     const isAuth = localStorage.getItem("isAuth");
     const [adding, setAdding] = useState(false);
     const [bookIds, setBookIds] = useState([]);
+    const [read, setRead] = useState(false);
 
     useEffect(() => {
         const database = getDatabase(firebase);
@@ -18,6 +19,7 @@ const DisplayBook = ({ books }) => {
 
         //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
         get(userRef).then((snapshot) => {
+            // let numOfRead = booksRead;
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
                 for (let key in listInDatabase) {
@@ -35,12 +37,44 @@ const DisplayBook = ({ books }) => {
         const tempBookIds = [...bookIds];
         const database = getDatabase(firebase);
         const newRef = ref(database, `/users/${userId}/list`);
-        push(newRef, book);
+        push(newRef, { ...book, read: false });
         tempBookIds.push(book.id);
         setBookIds(tempBookIds);
         setAdding(true);
         //setting adding state to help re-render the component to reflect whether to display add or remove button
     }
+
+    //function to update Reading status of each book
+    //looks in the database, if the bookId matches the ID in database, update readStatus to true and set read state to true
+    //if read state is true, the button updates readStatus to false and set read state to false
+
+    const updateRead = (book, bookId, e) => {
+        const database = getDatabase(firebase);
+        const userRef = ref(database, `/users/${userId}/list/`);
+        let listInDatabase;
+        const imgEl =
+            e.target.parentElement.parentElement.firstChild.firstChild;
+        const buttonEl = e.target;
+        get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                listInDatabase = snapshot.val();
+                for (let key in listInDatabase) {
+                    let bookRef = ref(database, `/users/${userId}/list/${key}`);
+                    if (listInDatabase[key].id === bookId && !read) {
+                        setRead(true);
+                        update(bookRef, { ...book, read: true });
+                        imgEl.setAttribute("class", "coverActive");
+                        buttonEl.setAttribute("class", "buttonActive");
+                    } else if (read && listInDatabase[key].id === bookId) {
+                        setRead(false);
+                        update(bookRef, { ...book, read: false });
+                        imgEl.setAttribute("class", "");
+                        buttonEl.setAttribute("class", "");
+                    }
+                }
+            }
+        });
+    };
 
     function removeFromFavourites(bookId) {
         const database = getDatabase(firebase);
@@ -91,7 +125,9 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            <h2>
+                                                {book.volumeInfo.averageRating}
+                                            </h2>
                                         </div>
                                         {isAuth && (
                                             <button
@@ -103,6 +139,19 @@ const DisplayBook = ({ books }) => {
                                                 }}
                                             >
                                                 Remove
+                                            </button>
+                                        )}
+                                        {markRead && (
+                                            <button
+                                                onClick={(e) => {
+                                                    updateRead(
+                                                        book,
+                                                        book.id,
+                                                        e
+                                                    );
+                                                }}
+                                            >
+                                                mark read
                                             </button>
                                         )}
                                     </div>
@@ -121,7 +170,9 @@ const DisplayBook = ({ books }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>{book.averageRating}</h2>
+                                            <h2>
+                                                {book.volumeInfo.averageRating}
+                                            </h2>
                                         </div>
                                         {isAuth && (
                                             <button

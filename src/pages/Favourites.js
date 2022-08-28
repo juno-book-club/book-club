@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import firebase from "../firebase-config";
-import { ref, getDatabase, onValue } from "firebase/database";
+import { ref, getDatabase, onValue, update } from "firebase/database";
 import DisplayBook from "../components/DisplayBook";
 
 function Favourites() {
     const [books, setBooks] = useState([]);
     const userId = localStorage.getItem("userId");
+    const [booksRead, setBooksRead] = useState(0);
+    //booksRead pseudo code
+    //create state of booksRead that loops through the items inside our favourites list. If read=true, add 1 to the state
+    //percentage = booksRead/length of booksArray
+    //if we remove a book. take 1 away from the local state
+    //when we click on the marked as read button, we set a "read" state in display books
+    //create a "read" state in display books
+    //if the state is true, set a class on the container of the book so we can change the opacity.
+    //for the function, if the read state === true then when you click the button you remove the read class, take 1 away from books read and change read to false. opposite if read state === false
 
     useEffect(() => {
         const database = getDatabase(firebase);
@@ -21,10 +30,16 @@ function Favourites() {
         onValue(userRef, (response) => {
             const newState = [];
             const data = response.val();
+            let numOfBooks = 0;
             for (let key in data) {
                 newState.push(data[key]);
+
+                if (data[key].read === true) {
+                    numOfBooks = numOfBooks + 1;
+                }
             }
             setBooks(newState);
+            setBooksRead(numOfBooks);
         });
     }, [userId]);
 
@@ -34,7 +49,12 @@ function Favourites() {
             <div className="favouritesContainer">
                 <ul className="favouritesList">
                     {" "}
-                    {books && <DisplayBook books={books} />}
+                    {books && <DisplayBook books={books} markRead={true} />}
+                    <>
+                        <p>
+                            Books Read: {booksRead}/{books.length}
+                        </p>
+                    </>
                 </ul>
                 <div className="paginationContainer"></div>
             </div>
