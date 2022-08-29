@@ -335,6 +335,7 @@ label {
   margin-bottom: 40px;
 }
 
+
 .instructionContainer {
   width: 60%;
   margin: 0 auto;
@@ -563,5 +564,25 @@ label {
 }
 
 .loginContainer button:hover {
+
   transform: scale(1.2);
-}/*# sourceMappingURL=App.css.map */
+}
+
+.loginContainer button:first-of-type {
+    margin-top: 100%;
+} 
+
+.favouritesList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.favBtnsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding-top: 15px;
+}
+
