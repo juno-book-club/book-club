@@ -134,11 +134,9 @@ const DisplayBook = ({ books, markRead }) => {
         <>
             {books &&
                 books.map((book) => {
-
                     //if the book being render has an id that is contained in our bookIds array, show the remove button
                     //else, show the book with an add button
                     if (bookIds.includes(book.id)) {
-
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -168,7 +166,6 @@ const DisplayBook = ({ books, markRead }) => {
                                         )}
                                     </div>
                                     <div className="favBtnsContainer">
-
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -211,25 +208,20 @@ const DisplayBook = ({ books, markRead }) => {
                                             className="coverImg"
                                         />
                                     </Link>
-                                    <div className="ratingFavContainer">
-                                        <div className="ratingContainer">
-                                            {book.volumeInfo.averageRating !==
-                                            undefined ? (
-                                                <figcaption>
-                                                    {
-                                                        book.volumeInfo
-                                                            .averageRating
-                                                    }
-                                                    /5
-                                                </figcaption>
-                                            ) : (
-                                                <figcaption>
-
-                                                    No Rating Available
-
-                                                </figcaption>
-                                            )}
-                                        </div>
+                                    <div className="ratingContainer">
+                                        {book.volumeInfo.averageRating !==
+                                        undefined ? (
+                                            <figcaption>
+                                                {book.volumeInfo.averageRating}
+                                                /5
+                                            </figcaption>
+                                        ) : (
+                                            <figcaption>
+                                                No Rating Available
+                                            </figcaption>
+                                        )}
+                                    </div>
+                                    <div className="favBtnsContainer">
                                         {isAuth && (
                                             <button
                                                 onClick={() => {
