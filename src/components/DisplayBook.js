@@ -16,7 +16,7 @@ const DisplayBook = ({ books, markRead }) => {
     const isAuth = localStorage.getItem("isAuth");
     const [adding, setAdding] = useState(false);
     const [bookIds, setBookIds] = useState([]);
-    const [read, setRead] = useState(false);
+    // const [read, setRead] = useState(false);
     const [favKeyValues, setFavKeyValues] = useState([]);
     //create a useEffect and onValue to update a favKeyValue State
     //if bookId and value[key] are the same, set read state to true
@@ -79,7 +79,7 @@ const DisplayBook = ({ books, markRead }) => {
     //looks in the database, if the bookId matches the ID in database, update readStatus to true and set read state to true
     //if read state is true, the button updates readStatus to false and set read state to false
 
-    const updateRead = (book, bookId) => {
+    const updateRead = (bookId) => {
         // const database = ref(firebase)
         // const userRef = ref(database, `/users/${userId}/list/`);
         // let listInDatabase;
@@ -96,6 +96,9 @@ const DisplayBook = ({ books, markRead }) => {
         //     }
         // }
 
+        //loop over the favKeyValues, which contains the path and bookid of favourited books
+        //looks into the database for the read status of each book
+        //if the bookID of the book that is being clicked on is equal to a bookId found within the favKeyValues list AND it's read status in firebase is set to false, update it to true in firebase
         for (let i = 0; i < favKeyValues.length; i++) {
             const database = getDatabase(firebase);
             for (let key in favKeyValues[i]) {
@@ -121,6 +124,10 @@ const DisplayBook = ({ books, markRead }) => {
             }
         }
 
+        //the code below doesn't function properly. Sometimes setRead doesn't work,
+        //this is because a fetch call and setstate are both asynchronous functions and they are
+        //racing with one another. Be careful using setState and fetch calls together
+
         // console.log("read before setRead", { read });
         // setRead(!read);
         // console.log("read after setRead", { read });
@@ -143,9 +150,6 @@ const DisplayBook = ({ books, markRead }) => {
         //     }
         // });
     };
-    function setReadStatus() {
-        setRead(!read);
-    }
 
     function removeFromFavourites(bookId) {
         const database = getDatabase(firebase);
@@ -218,7 +222,7 @@ const DisplayBook = ({ books, markRead }) => {
                                         {markRead && (
                                             <button
                                                 onClick={() => {
-                                                    updateRead(book, book.id);
+                                                    updateRead(book.id);
                                                     // setReadStatus();
                                                 }}
                                                 className={

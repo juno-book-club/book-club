@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import firebase from "../firebase-config";
-import { ref, getDatabase, onValue, update } from "firebase/database";
+import { ref, getDatabase, onValue } from "firebase/database";
 import DisplayBook from "../components/DisplayBook";
 
 function Favourites() {
@@ -27,6 +27,7 @@ function Favourites() {
         }
 
         //it looks into the user's favourite list in firebase. If it exists, we set our books state with the list
+        //also looks in each book object to see if it's been read. If it has, increase booksRead state by 1 for each book read
         onValue(userRef, (response) => {
             const newState = [];
             const data = response.val();
@@ -46,15 +47,13 @@ function Favourites() {
     return (
         <section className="Favourites">
             <h2>Favourites Page</h2>
+            <p>
+                Books Read: {booksRead}/{books.length}
+            </p>
             <div className="favouritesContainer">
                 <ul className="favouritesList">
                     {" "}
                     {books && <DisplayBook books={books} markRead={true} />}
-                    <>
-                        <p>
-                            Books Read: {booksRead}/{books.length}
-                        </p>
-                    </>
                 </ul>
                 <div className="paginationContainer"></div>
             </div>
