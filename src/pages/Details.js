@@ -19,7 +19,7 @@ function Details() {
             .then((res) => {
                 setBook(res.data.volumeInfo);
             })
-            .catch(() => {
+            .catch((err) => {
                 setError(true);
             });
     }, []);
@@ -50,7 +50,7 @@ function Details() {
                     </h2>
                     {/* {console.log(book.authors)} */}
                     <div className="descriptionContainer">
-                    {book.categories && book.categories[0]}
+                        {book.categories && book.categories[0]}
                         {book.description && (
                             //dangerouslySetInnerHTML cleans out meta-data tags from your text and is a method that should only be used when you 100% trust the source of the information.
                             //behaves like innerHTML where malicious code can be injected within your site.
@@ -60,7 +60,6 @@ function Details() {
                                 }}
                             />
                         )}
-                        
                     </div>
 
                         <div className="buttonContainer">
@@ -68,15 +67,15 @@ function Details() {
                             <button>Delete</button>
                         </div>
 
-                        <button
-                            className="backButton"
-                            onClick={() => {
-                                window.history.back();
-                            }}
-                        >
-                            Back
-                        </button>
-                    </div>
+                    <button
+                        className="backButton"
+                        onClick={() => {
+                            window.history.back();
+                        }}
+                    >
+                        Back
+                    </button>
+                </div>
 
             </div>
         </section>

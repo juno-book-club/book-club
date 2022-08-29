@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
-import { getDatabase, ref, onValue } from "firebase/database";
-import firebase from "../firebase-config";
 
 function SearchPage() {
     const { search } = useParams();
@@ -30,7 +28,7 @@ function SearchPage() {
             method: "GET",
             dataResponse: "json",
             params: {
-                key: "AIzaSyCQ1DG2RnA8h8cdrFVsaShbyOXT_GHt8P8",
+                key: "AIzaSyDC8tENmrYm2oa3JYc8h_KB74KiN7QIbMY",
                 q: search,
                 maxResults: 3,
                 projection: "full",

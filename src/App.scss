@@ -421,7 +421,6 @@ label {
 }
 
 @media (max-width: 1050px) {
-
     .navBar {
         position: relative;
     }
@@ -530,7 +529,7 @@ h2 {
     border: 2px solid goldenrod;
     max-height: 80vh;
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
-    ;
+    
 }
 
 
@@ -576,6 +575,11 @@ h2 {
     }
 }
 
+.coverActive {
+    opacity: 0.5;
+}
+
+
 
 // DisplayBook.js 
 
@@ -617,4 +621,5 @@ z-index: -1;
 
 .loginContainer button:first-of-type{
     margin-top: 100%;
+
 }
