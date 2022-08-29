@@ -16,14 +16,9 @@ const DisplayBook = ({ books, markRead }) => {
     const isAuth = localStorage.getItem("isAuth");
     const [adding, setAdding] = useState(false);
     const [bookIds, setBookIds] = useState([]);
-    // const [read, setRead] = useState(false);
     const [favKeyValues, setFavKeyValues] = useState([]);
-    //create a useEffect and onValue to update a favKeyValue State
-    //if bookId and value[key] are the same, set read state to true
-    //update ref in database to read
-    //if not, set read state to false and update ref in database
 
-    //on component load, grab each favorited books' location and ID and set favKeyValue
+    //on component load, grab each favorited books' location and ID and set favKeyValue with location:bookId
     useEffect(() => {
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users/${userId}/list`);
@@ -50,7 +45,6 @@ const DisplayBook = ({ books, markRead }) => {
 
         //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
         get(userRef).then((snapshot) => {
-            // let numOfRead = booksRead;
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
                 for (let key in listInDatabase) {
@@ -63,7 +57,7 @@ const DisplayBook = ({ books, markRead }) => {
     }, [userId]);
 
     //pushes the entire book obj into our user's firebase list
-    //we also push the bookId into our bookId list
+    //we also push the bookId into our bookIds list
     function addToFavourites(book) {
         const tempBookIds = [...bookIds];
         const database = getDatabase(firebase);
@@ -74,10 +68,6 @@ const DisplayBook = ({ books, markRead }) => {
         setAdding(true);
         //setting adding state to help re-render the component to reflect whether to display add or remove button
     }
-
-    //function to update Reading status of each book
-    //looks in the database, if the bookId matches the ID in database, update readStatus to true and set read state to true
-    //if read state is true, the button updates readStatus to false and set read state to false
 
     const updateRead = (bookId) => {
         //loop over the favKeyValues, which contains the path and bookid of favourited books
@@ -90,17 +80,19 @@ const DisplayBook = ({ books, markRead }) => {
                     database,
                     `/users/${userId}/list/${key}/read`
                 );
-                let readRef = ref(database, `/users/${userId}/list/${key}`);
+
+                let bookRef = ref(database, `/users/${userId}/list/${key}`);
+
                 get(readStatusRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const readStatus = snapshot.val();
                         if (!readStatus && bookId === favKeyValues[i][key]) {
-                            update(readRef, { read: true });
+                            update(bookRef, { read: true });
                         } else if (
                             readStatus &&
                             bookId === favKeyValues[i][key]
                         ) {
-                            update(readRef, { read: false });
+                            update(bookRef, { read: false });
                         }
                     }
                 });
@@ -115,8 +107,7 @@ const DisplayBook = ({ books, markRead }) => {
         const tempBookIds = [...bookIds];
         get(listRef).then((snapshot) => {
             if (snapshot.exists()) {
-                //if our user's favourite list exists, then loop through the list and if we find a bookID that matches
-                //the book ID attached to the button, remove that book from our list
+                //if our user's favourite list exists, then loop through the list and if we find a bookID that matches the book ID attached to the button, remove that book from our list
                 listInDatabase = snapshot.val();
                 for (let key in listInDatabase) {
                     const bookRef = ref(
@@ -175,6 +166,7 @@ const DisplayBook = ({ books, markRead }) => {
                                         )}
                                     </div>
                                     <div className="favBtnsContainer">
+
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -230,7 +222,9 @@ const DisplayBook = ({ books, markRead }) => {
                                                 </figcaption>
                                             ) : (
                                                 <figcaption>
+
                                                     No Rating Available
+
                                                 </figcaption>
                                             )}
                                         </div>
