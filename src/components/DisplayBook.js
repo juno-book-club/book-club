@@ -181,14 +181,17 @@ const DisplayBook = ({ books, markRead }) => {
             setAdding(false);
         });
     }
-
+    
+    
     return (
         <>
             {books &&
                 books.map((book) => {
+
                     //if the book being render has an id that is contained in our bookIds array, show the remove button
                     //else, show the book with an add button
                     if (bookIds.includes(book.id)) {
+
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -199,13 +202,19 @@ const DisplayBook = ({ books, markRead }) => {
                                             className={
                                                 book.read ? "coverActive" : ""
                                             }
+
+
                                         />
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>
-                                                {book.volumeInfo.averageRating}
-                                            </h2>
+                                            {/* if rating is not undefined, display it */}
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button
@@ -246,13 +255,17 @@ const DisplayBook = ({ books, markRead }) => {
                                         <img
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
+                                            className="coverImg"
                                         />
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            <h2>
-                                                {book.volumeInfo.averageRating}
-                                            </h2>
+                                            {
+                                              book.volumeInfo.averageRating !== undefined ?
+                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
+                                              : 
+                                              <figcaption>Currently No Rating Available for this book</figcaption>
+                                            }
                                         </div>
                                         {isAuth && (
                                             <button

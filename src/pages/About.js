@@ -1,6 +1,8 @@
-import danielPhoto from "../assets/images/danielSelfPort.jpg";
+import danielPhoto from "../assets/images/danielSelfPort.png";
 import jingruPhoto from "../assets/images/jingruPhoto.PNG";
 import charlesPhoto from "../assets/images/charlesSelfPort.png";
+import sarahPhoto from "../assets/images/sarahPhoto.png"
+import { FaGithub } from "react-icons/fa"
 
 function About() {
     const us = [
@@ -21,21 +23,21 @@ function About() {
         {
             name: "Jingru Xu",
             img: jingruPhoto,
-            description: `I'm a dynamic front-end developer with passion in maintaining and building user-friendly websites. When I'm not working, you'll often find me watching movies, trying new restaurants and drinking wines.🥂`,
+            description: `I'm a dynamic front-end developer with passion in maintaining and building user-friendly websites. When I'm not working, you'll often find me watching movies, trying new restaurants & drinking wines. 🥂`,
             github: "https://github.com/jxu710",
             portfolio: "https://www.jingruxu-web.com/",
         },
         {
             name: "Sarah Bolton",
-            img: "./",
-            description: `Sarah is a front-end developer with a background in healthcare and graphic design. When she's not building websites, you can find her painting, reading or chillin with her cats. ✨`,
+            img: sarahPhoto,
+            description: `Sarah is a front-end developer with a background in healthcare and graphic design. When she's not building websites, you can find her painting, reading or chillin' with her cats. ✨`,
             github: "https://github.com/sarah-bolton",
             portfolio: "https://sarahbolton.ca",
         },
     ];
 
     return (
-        <div className="About">
+        <div className="aboutContainer">
             {us.map((details) => {
                 return (
                     <div className="about" key={details.name}>
@@ -45,12 +47,18 @@ function About() {
                             alt={`A headshot of ${details.name}`}
                         />
                         <p>{details.description}</p>
-                        <a target="_blank" href={details.github}>
-                            Link to {details.name}'s github profile
-                        </a>
-                        <a target="_blank" href={details.portfolio}>
-                            Link to {details.name}'s portfolio
-                        </a>
+                        <div className="aboutButtons">
+                            <button>
+                                <a target="_blank" href={details.github}>
+                                    Github
+                                </a>
+                            </button>
+                            <button>
+                                <a target="_blank" href={details.portfolio}>
+                                    Portfolio
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 );
             })}

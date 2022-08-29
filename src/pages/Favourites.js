@@ -16,6 +16,7 @@ function Favourites() {
     //if the state is true, set a class on the container of the book so we can change the opacity.
     //for the function, if the read state === true then when you click the button you remove the read class, take 1 away from books read and change read to false. opposite if read state === false
 
+
     useEffect(() => {
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users/${userId}/list`);

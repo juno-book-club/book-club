@@ -283,6 +283,14 @@ $white: #fff;
     margin: 0 auto;
 }
 
+button {
+    display: inline;
+    background-color: $blue;
+    width: 100px;
+    height: 40px;
+    border: none;
+}
+
 // navigation
 
 .navBarContainer {
@@ -318,9 +326,13 @@ $white: #fff;
     color: $green;
 }
 
-.searchBarForm {
+// search bar
+
+.form {
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px;
 }
 
 input {
@@ -331,12 +343,71 @@ input {
     padding-left: 10px;
 }
 
-.searchBtn {
-    display: inline;
+label {
+    margin-bottom: 10px;
+}
+
+// .searchBtn {
+//     display: inline;
+//     background-color: $blue;
+//     width: 100px;
+//     height: 40px;
+//     border: none;
+// }
+
+// app instructions
+
+.instructions {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.instructionContainer {
+    width: 60%;
+    margin: 0 auto;
+    // list-style: none;
+    text-align: left;
+}
+
+// footer navigation
+
+.footerBar {
+    display: block;
     background-color: $blue;
-    width: 100px;
-    height: 40px;
-    border: none;
+    height: 50px;
+    width: 100vw;
+    text-align: center;
+    padding: 0px;
+}
+
+.footerBar p {
+    padding-top: 17px;
+}
+
+.about {
+    margin: 0 auto;
+    padding: 20px;
+    margin: 20px 0px;
+}
+
+.about img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.aboutButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aboutButtons a {
+    text-decoration: none;
+    color: black;
+}
+
+.aboutButtons a:hover {
+    text-decoration: none;
+    color: $green
 }
 
 // media queries
@@ -346,6 +417,7 @@ input {
         display: none;
         background-color: none;
     }
+
 }
 
 @media (max-width: 1050px) {
@@ -404,6 +476,7 @@ input {
         margin: 20px;
         z-index: 5;
     }
+
 }
 
 /* style for loading animation */
@@ -417,6 +490,7 @@ input {
         url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
         no-repeat;
     z-index: 1;
+
 }
 
 .loader::after {
@@ -432,6 +506,7 @@ input {
 .details {
     margin-top: 20vh;
 }
+
 .details .wrapper {
     display: flex;
     justify-content: space-between;
@@ -453,8 +528,10 @@ h2 {
     width: 48%;
     border: 2px solid goldenrod;
     max-height: 80vh;
-    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+    
 }
+
 
 .descriptionContainer {
     height: 100%;
@@ -477,6 +554,7 @@ h2 {
     margin-inline: 10px;
 }
 
+
 .backButton {
     position: absolute;
     right: 5%;
@@ -485,12 +563,63 @@ h2 {
 
 .favourited {
     color: green;
+
+}
+
+.bookCover {
+    width: 250px;
+    height: 400px;
+    .coverImg {
+        height: 80%;
+        width: 80%;
+    }
 }
 
 .coverActive {
     opacity: 0.5;
 }
 
-.buttonActive {
-    color: green;
+
+
+// DisplayBook.js 
+
+.bookCover img{
+    position: relative;
+}
+
+.ratingFavContainer figcaption{
+font-size: 2rem;
+position: absolute;
+left: 30%;
+z-index: -1;
+}
+
+.loginPage{
+    background-color: lightgray;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.loginContainer button{
+    background: $green;
+    cursor: pointer;
+    display: block;
+    margin-block: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:2px 0 10px 0 rgba(0, 0, 0, .521);
+    transition: 0.3s;
+    border: none;
+
+}
+.loginContainer button:hover{
+    transform: scale(1.2);
+}
+
+.loginContainer button:first-of-type{
+    margin-top: 100%;
+
 }

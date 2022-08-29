@@ -20,7 +20,7 @@ const Form = ({ input, setInput }) => {
                 <input
                     type="text"
                     htmlFor="search"
-                    placeholder="book"
+                    placeholder="Try 'To Kill a Mockingbird' or 'It'"
                     onChange={searchChange}
                     value={input}
                     required

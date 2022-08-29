@@ -331,12 +331,18 @@ input {
   }
 }
 @media (max-width: 1050px) {
-  .hamburgerMenu {
-    display: block;
-    margin: 12px 0;
-    border: none;
+  .navBar {
+    position: relative;
+  }
+  .navBar button {
+    position: fixed;
+    right: 40px;
+    top: 14px;
+    z-index: 10;
+    color: black;
+    cursor: pointer;
     background: transparent;
-    z-index: 100;
+    border: none;
   }
   .menuNav {
     font-family: "Maitree";
@@ -392,4 +398,76 @@ input {
   text-align: center;
   color: #fff;
   font-size: 100px;
+}
+
+.details {
+  margin-top: 20vh;
+}
+
+.details .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  text-align: center;
+}
+
+.detailContainer {
+  padding-inline: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailImgContainer,
+.detailContainer {
+  width: 48%;
+  border: 2px solid goldenrod;
+  max-height: 80vh;
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
+}
+
+.descriptionContainer {
+  height: 100%;
+  overflow: scroll;
+}
+
+.detailImgContainer img {
+  width: 100%;
+  height: 100%;
+}
+
+.buttonContainer {
+  position: absolute;
+  bottom: -6%;
+  max-width: 100%;
+  align-self: center;
+}
+
+.buttonContainer button {
+  margin-inline: 10px;
+}
+
+.backButton {
+  position: absolute;
+  right: 5%;
+  top: -6%;
+}
+
+.favourited {
+  color: green;
+}
+
+.bookCover {
+  width: 250px;
+  height: 400px;
+}
+.bookCover .coverImg {
+  height: 80%;
+  width: 80%;
+}
+
+li {
+  list-style: none;
 }/*# sourceMappingURL=App.css.map */

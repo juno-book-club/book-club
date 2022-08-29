@@ -39,7 +39,6 @@ function SearchPage() {
                 // after we got repsonse from API, setLoading will be false
                 setLoading(false);
                 setBooks(res.data.items);
-                console.log(res.data);
             })
             .catch((error) => {
                 setError(true);
