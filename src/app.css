@@ -346,18 +346,19 @@ label {
 }
 
 .footerBar {
-    position: fixed;
-    bottom: 0;
-    display: block;
+    position: absolute;
+    left: 0;
     background-color: #5da9c2;
     height: 50px;
     width: 100vw;
     text-align: center;
     padding: 0px;
+    display: flex;
 }
 
 .footerBar p {
     padding-top: 1px;
+    margin: auto;
 }
 
 .about {
