@@ -154,7 +154,9 @@ const DisplayBook = ({ books, markRead }) => {
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
                                             className={
-                                                book.read ? "coverActive" : ""
+                                                book.read
+                                                    ? "coverActive coverImg"
+                                                    : "coverImg"
                                             }
                                         />
                                     </Link>

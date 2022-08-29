@@ -526,12 +526,23 @@ h2 {
 .bookCover {
     width: 250px;
     height: 400px;
+    position: relative;
 }
+
 .bookCover .coverImg {
     height: 80%;
     width: 80%;
 }
 
+.ratingContainer {
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 3px;
+}
 .coverActive {
     opacity: 0.5;
 }
@@ -579,6 +590,7 @@ h2 {
 .favouritesList {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -587,5 +599,4 @@ h2 {
     flex-direction: row;
     gap: 15px;
     padding-top: 15px;
-    justify-content: center;
 }
