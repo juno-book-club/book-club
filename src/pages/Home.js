@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from "../components/Form";
 import Instructions from "../components/Instructions";
-import Footer from "../components/Footer";
 import firebase from "../firebase-config";
 import { get, getDatabase, ref, update } from "firebase/database";
 
@@ -33,7 +32,6 @@ function Home() {
     return (
         <>
             <Instructions />
-
             <Form input={input} setInput={setInput} />
         </>
     );
