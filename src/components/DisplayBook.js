@@ -80,7 +80,9 @@ const DisplayBook = ({ books, markRead }) => {
                     database,
                     `/users/${userId}/list/${key}/read`
                 );
+
                 let bookRef = ref(database, `/users/${userId}/list/${key}`);
+
                 get(readStatusRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const readStatus = snapshot.val();
@@ -143,29 +145,28 @@ const DisplayBook = ({ books, markRead }) => {
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
                                             className={
-                                                book.read ? "coverActive" : ""
+                                                book.read
+                                                    ? "coverActive coverImg"
+                                                    : "coverImg"
                                             }
                                         />
                                     </Link>
-                                    <div className="ratingFavContainer">
-                                        <div className="ratingContainer">
-                                            {/* if rating is not undefined, display it */}
-                                            {book.volumeInfo.averageRating !==
-                                            undefined ? (
-                                                <figcaption>
-                                                    {
-                                                        book.volumeInfo
-                                                            .averageRating
-                                                    }
-                                                    /5
-                                                </figcaption>
-                                            ) : (
-                                                <figcaption>
-                                                    Currently No Rating
-                                                    Available for this book
-                                                </figcaption>
-                                            )}
-                                        </div>
+                                    <div className="ratingContainer">
+                                        {/* if rating is not undefined, display it */}
+                                        {book.volumeInfo.averageRating !==
+                                        undefined ? (
+                                            <figcaption>
+                                                {book.volumeInfo.averageRating}
+                                                /5
+                                            </figcaption>
+                                        ) : (
+                                            <figcaption>
+                                                No Rating Available
+                                            </figcaption>
+                                        )}
+                                    </div>
+                                    <div className="favBtnsContainer">
+
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -221,8 +222,9 @@ const DisplayBook = ({ books, markRead }) => {
                                                 </figcaption>
                                             ) : (
                                                 <figcaption>
-                                                    Currently No Rating
-                                                    Available for this book
+
+                                                    No Rating Available
+
                                                 </figcaption>
                                             )}
                                         </div>
