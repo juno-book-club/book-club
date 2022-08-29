@@ -80,22 +80,6 @@ const DisplayBook = ({ books, markRead }) => {
     //if read state is true, the button updates readStatus to false and set read state to false
 
     const updateRead = (bookId) => {
-        // const database = ref(firebase)
-        // const userRef = ref(database, `/users/${userId}/list/`);
-        // let listInDatabase;
-
-        // for (let i = 0; i < favKeyValues.length; i++) {
-        //     for (let key in favKeyValues[i]) {
-        //         const database = getDatabase(firebase);
-        //         let bookRef = ref(database, `/users/${userId}/list/${key}`);
-        //         if (favKeyValues[i][key] === bookId && !read) {
-        //             update(bookRef, { ...book, read: true });
-        //         } else if (favKeyValues[i][key] === bookId && read) {
-        //             update(bookRef, { ...book, read: false });
-        //         }
-        //     }
-        // }
-
         //loop over the favKeyValues, which contains the path and bookid of favourited books
         //looks into the database for the read status of each book
         //if the bookID of the book that is being clicked on is equal to a bookId found within the favKeyValues list AND it's read status in firebase is set to false, update it to true in firebase
@@ -107,7 +91,6 @@ const DisplayBook = ({ books, markRead }) => {
                     `/users/${userId}/list/${key}/read`
                 );
                 let readRef = ref(database, `/users/${userId}/list/${key}`);
-                console.log(readRef);
                 get(readStatusRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const readStatus = snapshot.val();
@@ -123,32 +106,6 @@ const DisplayBook = ({ books, markRead }) => {
                 });
             }
         }
-
-        //the code below doesn't function properly. Sometimes setRead doesn't work,
-        //this is because a fetch call and setstate are both asynchronous functions and they are
-        //racing with one another. Be careful using setState and fetch calls together
-
-        // console.log("read before setRead", { read });
-        // setRead(!read);
-        // console.log("read after setRead", { read });
-
-        //think about ways to not have to dig into database. Can we just check the bookID list?
-        //maybe get all the keys:bookId and set in state on start.
-        // get(userRef).then((snapshot) => {
-        //     if (snapshot.exists()) {
-        //         listInDatabase = snapshot.val();
-        //         for (let key in listInDatabase) {
-        //             let bookRef = ref(database, `/users/${userId}/list/${key}`);
-        //             if (listInDatabase[key].id === bookId && !read) {
-        //                 setRead(true);
-        //                 update(bookRef, { ...book, read: true });
-        //             } else if (read && listInDatabase[key].id === bookId) {
-        //                 setRead(false);
-        //                 update(bookRef, { ...book, read: false });
-        //             }
-        //         }
-        //     }
-        // });
     };
 
     function removeFromFavourites(bookId) {
@@ -181,17 +138,14 @@ const DisplayBook = ({ books, markRead }) => {
             setAdding(false);
         });
     }
-    
-    
+
     return (
         <>
             {books &&
                 books.map((book) => {
-
                     //if the book being render has an id that is contained in our bookIds array, show the remove button
                     //else, show the book with an add button
                     if (bookIds.includes(book.id)) {
-
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
@@ -202,20 +156,23 @@ const DisplayBook = ({ books, markRead }) => {
                                             className={
                                                 book.read ? "coverActive" : ""
                                             }
-
-
                                         />
                                     </Link>
-                                    <div className="ratingFavContainer">
-                                        <div className="ratingContainer">
-                                            {/* if rating is not undefined, display it */}
-                                            {
-                                              book.volumeInfo.averageRating !== undefined ?
-                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
-                                              : 
-                                              <figcaption>Currently No Rating Available for this book</figcaption>
-                                            }
-                                        </div>
+                                    <div className="ratingContainer">
+                                        {/* if rating is not undefined, display it */}
+                                        {book.volumeInfo.averageRating !==
+                                        undefined ? (
+                                            <figcaption>
+                                                {book.volumeInfo.averageRating}
+                                                /5
+                                            </figcaption>
+                                        ) : (
+                                            <figcaption>
+                                                No Rating Available
+                                            </figcaption>
+                                        )}
+                                    </div>
+                                    <div className="favBtnsContainer">
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -260,12 +217,20 @@ const DisplayBook = ({ books, markRead }) => {
                                     </Link>
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
-                                            {
-                                              book.volumeInfo.averageRating !== undefined ?
-                                              <figcaption>{book.volumeInfo.averageRating}/5</figcaption>
-                                              : 
-                                              <figcaption>Currently No Rating Available for this book</figcaption>
-                                            }
+                                            {book.volumeInfo.averageRating !==
+                                            undefined ? (
+                                                <figcaption>
+                                                    {
+                                                        book.volumeInfo
+                                                            .averageRating
+                                                    }
+                                                    /5
+                                                </figcaption>
+                                            ) : (
+                                                <figcaption>
+                                                    No Rating Available
+                                                </figcaption>
+                                            )}
                                         </div>
                                         {isAuth && (
                                             <button

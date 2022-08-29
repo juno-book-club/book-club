@@ -4,3 +4,8 @@
 @import "./partials/mediaQ";
 @import "./partials/footer";
 @import "./partials/variables";
+
+.favouritesList {
+    display: flex;
+    flex-direction: row;
+}
