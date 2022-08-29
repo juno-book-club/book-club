@@ -18,7 +18,7 @@ function SearchPage() {
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
     const [nextPage, setNextPage] = useState(0);
-    // const [page, setPage] = useState(1);
+    const [page, setPage] = useState(1);
 
     //sets userName and userId on page load
     useEffect(() => {
@@ -59,6 +59,7 @@ function SearchPage() {
         //when clicked it grabs the index of what number was clicked
         const pageNumber = data.selected;
         setNextPage(pageNumber * pageResults);
+        setPage(pageNumber + 1);
     })
 
     return (
@@ -82,6 +83,7 @@ function SearchPage() {
                         onPageChange={handlePageClick}
                         />
                     </div>
+                        <p>Page: {page}</p>
                 </div>
             ) : (
                 <Link to="/">
