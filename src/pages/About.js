@@ -1,8 +1,8 @@
 import danielPhoto from "../assets/images/danielSelfPort.png";
 import jingruPhoto from "../assets/images/jingruPhoto.PNG";
 import charlesPhoto from "../assets/images/charlesSelfPort.png";
-import sarahPhoto from "../assets/images/sarahPhoto.png"
-import { FaGithub } from "react-icons/fa"
+import sarahPhoto from "../assets/images/sarahPhoto.png";
+import { FaGithub } from "react-icons/fa";
 
 function About() {
     const us = [
@@ -16,7 +16,7 @@ function About() {
         {
             name: "Charles Li",
             img: charlesPhoto,
-            description: `I'm a determined problem solver who strives to write clean and accessible code.`,
+            description: `I'm a determined problem solver who thrives in a collaborative environment. In my free time, I love catching up on NBA basketball and fantasy novels. My favourite reads this year come from Joe Abercrombie and his Age of Madness Trilogy.`,
             github: "https://github.com/41CharlesLi",
             portfolio: "https://www.charlesli.ca",
         },
