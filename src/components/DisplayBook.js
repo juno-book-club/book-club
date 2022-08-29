@@ -68,13 +68,11 @@ const DisplayBook = ({ books }) => {
             setAdding(false);
         });
     }
-    console.log(localFavouriteList);
     return (
         <>
             {books &&
                 books.map((book) => {
                     if (localFavouriteList.includes(book.id)) {
-                        console.log(book);
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">

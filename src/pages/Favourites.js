@@ -27,6 +27,6 @@ function Favourites() {
             </div>
         </section>
     );
-}
+} 
 
 export default Favourites;
