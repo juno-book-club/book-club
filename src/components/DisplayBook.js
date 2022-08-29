@@ -134,9 +134,11 @@ const DisplayBook = ({ books, markRead }) => {
         <>
             {books &&
                 books.map((book) => {
+
                     //if the book being render has an id that is contained in our bookIds array, show the remove button
                     //else, show the book with an add button
                     if (bookIds.includes(book.id)) {
+
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">

@@ -4,6 +4,11 @@ import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
 
+import { getDatabase, ref, onValue } from "firebase/database";
+import firebase from "../firebase-config";
+import ReactPaginate from 'react-paginate';
+
+
 function SearchPage() {
     const { search } = useParams();
     const [books, setBooks] = useState([]);
@@ -12,13 +17,16 @@ function SearchPage() {
     const [error, setError] = useState(false);
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
+    const [nextPage, setNextPage] = useState(0);
+    // const [page, setPage] = useState(1);
 
     //sets userName and userId on page load
     useEffect(() => {
         setUserName(localStorage.getItem("userName"));
         setUserId(localStorage.getItem("userId"));
     }, [userId, userName]);
-
+    
+    const pageResults = 3;
     useEffect(() => {
         // before get result from API, setloading will be true
         setLoading(true);
@@ -30,9 +38,10 @@ function SearchPage() {
             params: {
                 key: "AIzaSyDC8tENmrYm2oa3JYc8h_KB74KiN7QIbMY",
                 q: search,
-                maxResults: 3,
+                maxResults: pageResults,
                 projection: "full",
                 printType: "books",
+                startIndex: nextPage,
             },
         })
             .then((res) => {
@@ -43,7 +52,14 @@ function SearchPage() {
             .catch((error) => {
                 setError(true);
             });
-    }, [search]);
+    }, [search, nextPage]);
+
+    // on click i am grabbing index of the pagination library data and multiplying it by the page results because the api call doesnt have pages it has a start index
+    const handlePageClick = ((data) => {
+        //when clicked it grabs the index of what number was clicked
+        const pageNumber = data.selected;
+        setNextPage(pageNumber * pageResults);
+    })
 
     return (
         <section className="Home">
@@ -56,7 +72,17 @@ function SearchPage() {
                 )
             }
             {books ? (
-                <DisplayBook books={books} />
+                <div>
+                    <DisplayBook books={books} />
+                    <div className="pagination">
+                        <ReactPaginate
+                        nextLabel="next"
+                        previousLabel="previous"
+                        pageCount={10} 
+                        onPageChange={handlePageClick}
+                        />
+                    </div>
+                </div>
             ) : (
                 <Link to="/">
                     <p>
