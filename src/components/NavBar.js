@@ -86,7 +86,13 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
 
                     <li className="menuItem">
                         {isAuth ? (
-                            <button onClick={signUserOut}>Log out</button>
+                            <Link
+                                to="/"
+                                className="navLink"
+                                onClick={() => signUserOut()}
+                            >
+                                Log out
+                            </Link>
                         ) : (
                             <Link
                                 to="/Login"
