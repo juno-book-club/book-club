@@ -7,15 +7,6 @@ function Favourites() {
     const [books, setBooks] = useState([]);
     const userId = localStorage.getItem("userId");
     const [booksRead, setBooksRead] = useState(0);
-    //booksRead pseudo code
-    //create state of booksRead that loops through the items inside our favourites list. If read=true, add 1 to the state
-    //percentage = booksRead/length of booksArray
-    //if we remove a book. take 1 away from the local state
-    //when we click on the marked as read button, we set a "read" state in display books
-    //create a "read" state in display books
-    //if the state is true, set a class on the container of the book so we can change the opacity.
-    //for the function, if the read state === true then when you click the button you remove the read class, take 1 away from books read and change read to false. opposite if read state === false
-
 
     useEffect(() => {
         const database = getDatabase(firebase);
