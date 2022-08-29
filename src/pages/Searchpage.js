@@ -9,7 +9,7 @@ function SearchPage() {
     const [books, setBooks] = useState([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
 
@@ -41,7 +41,8 @@ function SearchPage() {
                 setBooks(res.data.items);
             })
             .catch((error) => {
-                setError(true);
+                setError(error.message);
+                setLoading(false);
             });
     }, [search]);
 
@@ -55,25 +56,23 @@ function SearchPage() {
                     <Form input={input} setInput={setInput} books={books} />
                 )
             }
-            {books ? (
-                <DisplayBook books={books} />
-            ) : (
+            {books  ?
+                <DisplayBook books={books}/>
+                :
                 <Link to="/">
-                    <p>
-                        What you searched is not exist, click here to go back to
-                        Home Page
-                    </p>
-                </Link>
-            )}
+                <p>
+                    What you searched is not exist, click here to go back to
+                    Home Page
+                </p>
+            </Link>
+            
+            }
 
-            {error && (
-                <Link to="/">
-                    <p>
-                        What you searched is not exist, click here to go back to
-                        Home Page
-                    </p>
-                </Link>
-            )}
+            {error && 
+                <>
+                <h2>{error}</h2>   
+                </>
+            }
         </section>
     );
 }

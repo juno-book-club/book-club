@@ -504,20 +504,23 @@ label {
 // Details.js Page styles
 
 .details {
-    margin-top: 20vh;
+    margin-block: 20vh;
 }
 
 .details .wrapper {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-h2 {
+.details h2,h3 {
     text-align: center;
 }
 
 .detailContainer {
-    padding-inline: 10px;
+    text-align: justify;
+    padding-inline: 25px;
+    line-height: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -543,22 +546,16 @@ h2 {
     height: 100%;
 }
 
-.buttonContainer {
-    position: absolute;
-    bottom: -6%;
-    max-width: 100%;
-    align-self: center;
-}
-
-.buttonContainer button {
-    margin-inline: 10px;
-}
-
-
 .backButton {
     position: absolute;
     right: 5%;
-    top: -6%;
+    top: -10%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.backButton:hover {
+    transform: scale(1.2);
 }
 
 .favourited {
@@ -594,17 +591,21 @@ left: 30%;
 z-index: -1;
 }
 
+
+// login page
+
 .loginPage{
     background-color: lightgray;
     height: 80vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
 }
 
 .loginContainer button{
-    background: $green;
+    background: $blue;
     cursor: pointer;
     display: block;
     margin-block: 20px;
@@ -613,13 +614,11 @@ z-index: -1;
     box-shadow:2px 0 10px 0 rgba(0, 0, 0, .521);
     transition: 0.3s;
     border: none;
+    height: inherit;
+    width: 100%;
 
 }
 .loginContainer button:hover{
     transform: scale(1.2);
 }
 
-.loginContainer button:first-of-type{
-    margin-top: 100%;
-
-}

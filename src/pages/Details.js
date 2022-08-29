@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 function Details() {
     const { bookId } = useParams();
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
     //when error is true, display an error page component
     const [book, setBook] = useState([]);
 
@@ -20,13 +20,16 @@ function Details() {
                 setBook(res.data.volumeInfo);
             })
             .catch((err) => {
-                setError(true);
+                setError(err.message);
+                console.log(err.message)
             });
     }, []);
 
     return (
 
-        !error &&
+        error.length>0 ?
+        <h2>{error}</h2>
+        :
         //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo   
         <section className="details">
             <div className="wrapper">
@@ -41,13 +44,13 @@ function Details() {
                     <h2>{book.title}</h2>
                     {/* if author exist, loop through author array and display each author name */}
                     {/* {console.log(book.authors)} */}
-                    <h2>Author/Authors: {
+                    <h3>Author/Authors: {
                     book.authors?
                     book.authors.map((eachAuthor,index)=> <p key={index}>{eachAuthor}</p>)
                     :
                     <p>Unknown Author</p>
                     }
-                    </h2>
+                    </h3>
                     {/* {console.log(book.authors)} */}
                     <div className="descriptionContainer">
                         {book.categories && book.categories[0]}
@@ -61,11 +64,6 @@ function Details() {
                             />
                         )}
                     </div>
-
-                        <div className="buttonContainer">
-                            <button>Mark as read</button>
-                            <button>Delete</button>
-                        </div>
 
                     <button
                         className="backButton"
