@@ -1,4 +1,3 @@
-import instructionBook from "../assets/images/bookInstructions.png"
 import person1 from "../assets/images/person1.png"
 
 const Instructions = () => {
@@ -9,14 +8,10 @@ const Instructions = () => {
                 <img src={person1} alt="person sitting and reading" className="person1Img" />
                 <div className="instructionBox"></div>
                 <ul className="instructionContainer">
-                    {/* <img src={instructionBook} alt="instruction booklet" className="iBooklet" /> */}
                     <h3>Instructions:</h3>
                     <li>Log in with your google account (by clicking the Log In page) to be able to 'favourite', rate a book, and keep track of how many books you've read.</li>
                     <br></br>
-                    <li>If you sign in anonymously these features will be disabled but you will still be able to search and read more information about the book you've selected.</li>
-
-
-                    <li>After logging in, enter the full book title in our search bar below.</li>
+                    <li>If you sign in anonymously these features will be disabled but you will still be able to search and read more information about the book you've selected. After logging in, enter the full book title in our search bar below.</li>
                     <br></br>
                     <li>You'll see a few options to choose from. If you want to find more information on the book, simply click on the book cover image. If you want to add it to your favourites list immediately, click the favourites button!</li>
                     <br></br>

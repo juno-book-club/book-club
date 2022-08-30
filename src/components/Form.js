@@ -15,12 +15,12 @@ const Form = ({ input, setInput }) => {
 
     return (
         <div className="form">
-            <label htmlFor="search">Search for a book : </label>
+            <label htmlFor="search"><h3>Search for a book: </h3></label>
             <form onSubmit={handleSubmit} className="searchBarForm">
                 <input
                     type="text"
                     htmlFor="search"
-                    placeholder="Try 'To Kill a Mockingbird' or 'It'"
+                    placeholder="Try 'To Kill a Mockingbird'"
                     onChange={searchChange}
                     value={input}
                     required

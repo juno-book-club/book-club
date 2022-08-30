@@ -38,7 +38,7 @@ function Favourites() {
 
     return (
         <section className="Favourites">
-            <h2>Favourites Page</h2>
+            <h2>Your Favourites!</h2>
             <p>
                 Books Read: {booksRead}/{books.length}
             </p>

@@ -151,7 +151,7 @@ const DisplayBook = ({ books, markRead }) => {
                                         <div className="ratingContainer">
                                             {/* if rating is not undefined, display it */}
                                             {book.volumeInfo.averageRating !==
-                                            undefined ? (
+                                                undefined ? (
                                                 <figcaption>
                                                     {
                                                         book.volumeInfo
@@ -211,7 +211,7 @@ const DisplayBook = ({ books, markRead }) => {
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
                                             {book.volumeInfo.averageRating !==
-                                            undefined ? (
+                                                undefined ? (
                                                 <figcaption>
                                                     {
                                                         book.volumeInfo

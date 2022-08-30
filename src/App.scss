@@ -290,6 +290,8 @@ button {
     width: 100px;
     height: 40px;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 // navigation
@@ -338,7 +340,8 @@ button {
     color: black;
 }
 
-.navLink:hover {
+.navLink:hover,
+.logoutBtn:hover {
     color: $green;
 }
 
@@ -355,19 +358,23 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 35px 0 60px;
+    margin: 40px auto;
+    padding: 30px;
+    width: 80%;
+    background-color: $pink;
+    border-top-left-radius: 65px 70px;
+    border-top-right-radius: 40px 30px;
+    border-bottom-right-radius: 38px 50px;
+    border-bottom-left-radius: 155px 125px;
 }
 
-input {
-    height: 50px;
+.form input {
+    height: 40px;
     width: 400px;
     border: 1px solid $darkblue;
+    border-radius: 5px;
     margin-right: 10px;
     padding-left: 10px;
-}
-
-label {
-    margin-bottom: 10px;
 }
 
 .instructions {
@@ -450,6 +457,27 @@ footer p {
 }
 
 // media queries
+
+@media (max-width: 730px) {
+    .instructions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .instructionContainer {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .person1Img {
+        position: relative;
+        top: 50px;
+    }
+
+    .form input {
+        width: 100%;
+    }
+}
 
 @media (min-width: 1050px) {
     .hamburgerMenu {
@@ -610,13 +638,13 @@ h2 {
     .coverImg {
         height: 80%;
         width: 80%;
+        margin-top: 20px;
     }
 }
 
 .coverActive {
     opacity: 0.5;
 }
-
 
 
 // DisplayBook.js 
