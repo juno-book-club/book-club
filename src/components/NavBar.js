@@ -54,7 +54,8 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                             className="navLink"
                             onClick={() => closeMenu()}
                         >
-                            {" "}Home{" "}
+                            {" "}
+                            Home{" "}
                         </Link>
                     </li>
 
@@ -65,7 +66,8 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                                 className="navLink"
                                 onClick={() => closeMenu()}
                             >
-                                {" "}Favourites{" "}
+                                {" "}
+                                Favourites{" "}
                             </Link>
                         </li>
                     )}
@@ -76,22 +78,24 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                             className="navLink"
                             onClick={() => closeMenu()}
                         >
-                            {" "}About{" "}
+                            {" "}
+                            About{" "}
                         </Link>
                     </li>
 
                     <li className="menuItem">
                         {isAuth ? (
-                            <button onClick={signUserOut} className="logoutBtn">Log out</button>
+                            <button onClick={signUserOut}>Log out</button>
                         ) : (
                             <Link
                                 to="/Login"
                                 className="navLink"
                                 onClick={() => closeMenu()}
                             >
-                                {" "}Log In{" "}
+                                {" "}
+                                Log In{" "}
                             </Link>
-
+                            
                         )}
                     </li>
                 </ul>

@@ -80,7 +80,9 @@ const DisplayBook = ({ books, markRead }) => {
                     database,
                     `/users/${userId}/list/${key}/read`
                 );
+
                 let bookRef = ref(database, `/users/${userId}/list/${key}`);
+
                 get(readStatusRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const readStatus = snapshot.val();
@@ -143,7 +145,9 @@ const DisplayBook = ({ books, markRead }) => {
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
                                             alt={`cover of ${book.volumeInfo.title}`}
                                             className={
-                                                book.read ? "coverActive" : ""
+                                                book.read
+                                                    ? "coverActive coverImg"
+                                                    : "coverImg"
                                             }
                                         />
                                     </Link>
@@ -151,7 +155,7 @@ const DisplayBook = ({ books, markRead }) => {
                                         <div className="ratingContainer">
                                             {/* if rating is not undefined, display it */}
                                             {book.volumeInfo.averageRating !==
-                                                undefined ? (
+                                            undefined ? (
                                                 <figcaption>
                                                     {
                                                         book.volumeInfo
@@ -211,7 +215,7 @@ const DisplayBook = ({ books, markRead }) => {
                                     <div className="ratingFavContainer">
                                         <div className="ratingContainer">
                                             {book.volumeInfo.averageRating !==
-                                                undefined ? (
+                                            undefined ? (
                                                 <figcaption>
                                                     {
                                                         book.volumeInfo

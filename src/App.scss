@@ -383,30 +383,26 @@ button {
     margin-bottom: 20px;
 }
 
-.instructionsSection h2 {
-    margin-bottom: 20px;
+// .searchBtn {
+//     display: inline;
+//     background-color: $blue;
+//     width: 100px;
+//     height: 40px;
+//     border: none;
+// }
+
+// app instructions
+
+.instructions {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .instructionContainer {
-    padding: 0;
-    margin-left: 20px;
-    width: 55%;
-    background-color: $pink;
-    padding: 35px;
-    border-top-left-radius: 65px 70px;
-    border-top-right-radius: 195px 145px;
-    border-bottom-right-radius: 38px 50px;
-    border-bottom-left-radius: 40px 10px;
-}
-
-.person1Img {
-    padding-top: 10px;
-    height: min-content;
-    position: relative;
-    top: 127px;
-    left: 68px;
-    width: 260px;
-    z-index: 10;
+    width: 60%;
+    margin: 0 auto;
+    // list-style: none;
+    text-align: left;
 }
 
 // footer navigation
@@ -569,20 +565,23 @@ footer p {
 // Details.js Page styles
 
 .details {
-    margin-top: 20vh;
+    margin-block: 20vh;
 }
 
 .details .wrapper {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-h2 {
+.details h2,h3 {
     text-align: center;
 }
 
 .detailContainer {
-    padding-inline: 10px;
+    text-align: justify;
+    padding-inline: 25px;
+    line-height: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -608,22 +607,16 @@ h2 {
     height: 100%;
 }
 
-.buttonContainer {
-    position: absolute;
-    bottom: -6%;
-    max-width: 100%;
-    align-self: center;
-}
-
-.buttonContainer button {
-    margin-inline: 10px;
-}
-
-
 .backButton {
     position: absolute;
     right: 5%;
-    top: -6%;
+    top: -10%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.backButton:hover {
+    transform: scale(1.2);
 }
 
 .favourited {
@@ -660,16 +653,17 @@ h2 {
     z-index: -1;
 }
 
-.loginPage {
+.loginPage{
     background-color: lightgray;
     height: 80vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 20px;
 }
 
-.loginContainer button {
+.loginContainer button{
     background: $green;
     cursor: pointer;
     display: block;
@@ -679,6 +673,8 @@ h2 {
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
     transition: 0.3s;
     border: none;
+    height: inherit;
+    width: 100%;
 
 }
 
@@ -686,7 +682,7 @@ h2 {
     transform: scale(1.2);
 }
 
-.loginContainer button:first-of-type {
+.loginContainer button:first-of-type{
     margin-top: 100%;
 
 }

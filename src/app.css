@@ -271,6 +271,14 @@ button {
   margin: 0 auto;
 }
 
+button {
+  display: inline;
+  background-color: #5da9c2;
+  width: 100px;
+  height: 40px;
+  border: none;
+}
+
 .navBarContainer {
   display: flex;
   justify-content: space-between;
@@ -302,9 +310,11 @@ button {
   color: #ace8cd;
 }
 
-.searchBarForm {
+.form {
   display: flex;
-  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 35px;
 }
 
 input {
@@ -315,12 +325,59 @@ input {
   padding-left: 10px;
 }
 
-.searchBtn {
-  display: inline;
+label {
+  margin-bottom: 10px;
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.instructionContainer {
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footerBar {
+  display: block;
   background-color: #5da9c2;
-  width: 100px;
-  height: 40px;
-  border: none;
+  height: 50px;
+  width: 100vw;
+  text-align: center;
+  padding: 0px;
+}
+
+.footerBar p {
+  padding-top: 17px;
+}
+
+.about {
+  margin: 0 auto;
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+.about img {
+  width: 250px;
+  border-radius: 50%;
+}
+
+.aboutButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.aboutButtons a {
+  text-decoration: none;
+  color: black;
+}
+
+.aboutButtons a:hover {
+  text-decoration: none;
+  color: #ace8cd;
 }
 
 @media (min-width: 1050px) {
@@ -407,20 +464,23 @@ input {
 }
 
 .details {
-  margin-top: 20vh;
+  margin-block: 20vh;
 }
 
 .details .wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-h2 {
+.details h2, h3 {
   text-align: center;
 }
 
 .detailContainer {
-  padding-inline: 10px;
+  text-align: justify;
+  padding-inline: 25px;
+  line-height: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -444,21 +504,17 @@ h2 {
   height: 100%;
 }
 
-.buttonContainer {
-  position: absolute;
-  bottom: -6%;
-  max-width: 100%;
-  align-self: center;
-}
-
-.buttonContainer button {
-  margin-inline: 10px;
-}
-
 .backButton {
   position: absolute;
   right: 5%;
-  top: -6%;
+  top: -10%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.backButton:hover {
+  transform: scale(1.2);
 }
 
 .favourited {
@@ -477,6 +533,4 @@ h2 {
 
 li {
   list-style: none;
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
