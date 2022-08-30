@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,7 +54,7 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 b,
@@ -251,7 +252,7 @@ html {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -290,8 +291,6 @@ button {
   color: #000;
   list-style: none;
   font-size: 18px;
-  margin: 23px 0 0;
-  padding-top: 5px;
 }
 
 .navLink {
@@ -330,10 +329,12 @@ input {
     background-color: none;
   }
 }
+
 @media (max-width: 1050px) {
   .navBar {
     position: relative;
   }
+
   .navBar button {
     position: fixed;
     right: 40px;
@@ -344,6 +345,7 @@ input {
     background: transparent;
     border: none;
   }
+
   .menuNav {
     font-family: "Maitree";
     display: flex;
@@ -364,14 +366,17 @@ input {
     height: 100vh;
     margin-top: 0;
   }
+
   .mdClose {
     margin: 5px;
     z-index: 10;
   }
+
   .menuNav.showMenu {
     width: 350px;
     transition: 0.5s;
   }
+
   .navLink {
     display: flex;
     text-decoration: none;
@@ -382,6 +387,7 @@ input {
     z-index: 5;
   }
 }
+
 /* style for loading animation */
 .loader {
   width: 100vw;
@@ -463,6 +469,7 @@ h2 {
   width: 250px;
   height: 400px;
 }
+
 .bookCover .coverImg {
   height: 80%;
   width: 80%;
@@ -470,4 +477,6 @@ h2 {
 
 li {
   list-style: none;
-}/*# sourceMappingURL=App.css.map */
+}
+
+/*# sourceMappingURL=App.css.map */

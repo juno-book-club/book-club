@@ -276,6 +276,7 @@ $blue: #5da9c2;
 $green: #ace8cd;
 $pink: #f4e6e8;
 $white: #fff;
+$darkblue: #305662;
 
 .wrapper {
     width: 80%;
@@ -293,28 +294,43 @@ button {
 
 // navigation
 
+.logo {
+    display: flex;
+}
+
+.bookLogo {
+    width: 70px;
+    height: fit-content;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
 .navBarContainer {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 .logoTitle {
     font-family: $headingFont;
     font-size: 30px;
-    display: inline;
+}
+
+.menuNav,
+.logoTitle {
+    margin-top: 20px;
 }
 
 .menuNav {
     font-family: "Maitree";
     display: flex;
     justify-content: space-between;
-    width: 350px;
+    width: 400px;
     text-decoration: none;
     color: #000;
     list-style: none;
     font-size: $baseFontSize;
-    margin: 23px 0 0;
-    padding-top: 5px;
+    padding-top: 8px;
 }
 
 .navLink {
@@ -326,19 +342,26 @@ button {
     color: $green;
 }
 
+.logoutBtn {
+    display: flex;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
 // search bar
 
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 35px;
+    margin: 35px 0 60px;
 }
 
 input {
-    height: 40px;
-    width: 300px;
-    border: 1px solid #000;
+    height: 50px;
+    width: 400px;
+    border: 1px solid $darkblue;
     margin-right: 10px;
     padding-left: 10px;
 }
@@ -347,31 +370,41 @@ label {
     margin-bottom: 10px;
 }
 
-// .searchBtn {
-//     display: inline;
-//     background-color: $blue;
-//     width: 100px;
-//     height: 40px;
-//     border: none;
-// }
-
-// app instructions
-
 .instructions {
-    text-align: center;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.instructionsSection h2 {
+    margin-bottom: 20px;
 }
 
 .instructionContainer {
-    width: 60%;
-    margin: 0 auto;
-    // list-style: none;
-    text-align: left;
+    padding: 0;
+    margin-left: 20px;
+    width: 55%;
+    background-color: $pink;
+    padding: 35px;
+    border-top-left-radius: 65px 70px;
+    border-top-right-radius: 195px 145px;
+    border-bottom-right-radius: 38px 50px;
+    border-bottom-left-radius: 40px 10px;
+}
+
+.person1Img {
+    padding-top: 10px;
+    height: min-content;
+    position: relative;
+    top: 127px;
+    left: 68px;
+    width: 260px;
+    z-index: 10;
 }
 
 // footer navigation
 
-.footerBar {
+footer {
     display: block;
     background-color: $blue;
     height: 50px;
@@ -380,8 +413,14 @@ label {
     padding: 0px;
 }
 
-.footerBar p {
+footer p {
     padding-top: 17px;
+}
+
+// about page
+
+.aboutContainer {
+    display: flex;
 }
 
 .about {
@@ -486,9 +525,7 @@ label {
     height: 100vh;
     position: absolute;
     left: 0;
-    background: rgba(0, 0, 0, 0.834)
-        url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
-        no-repeat;
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
     z-index: 1;
 
 }
@@ -529,7 +566,7 @@ h2 {
     border: 2px solid goldenrod;
     max-height: 80vh;
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
-    
+
 }
 
 
@@ -569,6 +606,7 @@ h2 {
 .bookCover {
     width: 250px;
     height: 400px;
+
     .coverImg {
         height: 80%;
         width: 80%;
@@ -583,18 +621,18 @@ h2 {
 
 // DisplayBook.js 
 
-.bookCover img{
+.bookCover img {
     position: relative;
 }
 
-.ratingFavContainer figcaption{
-font-size: 2rem;
-position: absolute;
-left: 30%;
-z-index: -1;
+.ratingFavContainer figcaption {
+    font-size: 2rem;
+    position: absolute;
+    left: 30%;
+    z-index: -1;
 }
 
-.loginPage{
+.loginPage {
     background-color: lightgray;
     height: 80vh;
     display: flex;
@@ -603,23 +641,24 @@ z-index: -1;
     border-radius: 20px;
 }
 
-.loginContainer button{
+.loginContainer button {
     background: $green;
     cursor: pointer;
     display: block;
     margin-block: 20px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow:2px 0 10px 0 rgba(0, 0, 0, .521);
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
     transition: 0.3s;
     border: none;
 
 }
-.loginContainer button:hover{
+
+.loginContainer button:hover {
     transform: scale(1.2);
 }
 
-.loginContainer button:first-of-type{
+.loginContainer button:first-of-type {
     margin-top: 100%;
 
 }

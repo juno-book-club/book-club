@@ -26,35 +26,33 @@ function App() {
                     />
                 </header>
                 <main>
-                    <div className="wrapper">
-                        <Routes>
-                            <Route
-                                path="/"
-                                element={<Home isAuth={isAuth} />}
-                            />
-                            <Route
-                                path="/favourites"
-                                element={<Favourites isAuth={isAuth} />}
-                            />
-                            <Route
-                                path="/details/:bookId"
-                                element={<Details isAuth={isAuth} />}
-                            />
-                            <Route path="/about" element={<About />} />
-                            <Route
-                                path="/login"
-                                element={<Login setIsAuth={setIsAuth} />}
-                            />
-                            <Route
-                                path="/search/:search"
-                                element={<SearchPage setIsAuth={setIsAuth} />}
-                            />
-                            <Route path="*" element={<ErrorPage />} />
-                        </Routes>
-                    </div>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<Home isAuth={isAuth} />}
+                        />
+                        <Route
+                            path="/favourites"
+                            element={<Favourites isAuth={isAuth} />}
+                        />
+                        <Route
+                            path="/details/:bookId"
+                            element={<Details isAuth={isAuth} />}
+                        />
+                        <Route path="/about" element={<About />} />
+                        <Route
+                            path="/login"
+                            element={<Login setIsAuth={setIsAuth} />}
+                        />
+                        <Route
+                            path="/search/:search"
+                            element={<SearchPage setIsAuth={setIsAuth} />}
+                        />
+                        <Route path="*" element={<ErrorPage />} />
+                    </Routes>
                 </main>
-                <Footer />
             </div>
+            <Footer />
         </div>
     );
 }
