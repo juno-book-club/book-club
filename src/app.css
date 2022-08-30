@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,7 +54,7 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 b,
@@ -251,7 +252,7 @@ html {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -298,8 +299,6 @@ button {
   color: #000;
   list-style: none;
   font-size: 18px;
-  margin: 23px 0 0;
-  padding-top: 5px;
 }
 
 .navLink {
@@ -387,10 +386,12 @@ label {
     background-color: none;
   }
 }
+
 @media (max-width: 1050px) {
   .navBar {
     position: relative;
   }
+
   .navBar button {
     position: fixed;
     right: 40px;
@@ -401,6 +402,7 @@ label {
     background: transparent;
     border: none;
   }
+
   .menuNav {
     font-family: "Maitree";
     display: flex;
@@ -421,14 +423,17 @@ label {
     height: 100vh;
     margin-top: 0;
   }
+
   .mdClose {
     margin: 5px;
     z-index: 10;
   }
+
   .menuNav.showMenu {
     width: 350px;
     transition: 0.5s;
   }
+
   .navLink {
     display: flex;
     text-decoration: none;
@@ -439,6 +444,7 @@ label {
     z-index: 5;
   }
 }
+
 /* style for loading animation */
 .loader {
   width: 100vw;
@@ -519,70 +525,12 @@ label {
   width: 250px;
   height: 400px;
 }
+
 .bookCover .coverImg {
   height: 80%;
   width: 80%;
 }
 
-.coverActive {
-  opacity: 0.5;
-}
-
-.bookCover img {
-  position: relative;
-}
-
-.ratingFavContainer figcaption {
-  font-size: 2rem;
-  position: absolute;
-  left: 30%;
-  z-index: -1;
-}
-
-.loginPage {
-  background-color: lightgray;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-}
-
-.loginContainer button {
-  background: #5da9c2;
-  cursor: pointer;
-  display: block;
-  margin-block: 20px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
-  transition: 0.3s;
-  border: none;
-  height: inherit;
-  width: 100%;
-}
-
-.loginContainer button:hover {
-
-  transform: scale(1.2);
-}
-
-.loginContainer button:first-of-type {
-    margin-top: 100%;
-} 
-
-.favouritesList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.favBtnsContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    padding-top: 15px;
-}
-
+li {
+  list-style: none;
+}/*# sourceMappingURL=App.css.map */

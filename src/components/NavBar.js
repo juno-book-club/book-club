@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Favourites from "../pages/Favourites";
-import About from "../pages/About";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { MdClose } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
+import bookLogo from "../assets/images/bookLogo.png";
 
 function NavBar({ isAuth, setIsAuth, signOut }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -30,7 +26,10 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
 
     return (
         <div className="navBarContainer">
-            <h1 className="logoTitle">Book Club Reads</h1>
+            <div className="logo">
+                <img src={bookLogo} alt="book club reads logo" className="bookLogo" />
+                <h1 className="logoTitle">Book Club Reads</h1>
+            </div>
             <nav className="navBar">
                 {/* <!-- slide out nav content --> */}
                 <button className="hamburgerMenu" onClick={handleToggle}>
@@ -86,13 +85,7 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
 
                     <li className="menuItem">
                         {isAuth ? (
-                            <Link
-                                to="/"
-                                className="navLink"
-                                onClick={() => signUserOut()}
-                            >
-                                Log out
-                            </Link>
+                            <button onClick={signUserOut}>Log out</button>
                         ) : (
                             <Link
                                 to="/Login"
@@ -102,6 +95,7 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                                 {" "}
                                 Log In{" "}
                             </Link>
+                            
                         )}
                     </li>
                 </ul>

@@ -151,21 +151,25 @@ const DisplayBook = ({ books, markRead }) => {
                                             }
                                         />
                                     </Link>
-                                    <div className="ratingContainer">
-                                        {/* if rating is not undefined, display it */}
-                                        {book.volumeInfo.averageRating !==
-                                        undefined ? (
-                                            <figcaption>
-                                                {book.volumeInfo.averageRating}
-                                                /5
-                                            </figcaption>
-                                        ) : (
-                                            <figcaption>
-                                                No Rating Available
-                                            </figcaption>
-                                        )}
-                                    </div>
-                                    <div className="favBtnsContainer">
+                                    <div className="ratingFavContainer">
+                                        <div className="ratingContainer">
+                                            {/* if rating is not undefined, display it */}
+                                            {book.volumeInfo.averageRating !==
+                                            undefined ? (
+                                                <figcaption>
+                                                    {
+                                                        book.volumeInfo
+                                                            .averageRating
+                                                    }
+                                                    /5
+                                                </figcaption>
+                                            ) : (
+                                                <figcaption>
+                                                    Currently No Rating
+                                                    Available for this book
+                                                </figcaption>
+                                            )}
+                                        </div>
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -208,20 +212,24 @@ const DisplayBook = ({ books, markRead }) => {
                                             className="coverImg"
                                         />
                                     </Link>
-                                    <div className="ratingContainer">
-                                        {book.volumeInfo.averageRating !==
-                                        undefined ? (
-                                            <figcaption>
-                                                {book.volumeInfo.averageRating}
-                                                /5
-                                            </figcaption>
-                                        ) : (
-                                            <figcaption>
-                                                No Rating Available
-                                            </figcaption>
-                                        )}
-                                    </div>
-                                    <div className="favBtnsContainer">
+                                    <div className="ratingFavContainer">
+                                        <div className="ratingContainer">
+                                            {book.volumeInfo.averageRating !==
+                                            undefined ? (
+                                                <figcaption>
+                                                    {
+                                                        book.volumeInfo
+                                                            .averageRating
+                                                    }
+                                                    /5
+                                                </figcaption>
+                                            ) : (
+                                                <figcaption>
+                                                    Currently No Rating
+                                                    Available for this book
+                                                </figcaption>
+                                            )}
+                                        </div>
                                         {isAuth && (
                                             <button
                                                 onClick={() => {

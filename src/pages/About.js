@@ -1,8 +1,8 @@
 import danielPhoto from "../assets/images/danielSelfPort.png";
 import jingruPhoto from "../assets/images/jingruPhoto.PNG";
 import charlesPhoto from "../assets/images/charlesSelfPort.png";
-import sarahPhoto from "../assets/images/sarahPhoto.png";
-import { FaGithub } from "react-icons/fa";
+import sarahPhoto from "../assets/images/sarahPhoto.png"
+import { FaGithub } from "react-icons/fa"
 
 function About() {
     const us = [
