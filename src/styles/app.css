@@ -699,6 +699,13 @@ h3 {
   width: 100%;
 }
 
+.person2Img {
+  width: 250px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .pagination ul {
   display: flex;
   justify-content: center;
