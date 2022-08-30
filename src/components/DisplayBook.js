@@ -23,6 +23,9 @@ const DisplayBook = ({ books, markRead }) => {
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users/${userId}/list`);
         let tempFavKeyValue;
+        const bookArray = [];
+        const idArray = [];
+        let listInDatabase;
 
         onValue(userRef, (response) => {
             tempFavKeyValue = response.val();
@@ -34,16 +37,8 @@ const DisplayBook = ({ books, markRead }) => {
             }
             setFavKeyValues(tempArray);
         });
-    }, [userId]);
 
-    useEffect(() => {
-        const database = getDatabase(firebase);
-        const userRef = ref(database, `/users/${userId}/list`);
-        const bookArray = [];
-        const idArray = [];
-        let listInDatabase;
-
-        //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
+         //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
@@ -55,6 +50,7 @@ const DisplayBook = ({ books, markRead }) => {
             setBookIds(idArray);
         });
     }, [userId]);
+
 
     //pushes the entire book obj into our user's firebase list
     //we also push the bookId into our bookIds list

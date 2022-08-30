@@ -21,16 +21,14 @@ function Details() {
             })
             .catch((err) => {
                 setError(err.message);
-                console.log(err.message)
             });
     }, []);
 
     return (
-
-        error.length>0 ?
+        error.length > 0 ?
         <h2>{error}</h2>
         :
-        //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo   
+        //buttons will probably need the book.id as an attribute so we can pass it a function to delete the book from the firebase repo
         <section className="details">
             <div className="wrapper">
                 <div className="detailImgContainer">
@@ -43,7 +41,6 @@ function Details() {
                 <div className="detailContainer">
                     <h2>{book.title}</h2>
                     {/* if author exist, loop through author array and display each author name */}
-                    {/* {console.log(book.authors)} */}
                     <h3>Author/Authors: {
                     book.authors?
                     book.authors.map((eachAuthor,index)=> <p key={index}>{eachAuthor}</p>)
@@ -51,7 +48,6 @@ function Details() {
                     <p>Unknown Author</p>
                     }
                     </h3>
-                    {/* {console.log(book.authors)} */}
                     <div className="descriptionContainer">
                         {book.categories && book.categories[0]}
                         {book.description && (

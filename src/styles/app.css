@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Maitree&family=Nunito+Sans:wght@300&display=swap');
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -257,11 +258,17 @@ html {
 }
 
 body,
-h2,
+h2 {
+  font-family: "Maitree", normal;
+}
 p,
 input,
-button {
-  font-family: "Maitree", normal;
+button, li {
+  font-family: "Nunito Sans";
+}
+
+li {
+  list-style: none;
 }
 
 .wrapper {
@@ -278,6 +285,10 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+button:focus{
+  border: 1px solid black;
 }
 
 .logo {
@@ -327,9 +338,13 @@ button {
 }
 
 .navLink:hover,
-.logoutBtn:hover {
+.navLink:focus,
+.logoutBtn:hover,
+.logoutBtn:focus
+{
   color: #ace8cd;
-}
+} 
+
 
 .logoutBtn {
   display: flex;
@@ -361,6 +376,10 @@ button {
   padding-left: 10px;
 }
 
+.instructionsSection h2 {
+  text-align: center;
+}
+
 .instructions {
   display: flex;
   justify-content: center;
@@ -373,9 +392,15 @@ button {
 }
 
 .instructionContainer {
-  width: 60%;
+  width: 55%;
   margin: 0 auto;
   text-align: left;
+  background-color: #f4e6e8;
+  padding: 30px;
+}
+
+.person1Img {
+width: 250px;
 }
 
 footer {
@@ -565,7 +590,8 @@ h3 {
   transition: 0.2s;
 }
 
-.backButton:hover {
+.backButton:hover,
+.backButton:focus {
   transform: scale(1.2);
 }
 
@@ -628,4 +654,17 @@ h3 {
 
 .loginContainer button:first-of-type {
   margin-top: 100%;
+}
+
+.pagination ul {
+  display: flex;
+}
+.pagination li {
+  margin-right: 20px;
+  list-style: none;
+  transition: 0.3s;
+}
+.pagination li:hover {
+  border-bottom: solid black 1px;
+  cursor: pointer;
 }/*# sourceMappingURL=App.css.map */

@@ -681,3 +681,18 @@ h3 {
 .loginContainer button:first-of-type {
     margin-top: 100%;
 }
+
+.pagination {
+    ul{
+        display: flex;
+    }
+    li{
+        margin-right: 20px;
+        list-style: none;
+        transition: 0.3s;
+    }
+    li:hover{
+        border-bottom: solid black 1px;
+        cursor: pointer;
+    }
+}

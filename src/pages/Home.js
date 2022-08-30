@@ -7,19 +7,18 @@ import { get, getDatabase, ref, update } from "firebase/database";
 function Home() {
     const [input, setInput] = useState("");
 
-    //IF userID exists in localStorage AND path to the directory under users doesn't exist
-    //create an object for them in the directory
-
+    //IF userID exists in localStorage but user doesn't exist in firebase
+    //create an object for them in the users directory
     useEffect(() => {
         const userObject = {
             userName: localStorage.getItem("userName"),
             userId: localStorage.getItem("userId"),
             list: {},
         };
+
         const userId = localStorage.getItem("userId");
         const database = getDatabase(firebase);
         const userRef = ref(database, `/users/${userId}`);
-
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 return;

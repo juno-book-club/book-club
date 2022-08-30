@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
-
-import { getDatabase, ref, onValue } from "firebase/database";
-import firebase from "../firebase-config";
 import ReactPaginate from 'react-paginate';
 
 
@@ -26,7 +23,8 @@ function SearchPage() {
         setUserId(localStorage.getItem("userId"));
     }, [userId, userName]);
     
-    const pageResults = 3;
+    const pageResults = 10;
+
     useEffect(() => {
         // before get result from API, setloading will be true
         setLoading(true);

@@ -27,7 +27,6 @@ function Login({ setIsAuth }) {
                 localStorage.setItem("userId", auth.currentUser.uid);
                 setLoginError(false);
                 setIsAuth(true);
-
                 navigate("/");
             })
             .catch((error) => {
