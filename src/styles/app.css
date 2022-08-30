@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -51,7 +52,8 @@ a {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 b,
@@ -140,24 +142,24 @@ select {
 }
 
 button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
+html [type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -183,24 +185,24 @@ textarea {
   overflow: auto;
 }
 
-[type="checkbox"],
-[type="radio"] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   padding: 0;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -248,35 +250,19 @@ html {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  clip-path: inset(100%);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
-/* // fonts and base size */
-
-@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
-
-/* $headingFont: "Maitree", bold;
-$bodyFont: "Maitree", normal; */
-
-/* body,
+body,
 h2,
 p,
 input,
 button {
-  font-family: $bodyFont;
+  font-family: "Maitree", normal;
 }
-
-$baseFontSize: 18px; */
-
-/* // colors */
-/* 
-$blue: #5da9c2;
-$green: #ace8cd;
-$pink: #f4e6e8;
-$white: #fff;
-$darkblue: #305662; */
 
 .wrapper {
   width: 80%;
@@ -286,7 +272,7 @@ $darkblue: #305662; */
 
 button {
   display: inline;
-  background-color: blue;
+  background-color: #5da9c2;
   width: 100px;
   height: 40px;
   border: none;
@@ -294,14 +280,14 @@ button {
   cursor: pointer;
 }
 
-/* // navigation */
-
 .logo {
   display: flex;
 }
 
 .bookLogo {
   width: 70px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   margin-top: 15px;
   margin-right: 10px;
@@ -314,7 +300,7 @@ button {
 }
 
 .logoTitle {
-  /* font-family: $headingFont; */
+  font-family: "Maitree", bold;
   font-size: 30px;
 }
 
@@ -331,7 +317,7 @@ button {
   text-decoration: none;
   color: #000;
   list-style: none;
-  /* font-size: $baseFontSize; */
+  font-size: 18px;
   padding-top: 8px;
 }
 
@@ -342,7 +328,7 @@ button {
 
 .navLink:hover,
 .logoutBtn:hover {
-  color: green;
+  color: #ace8cd;
 }
 
 .logoutBtn {
@@ -352,8 +338,6 @@ button {
   padding: 0;
 }
 
-/* // search bar */
-
 .form {
   display: flex;
   flex-direction: column;
@@ -361,7 +345,7 @@ button {
   margin: 40px auto;
   padding: 30px;
   width: 80%;
-  background-color: pink;
+  background-color: #f4e6e8;
   border-top-left-radius: 65px 70px;
   border-top-right-radius: 40px 30px;
   border-bottom-right-radius: 38px 50px;
@@ -371,7 +355,7 @@ button {
 .form input {
   height: 40px;
   width: 400px;
-  border: 1px solid navy;
+  border: 1px solid #305662;
   border-radius: 5px;
   margin-right: 10px;
   padding-left: 10px;
@@ -383,8 +367,6 @@ button {
   margin-bottom: 20px;
 }
 
-/* // app instructions */
-
 .instructions {
   text-align: center;
   margin-bottom: 40px;
@@ -393,15 +375,12 @@ button {
 .instructionContainer {
   width: 60%;
   margin: 0 auto;
-  list-style: none;
   text-align: left;
 }
 
-/* // footer navigation */
-
 footer {
   display: block;
-  background-color: blue;
+  background-color: #5da9c2;
   height: 50px;
   width: 100vw;
   text-align: center;
@@ -411,8 +390,6 @@ footer {
 footer p {
   padding-top: 17px;
 }
-
-/* // about page */
 
 .aboutContainer {
   display: flex;
@@ -441,45 +418,36 @@ footer p {
 
 .aboutButtons a:hover {
   text-decoration: none;
-  color: green
+  color: #ace8cd;
 }
-
-/* // media queries */
 
 @media (max-width: 730px) {
   .instructions {
     display: flex;
     flex-direction: column;
   }
-
   .instructionContainer {
     margin: 0 auto;
     width: 100%;
   }
-
   .person1Img {
     position: relative;
     top: 50px;
   }
-
   .form input {
     width: 100%;
   }
 }
-
 @media (min-width: 1050px) {
   .hamburgerMenu {
     display: none;
     background-color: none;
   }
-
 }
-
 @media (max-width: 1050px) {
   .navBar {
     position: relative;
   }
-
   .navBar button {
     position: fixed;
     right: 40px;
@@ -490,20 +458,19 @@ footer p {
     background: transparent;
     border: none;
   }
-
   .menuNav {
     font-family: "Maitree";
     display: flex;
     flex-direction: column;
     justify-content: left;
     text-decoration: none;
-    /* font-size: $baseFontSize; */
+    font-size: 18px;
     padding: 40px;
     list-style: none;
     position: fixed;
     overflow-y: hidden;
     top: 0;
-    background: blue;
+    background: #5da9c2;
     right: -100px;
     bottom: 0;
     width: 0;
@@ -511,17 +478,14 @@ footer p {
     height: 100vh;
     margin-top: 0;
   }
-
   .mdClose {
     margin: 5px;
     z-index: 10;
   }
-
   .menuNav.showMenu {
     width: 350px;
     transition: 0.5s;
   }
-
   .navLink {
     display: flex;
     text-decoration: none;
@@ -531,11 +495,8 @@ footer p {
     margin: 20px;
     z-index: 5;
   }
-
 }
-
 /* style for loading animation */
-
 .loader {
   width: 100vw;
   height: 100vh;
@@ -543,7 +504,6 @@ footer p {
   left: 0;
   background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
   z-index: 1;
-
 }
 
 .loader::after {
@@ -553,8 +513,6 @@ footer p {
   color: #fff;
   font-size: 100px;
 }
-
-/* // Details.js Page styles */
 
 .details {
   margin-block: 20vh;
@@ -585,10 +543,8 @@ h3 {
   width: 48%;
   border: 2px solid goldenrod;
   max-height: 80vh;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
-
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
 }
-
 
 .descriptionContainer {
   height: 100%;
@@ -615,26 +571,21 @@ h3 {
 
 .favourited {
   color: green;
-
 }
 
 .bookCover {
   width: 250px;
   height: 400px;
-
-  .coverImg {
-    height: 80%;
-    width: 80%;
-    margin-top: 20px;
-  }
+}
+.bookCover .coverImg {
+  height: 80%;
+  width: 80%;
+  margin-top: 20px;
 }
 
 .coverActive {
   opacity: 0.5;
 }
-
-
-/* // DisplayBook.js  */
 
 .bookCover img {
   position: relative;
@@ -658,18 +609,17 @@ h3 {
 }
 
 .loginContainer button {
-  background: $green;
+  background: #ace8cd;
   cursor: pointer;
   display: block;
   margin-block: 20px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
   transition: 0.3s;
   border: none;
   height: inherit;
   width: 100%;
-
 }
 
 .loginContainer button:hover {
@@ -678,5 +628,4 @@ h3 {
 
 .loginContainer button:first-of-type {
   margin-top: 100%;
-
-}
+}/*# sourceMappingURL=App.css.map */

@@ -1,4 +1,4 @@
-import "./app.css";
+import "./styles/app.css";
 // import "./App.scss";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -28,10 +28,7 @@ function App() {
                 </header>
                 <main>
                     <Routes>
-                        <Route
-                            path="/"
-                            element={<Home isAuth={isAuth} />}
-                        />
+                        <Route path="/" element={<Home isAuth={isAuth} />} />
                         <Route
                             path="/favourites"
                             element={<Favourites isAuth={isAuth} />}
