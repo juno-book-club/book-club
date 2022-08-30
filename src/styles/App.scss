@@ -449,7 +449,7 @@ footer p {
 
 .aboutButtons a:hover {
     text-decoration: none;
-    color: $green
+    color: $green;
 }
 
 // media queries
@@ -480,7 +480,6 @@ footer p {
         display: none;
         background-color: none;
     }
-
 }
 
 @media (max-width: 1050px) {
@@ -539,7 +538,6 @@ footer p {
         margin: 20px;
         z-index: 5;
     }
-
 }
 
 /* style for loading animation */
@@ -549,9 +547,10 @@ footer p {
     height: 100vh;
     position: absolute;
     left: 0;
-    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
+    background: rgba(0, 0, 0, 0.834)
+        url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
+        no-repeat;
     z-index: 1;
-
 }
 
 .loader::after {
@@ -593,10 +592,8 @@ h3 {
     width: 48%;
     border: 2px solid goldenrod;
     max-height: 80vh;
-    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
-
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
 }
-
 
 .descriptionContainer {
     height: 100%;
@@ -623,7 +620,6 @@ h3 {
 
 .favourited {
     color: green;
-
 }
 
 .bookCover {
@@ -641,8 +637,7 @@ h3 {
     opacity: 0.5;
 }
 
-
-// DisplayBook.js 
+// DisplayBook.js
 
 .bookCover img {
     position: relative;
@@ -672,12 +667,11 @@ h3 {
     margin-block: 20px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+    box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
     transition: 0.3s;
     border: none;
     height: inherit;
     width: 100%;
-
 }
 
 .loginContainer button:hover {
@@ -686,5 +680,4 @@ h3 {
 
 .loginContainer button:first-of-type {
     margin-top: 100%;
-
 }

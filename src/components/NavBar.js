@@ -27,7 +27,11 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
     return (
         <div className="navBarContainer">
             <div className="logo">
-                <img src={bookLogo} alt="book club reads logo" className="bookLogo" />
+                <img
+                    src={bookLogo}
+                    alt="book club reads logo"
+                    className="bookLogo"
+                />
                 <h1 className="logoTitle">Book Club Reads</h1>
             </div>
             <nav className="navBar">
@@ -78,14 +82,19 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                             className="navLink"
                             onClick={() => closeMenu()}
                         >
-                            {" "}
-                            About{" "}
+                            About
                         </Link>
                     </li>
 
                     <li className="menuItem">
                         {isAuth ? (
-                            <button onClick={signUserOut}>Log out</button>
+                            <Link
+                                to="/"
+                                className="navLink"
+                                onClick={() => signUserOut()}
+                            >
+                                Log out
+                            </Link>
                         ) : (
                             <Link
                                 to="/Login"
@@ -95,7 +104,6 @@ function NavBar({ isAuth, setIsAuth, signOut }) {
                                 {" "}
                                 Log In{" "}
                             </Link>
-                            
                         )}
                     </li>
                 </ul>
