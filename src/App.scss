@@ -574,7 +574,8 @@ footer p {
     justify-content: space-between;
 }
 
-.details h2,h3 {
+.details h2,
+h3 {
     text-align: center;
 }
 
@@ -615,6 +616,7 @@ footer p {
     cursor: pointer;
     transition: 0.2s;
 }
+
 .backButton:hover {
     transform: scale(1.2);
 }
@@ -653,7 +655,7 @@ footer p {
     z-index: -1;
 }
 
-.loginPage{
+.loginPage {
     background-color: lightgray;
     height: 80vh;
     display: flex;
@@ -663,7 +665,7 @@ footer p {
     border-radius: 20px;
 }
 
-.loginContainer button{
+.loginContainer button {
     background: $green;
     cursor: pointer;
     display: block;
@@ -682,7 +684,7 @@ footer p {
     transform: scale(1.2);
 }
 
-.loginContainer button:first-of-type{
+.loginContainer button:first-of-type {
     margin-top: 100%;
 
 }
