@@ -9,7 +9,7 @@ const Instructions = () => {
                 <div className="instructionBox"></div>
                 <ul className="instructionContainer">
                     <h3>Instructions:</h3>
-                    <li>Log in with your google account (by clicking the Log In page) to be able to 'favourite', rate a book, and keep track of how many books you've read.</li>
+                    <li>Log in with your google account (by clicking the Log In page) to be able to 'favourite' and keep track of how many books you've read.</li>
                     <br></br>
                     <li>If you sign in anonymously these features will be disabled but you will still be able to search and read more information about the book you've selected. After logging in, enter the full book title in our search bar below.</li>
                     <br></br>

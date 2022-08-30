@@ -41,17 +41,15 @@ function Favourites() {
     }
 
     return (
-        <section className="Favourites">
+        <section className="favourites">
             <h2>Your Favourites!</h2>
             <p>
                 Books Read: {booksRead}/{books.length} {percentage(booksRead, books.length)}%
             </p>
             <div className="favouritesContainer">
                 <ul className="favouritesList">
-                    {" "}
                     {books && <DisplayBook books={books} markRead={true} />}
                 </ul>
-                <div className="paginationContainer"></div>
             </div>
         </section>
     );

@@ -136,6 +136,7 @@ const DisplayBook = ({ books, markRead }) => {
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
+                               
                                     <Link to={`/details/${book.id}`}>
                                         <img
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
@@ -147,7 +148,6 @@ const DisplayBook = ({ books, markRead }) => {
                                             }
                                         />
                                     </Link>
-                                    <div className="ratingFavContainer">
                                         <div className="ratingContainer">
                                             {/* if rating is not undefined, display it */}
                                             {book.volumeInfo.averageRating !==
@@ -161,11 +161,15 @@ const DisplayBook = ({ books, markRead }) => {
                                                 </figcaption>
                                             ) : (
                                                 <figcaption>
-                                                    Currently No Rating
-                                                    Available for this book
+                                                 No Rating
+                                                    
                                                 </figcaption>
                                             )}
                                         </div>
+                                      
+                                        
+                                    </div>
+                                    <div className="btnContainer">
                                         {isAuth && (
                                             <button
                                                 className="favourited"
@@ -193,8 +197,7 @@ const DisplayBook = ({ books, markRead }) => {
                                                 mark read
                                             </button>
                                         )}
-                                    </div>
-                                </div>
+                                        </div>
                             </li>
                         );
                     } else {
@@ -208,7 +211,6 @@ const DisplayBook = ({ books, markRead }) => {
                                             className="coverImg"
                                         />
                                     </Link>
-                                    <div className="ratingFavContainer">
                                         <div className="ratingContainer">
                                             {book.volumeInfo.averageRating !==
                                             undefined ? (
@@ -221,8 +223,8 @@ const DisplayBook = ({ books, markRead }) => {
                                                 </figcaption>
                                             ) : (
                                                 <figcaption>
-                                                    Currently No Rating
-                                                    Available for this book
+                                                    No Rating
+                                                    
                                                 </figcaption>
                                             )}
                                         </div>
@@ -236,7 +238,6 @@ const DisplayBook = ({ books, markRead }) => {
                                             </button>
                                         )}
                                     </div>
-                                </div>
                             </li>
                         );
                     }

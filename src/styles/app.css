@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Maitree&family=Nunito+Sans:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Maitree&family=Nunito+Sans:wght@300&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -150,7 +149,7 @@ html [type=button],
 }
 
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
+[type=button]::-moz-s-inner,
 [type=reset]::-moz-focus-inner,
 [type=submit]::-moz-focus-inner {
   border-style: none;
@@ -259,12 +258,13 @@ html {
 
 body,
 h2 {
-  font-family: "Maitree", normal;
+  font-family: "Maitree", bold;
 }
+
 p,
 input,
 button, li {
-  font-family: "Nunito Sans";
+  font-family: "Nunito Sans", normal;
 }
 
 li {
@@ -273,7 +273,7 @@ li {
 
 .wrapper {
   width: 80%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -285,10 +285,11 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-button:focus{
-  border: 1px solid black;
+button:hover {
+  box-shadow: 5px 5px #305662;
 }
 
 .logo {
@@ -338,13 +339,9 @@ button:focus{
 }
 
 .navLink:hover,
-.navLink:focus,
-.logoutBtn:hover,
-.logoutBtn:focus
-{
+.logoutBtn:hover {
   color: #ace8cd;
-} 
-
+}
 
 .logoutBtn {
   display: flex;
@@ -358,8 +355,9 @@ button:focus{
   flex-direction: column;
   align-items: center;
   margin: 40px auto;
+  margin-bottom: 20vh;
   padding: 30px;
-  width: 80%;
+  width: 60%;
   background-color: #f4e6e8;
   border-top-left-radius: 65px 70px;
   border-top-right-radius: 40px 30px;
@@ -376,8 +374,8 @@ button:focus{
   padding-left: 10px;
 }
 
-.instructionsSection h2 {
-  text-align: center;
+.form input:active, :focus {
+  background-color: lightcyan;
 }
 
 .instructions {
@@ -386,9 +384,15 @@ button:focus{
   margin-bottom: 20px;
 }
 
-.instructions {
+.instructionsSection h2 {
   text-align: center;
-  margin-bottom: 40px;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .instructionContainer {
@@ -397,10 +401,20 @@ button:focus{
   text-align: left;
   background-color: #f4e6e8;
   padding: 30px;
+  border-top-left-radius: 65px 70px;
+  border-top-right-radius: 155px 125px;
+  border-bottom-right-radius: 38px 50px;
+  border-bottom-left-radius: 40px 30px;
 }
 
 .person1Img {
-width: 250px;
+  width: 250px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  top: 120px;
+  left: 170px;
 }
 
 footer {
@@ -410,20 +424,32 @@ footer {
   width: 100vw;
   text-align: center;
   padding: 0px;
+  position: fixed;
+  bottom: 0;
+  opacity: 0.8;
 }
 
-footer p {
-  padding-top: 17px;
+footer svg {
+  margin-inline: 5px;
 }
 
 .aboutContainer {
   display: flex;
+  margin-bottom: 60px;
+}
+.aboutContainer p {
+  text-align: center;
+}
+
+.aboutContainer h2 {
+  text-align: center;
 }
 
 .about {
   margin: 0 auto;
   padding: 20px;
   margin: 20px 0px;
+  position: relative;
 }
 
 .about img {
@@ -433,7 +459,9 @@ footer p {
 
 .aboutButtons {
   display: flex;
-  justify-content: space-evenly;
+  position: absolute;
+  bottom: -5%;
+  padding-inline: 20px;
 }
 
 .aboutButtons a {
@@ -441,26 +469,26 @@ footer p {
   color: black;
 }
 
+.aboutButtons button:nth-of-type(2) {
+  margin-left: 20px;
+}
+
 .aboutButtons a:hover {
   text-decoration: none;
   color: #ace8cd;
 }
 
-@media (max-width: 730px) {
-  .instructions {
-    display: flex;
-    flex-direction: column;
+@media (max-width: 614px) {
+  .bookCover {
+    width: 180px;
+    height: 288px;
   }
-  .instructionContainer {
-    margin: 0 auto;
-    width: 100%;
+  .bookCover .coverimg {
+    margin: 10px auto;
   }
-  .person1Img {
-    position: relative;
-    top: 50px;
-  }
-  .form input {
-    width: 100%;
+  .favouritesList {
+    justify-content: space-around;
+    padding-left: 0;
   }
 }
 @media (min-width: 1050px) {
@@ -521,12 +549,44 @@ footer p {
     z-index: 5;
   }
 }
+@media (max-width: 1360px) {
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .instructionContainer {
+    margin: 0 auto;
+    width: 60%;
+  }
+  .person1Img {
+    display: flex;
+    justify-content: center;
+    top: 45px;
+    left: 0;
+    margin: 0 auto;
+  }
+  .form input {
+    width: 100%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
+  .searchBtn {
+    margin-top: 20px;
+  }
+}
 /* style for loading animation */
 .loader {
   width: 100vw;
-  height: 100vh;
+  height: 175vh;
   position: absolute;
   left: 0;
+  top: 15%;
   background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
   z-index: 1;
 }
@@ -574,6 +634,7 @@ h3 {
 .descriptionContainer {
   height: 100%;
   overflow: scroll;
+  padding: 10px;
 }
 
 .detailImgContainer img {
@@ -590,74 +651,57 @@ h3 {
   transition: 0.2s;
 }
 
-.backButton:hover,
-.backButton:focus {
-  transform: scale(1.2);
+.favourited {
+  background-color: #f4e6e8;
 }
 
-.favourited {
-  color: green;
+.favourited:hover {
+  box-shadow: #5da9c2 5px 5px;
 }
 
 .bookCover {
-  width: 250px;
-  height: 400px;
+  width: 225px;
+  height: 360px;
+  position: relative;
 }
 .bookCover .coverImg {
-  height: 80%;
-  width: 80%;
-  margin-top: 20px;
+  height: 100%;
+  width: 100%;
 }
 
 .coverActive {
   opacity: 0.5;
 }
 
-.bookCover img {
-  position: relative;
-}
-
-.ratingFavContainer figcaption {
-  font-size: 2rem;
-  position: absolute;
-  left: 30%;
-  z-index: -1;
-}
-
 .loginPage {
-  background-color: lightgray;
-  height: 80vh;
+  background-color: #f4e6e8;
+  height: 50vh;
+  width: 40vw;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-top-left-radius: 65px 70px;
+  border-top-right-radius: 40px 30px;
+  border-bottom-right-radius: 38px 50px;
+  border-bottom-left-radius: 155px 125px;
 }
 
 .loginContainer button {
-  background: #ace8cd;
   cursor: pointer;
   display: block;
   margin-block: 20px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
-  transition: 0.3s;
   border: none;
   height: inherit;
   width: 100%;
 }
 
-.loginContainer button:hover {
-  transform: scale(1.2);
-}
-
-.loginContainer button:first-of-type {
-  margin-top: 100%;
-}
-
 .pagination ul {
   display: flex;
+  justify-content: center;
 }
 .pagination li {
   margin-right: 20px;
@@ -667,4 +711,56 @@ h3 {
 .pagination li:hover {
   border-bottom: solid black 1px;
   cursor: pointer;
+}
+.pagination .selected {
+  color: #5da9c2;
+}
+
+.search {
+  margin-bottom: 60px;
+}
+.search p {
+  text-align: center;
+}
+
+.searchedBooks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  justify-content: space-around;
+  gap: 60px;
+  padding: 0;
+}
+
+.favourites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favouritesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.ratingContainer {
+  position: absolute;
+  top: 1%;
+  color: black;
+  background-color: black;
+  border-radius: 5px;
+  padding: 2px;
+  background: #5da9c2;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0 25px 0;
 }/*# sourceMappingURL=App.css.map */

@@ -23,7 +23,7 @@ function SearchPage() {
         setUserId(localStorage.getItem("userId"));
     }, [userId, userName]);
     
-    const pageResults = 10;
+    const pageResults = 12;
 
     useEffect(() => {
         // before get result from API, setloading will be true
@@ -73,18 +73,20 @@ function SearchPage() {
             }
 
             {books ? (
-                <div>
-                    <DisplayBook books={books} />
+                <section className="search">
+                    <div className="searchedBooks">
+                        <DisplayBook books={books} />
+                    </div>
                     <div className="pagination">
                         <ReactPaginate
-                        nextLabel="next"
-                        previousLabel="previous"
+                        nextLabel="Next"
+                        previousLabel="Previous"
                         pageCount={10} 
                         onPageChange={handlePageClick}
                         />
                     </div>
                         <p>Page: {page}</p>
-                </div>
+                </section>
             ) : 
 
                 <Link to="/">

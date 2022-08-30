@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup, signInAnonymously } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import person2Img from '../assets/images/person2.png'
 
 function Login({ setIsAuth }) {
     let navigate = useNavigate();
@@ -53,9 +54,10 @@ function Login({ setIsAuth }) {
             <div className="wrapper">
                 <div className="loginPage">
                     <div className="loginHeadingContainer">
-                        <h1 ref={loginEl}>Sign in to Continue</h1>
+                        <h2 ref={loginEl}>Sign in to Continue</h2>
                     </div>
                     <div className="loginContainer">
+                        
                         <button
                             className="login-with-google-btn loginBtn"
                             onClick={signInWithGoogle}
@@ -74,6 +76,7 @@ function Login({ setIsAuth }) {
                             </p>
                         )}
                     </div>
+                    <img src={person2Img} alt="person reading a book" className="person2Img"/>
                 </div>
             </div>
         </section>
