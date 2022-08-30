@@ -9,7 +9,7 @@ function About() {
         {
             name: "Daniel Ramsauer",
             img: danielPhoto,
-            description: `I'm a front end developer that loves to be creative. I come from a background of tattooing and construction. On my off time I love to watch anime, starwars, play video games, work out and play sports!`,
+            description: `I'm a front end developer that loves to be creative. I come from a background of tattooing and construction. On my off time I love to watch anime, movies, play video games, sports and work out!`,
             github: "https://github.com/DanRamsauer",
             portfolio: "https://danielramsauer.com/",
         },

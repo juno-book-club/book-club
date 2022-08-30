@@ -390,10 +390,19 @@ button:hover{
     padding-left: 10px;
 }
 
-.form input:active,:focus{
+.form {
+    input {
+        &:active, &:focus {
+            background-color: lightcyan;
+
+        }
+    }
+}
+
+.buttonActive {
     background-color: lightcyan;
-  }
-  
+
+}
 
 .instructions {
     display: flex;
@@ -430,7 +439,7 @@ button:hover{
     width: 250px;
     height: fit-content;
     position: relative;
-    top: 120px;
+    top: 110px;
     left: 170px;
     }
 
@@ -483,6 +492,7 @@ footer svg{
     position: absolute;
     bottom: -5%;
     padding-inline: 20px;
+    margin-left: -8px;
 }
 
 .aboutButtons a {
@@ -501,17 +511,35 @@ footer svg{
 }
 
 // media queries
+@media (max-width: 400px) {
+    .wrapper .instructionContainer {
+        width: 100%;
+    }
+}
+
 @media (max-width: 614px) {
     .bookCover{
     width: 180px;
     height: 288px;
-    .coverimg {
-        margin: 10px auto;
+        .coverimg {
+            margin: 10px auto;
+        }
+    }
+    .favouritesList {
+        justify-content: space-around;
+        padding-left: 0;
     }
 }
-.favouritesList {
-    justify-content: space-around;
-    padding-left: 0;
+
+@media (max-width: 770px) {
+    .loginPage h2 {
+        margin: 0 auto;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .loginPage {
+        padding: 20px;
     }
 }
 
@@ -529,13 +557,15 @@ footer svg{
 
     .navBar button {
         position: fixed;
-        right: 40px;
+        right: 0px;
         top: 14px;
         z-index: 10;
         color: black;
         cursor: pointer;
         background: transparent;
         border: none;
+        box-shadow: none;
+
     }
 
     .menuNav {
@@ -615,6 +645,15 @@ footer svg{
     .searchBtn {
         margin-top: 20px;
     }
+
+    .aboutContainer{
+        flex-wrap: wrap;
+        .about{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }
 
 /* style for loading animation */
@@ -667,9 +706,9 @@ h3 {
 
 .detailImgContainer,
 .detailContainer {
-    width: 48%;
+    width: 675px;
     border: 2px solid goldenrod;
-    max-height: 80vh;
+    max-height: 1080px;
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
 }
 
@@ -709,8 +748,6 @@ h3 {
     .coverImg {
         height: 100%;
         width: 100%;
-        
-
     }
 }
 
@@ -723,12 +760,11 @@ h3 {
 
 .loginPage {
     background-color: #f4e6e8;
-    height: 50vh;
-    width: 40vw;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     border-top-left-radius: 65px 70px;
     border-top-right-radius: 40px 30px;
@@ -740,11 +776,16 @@ h3 {
     cursor: pointer;
     display: block;
     margin-block: 20px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     border: none;
     height: inherit;
     width: 100%;
+}
+
+.loginContainer {
+    padding-top: 20px;
+    margin: 0 auto;
 }
 
 .person2Img {
