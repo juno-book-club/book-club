@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
-
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -53,7 +51,6 @@ a {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -143,24 +140,24 @@ select {
 }
 
 button,
-html [type=button],
-[type=reset],
-[type=submit] {
+html [type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
 
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -186,24 +183,24 @@ textarea {
   overflow: auto;
 }
 
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
 
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type=search] {
+[type="search"] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
-[type=search]::-webkit-search-cancel-button,
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -251,19 +248,35 @@ html {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: inset(100%);
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
-body,
+/* // fonts and base size */
+
+@import url("https://fonts.googleapis.com/css2?family=Maitree&display=swap");
+
+/* $headingFont: "Maitree", bold;
+$bodyFont: "Maitree", normal; */
+
+/* body,
 h2,
 p,
 input,
 button {
-  font-family: "Maitree", normal;
+  font-family: $bodyFont;
 }
+
+$baseFontSize: 18px; */
+
+/* // colors */
+/* 
+$blue: #5da9c2;
+$green: #ace8cd;
+$pink: #f4e6e8;
+$white: #fff;
+$darkblue: #305662; */
 
 .wrapper {
   width: 80%;
@@ -273,32 +286,53 @@ button {
 
 button {
   display: inline;
-  background-color: #5da9c2;
+  background-color: blue;
   width: 100px;
   height: 40px;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* // navigation */
+
+.logo {
+  display: flex;
+}
+
+.bookLogo {
+  width: 70px;
+  height: fit-content;
+  margin-top: 15px;
+  margin-right: 10px;
 }
 
 .navBarContainer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .logoTitle {
-  font-family: "Maitree", bold;
+  /* font-family: $headingFont; */
   font-size: 30px;
-  display: inline;
+}
+
+.menuNav,
+.logoTitle {
+  margin-top: 20px;
 }
 
 .menuNav {
   font-family: "Maitree";
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  width: 400px;
   text-decoration: none;
   color: #000;
   list-style: none;
-  font-size: 18px;
+  /* font-size: $baseFontSize; */
+  padding-top: 8px;
 }
 
 .navLink {
@@ -306,52 +340,82 @@ button {
   color: black;
 }
 
-.navLink:hover {
-  color: #ace8cd;
+.navLink:hover,
+.logoutBtn:hover {
+  color: green;
 }
+
+.logoutBtn {
+  display: flex;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* // search bar */
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 35px;
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  background-color: pink;
+  border-top-left-radius: 65px 70px;
+  border-top-right-radius: 40px 30px;
+  border-bottom-right-radius: 38px 50px;
+  border-bottom-left-radius: 155px 125px;
 }
 
-input {
+.form input {
   height: 40px;
-  width: 300px;
-  border: 1px solid #000;
+  width: 400px;
+  border: 1px solid navy;
+  border-radius: 5px;
   margin-right: 10px;
   padding-left: 10px;
 }
 
-label {
-  margin-bottom: 10px;
+.instructions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
+
+/* // app instructions */
 
 .instructions {
   text-align: center;
   margin-bottom: 40px;
 }
 
-
 .instructionContainer {
   width: 60%;
   margin: 0 auto;
+  list-style: none;
   text-align: left;
 }
 
-.footerBar {
+/* // footer navigation */
+
+footer {
   display: block;
-  background-color: #5da9c2;
+  background-color: blue;
   height: 50px;
   width: 100vw;
   text-align: center;
   padding: 0px;
 }
 
-.footerBar p {
+footer p {
   padding-top: 17px;
+}
+
+/* // about page */
+
+.aboutContainer {
+  display: flex;
 }
 
 .about {
@@ -377,7 +441,30 @@ label {
 
 .aboutButtons a:hover {
   text-decoration: none;
-  color: #ace8cd;
+  color: green
+}
+
+/* // media queries */
+
+@media (max-width: 730px) {
+  .instructions {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instructionContainer {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .person1Img {
+    position: relative;
+    top: 50px;
+  }
+
+  .form input {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1050px) {
@@ -385,6 +472,7 @@ label {
     display: none;
     background-color: none;
   }
+
 }
 
 @media (max-width: 1050px) {
@@ -409,13 +497,13 @@ label {
     flex-direction: column;
     justify-content: left;
     text-decoration: none;
-    font-size: 18px;
+    /* font-size: $baseFontSize; */
     padding: 40px;
     list-style: none;
     position: fixed;
     overflow-y: hidden;
     top: 0;
-    background: #5da9c2;
+    background: blue;
     right: -100px;
     bottom: 0;
     width: 0;
@@ -443,9 +531,11 @@ label {
     margin: 20px;
     z-index: 5;
   }
+
 }
 
 /* style for loading animation */
+
 .loader {
   width: 100vw;
   height: 100vh;
@@ -453,6 +543,7 @@ label {
   left: 0;
   background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center no-repeat;
   z-index: 1;
+
 }
 
 .loader::after {
@@ -462,6 +553,8 @@ label {
   color: #fff;
   font-size: 100px;
 }
+
+/* // Details.js Page styles */
 
 .details {
   margin-block: 20vh;
@@ -473,7 +566,8 @@ label {
   justify-content: space-between;
 }
 
-.details h2, h3 {
+.details h2,
+h3 {
   text-align: center;
 }
 
@@ -491,8 +585,10 @@ label {
   width: 48%;
   border: 2px solid goldenrod;
   max-height: 80vh;
-  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+
 }
+
 
 .descriptionContainer {
   height: 100%;
@@ -519,18 +615,68 @@ label {
 
 .favourited {
   color: green;
+
 }
 
 .bookCover {
   width: 250px;
   height: 400px;
+
+  .coverImg {
+    height: 80%;
+    width: 80%;
+    margin-top: 20px;
+  }
 }
 
-.bookCover .coverImg {
-  height: 80%;
-  width: 80%;
+.coverActive {
+  opacity: 0.5;
 }
 
-li {
-  list-style: none;
-}/*# sourceMappingURL=App.css.map */
+
+/* // DisplayBook.js  */
+
+.bookCover img {
+  position: relative;
+}
+
+.ratingFavContainer figcaption {
+  font-size: 2rem;
+  position: absolute;
+  left: 30%;
+  z-index: -1;
+}
+
+.loginPage {
+  background-color: lightgray;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.loginContainer button {
+  background: $green;
+  cursor: pointer;
+  display: block;
+  margin-block: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .521);
+  transition: 0.3s;
+  border: none;
+  height: inherit;
+  width: 100%;
+
+}
+
+.loginContainer button:hover {
+  transform: scale(1.2);
+}
+
+.loginContainer button:first-of-type {
+  margin-top: 100%;
+
+}
