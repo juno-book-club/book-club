@@ -118,7 +118,6 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-button,
 input,
 optgroup,
 select,
@@ -255,7 +254,7 @@ html {
 
 // fonts and base size
 
-@import url('https://fonts.googleapis.com/css2?family=Maitree&family=Nunito+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Maitree&family=Nunito+Sans:wght@300&display=swap");
 
 $headingFont: "Maitree", bold;
 $bodyFont: "Nunito Sans", normal;
@@ -265,9 +264,14 @@ h2 {
     font-family: $headingFont;
 }
 
+h3 {
+    margin: 0;
+}
+
 p,
 input,
-button, li {
+button,
+li {
     font-family: $bodyFont;
 }
 
@@ -294,15 +298,15 @@ $darkblue: #305662;
 button {
     display: inline;
     background-color: $blue;
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 32px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-button:hover{
+button:hover {
     box-shadow: 5px 5px $darkblue;
 }
 
@@ -313,9 +317,9 @@ button:hover{
 }
 
 .bookLogo {
-    width: 70px;
+    width: clamp(32px, 10vw, 70px);
     height: fit-content;
-    margin-top: 15px;
+    margin-top: 18px;
     margin-right: 10px;
 }
 
@@ -327,7 +331,7 @@ button:hover{
 
 .logoTitle {
     font-family: $headingFont;
-    font-size: 30px;
+    font-size: clamp(12px, 5vw, 30px);
 }
 
 .menuNav,
@@ -373,35 +377,33 @@ button:hover{
     margin: 40px auto;
     margin-bottom: 20vh;
     padding: 30px;
-    width: 60%;
     background-color: $pink;
     border-top-left-radius: 65px 70px;
     border-top-right-radius: 40px 30px;
     border-bottom-right-radius: 38px 50px;
     border-bottom-left-radius: 155px 125px;
+    max-width: 650px;
+    gap: 20px;
 }
 
 .form input {
-    height: 40px;   
-    width: 400px;
+    height: 32px;
     border: 1px solid $darkblue;
     border-radius: 5px;
-    margin-right: 10px;
     padding-left: 10px;
 }
 
 .form {
     input {
-        &:active, &:focus {
+        &:active,
+        &:focus {
             background-color: lightcyan;
-
         }
     }
 }
 
 .buttonActive {
     background-color: lightcyan;
-
 }
 
 .instructions {
@@ -414,14 +416,14 @@ button:hover{
 
 .instructionsSection h2 {
     text-align: center;
-  }
-  
-  .instructions {
+}
+
+.instructions {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     text-align: center;
-  }
+}
 
 .instructionContainer {
     width: 55%;
@@ -433,32 +435,36 @@ button:hover{
     border-top-right-radius: 155px 125px;
     border-bottom-right-radius: 38px 50px;
     border-bottom-left-radius: 40px 30px;
-  }
+}
 
-  .person1Img {
+.instructionContainer h3 {
+    margin-bottom: 20px;
+}
+
+.person1Img {
     width: 250px;
     height: fit-content;
     position: relative;
-    top: 110px;
-    left: 170px;
-    }
+    top: 40px;
+    left: -5px;
+}
 
 // footer navigation
 
 footer {
-
     display: block;
     background-color: $blue;
-    height: 50px;
     width: 100vw;
     text-align: center;
-    padding: 0px;
-    position: fixed;
-    bottom: 0;
-    opacity: 0.8;
+    position: absolute;
+    // opacity: 0.8;
+    p {
+        margin: 0;
+        padding: 12px 10px 10px 10px;
+    }
 }
 
-footer svg{
+footer svg {
     margin-inline: 5px;
 }
 
@@ -467,11 +473,25 @@ footer svg{
 .aboutContainer {
     display: flex;
     margin-bottom: 60px;
-    p{
+    justify-content: center;
+    p {
         text-align: center;
+        max-width: 300px;
     }
 }
-.aboutContainer h2{
+
+.aboutTitle {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 851px) {
+    .aboutContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.aboutContainer h2 {
     text-align: center;
 }
 
@@ -480,6 +500,9 @@ footer svg{
     padding: 20px;
     margin: 20px 0px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about img {
@@ -493,6 +516,7 @@ footer svg{
     bottom: -5%;
     padding-inline: 20px;
     margin-left: -8px;
+    gap: 25px;
 }
 
 .aboutButtons a {
@@ -500,10 +524,9 @@ footer svg{
     color: black;
 }
 
-.aboutButtons button:nth-of-type(2){
+.aboutButtons button:nth-of-type(2) {
     margin-left: 20px;
 }
-
 
 .aboutButtons a:hover {
     text-decoration: none;
@@ -518,9 +541,9 @@ footer svg{
 }
 
 @media (max-width: 614px) {
-    .bookCover{
-    width: 180px;
-    height: 288px;
+    .bookCover {
+        width: 180px;
+        height: 288px;
         .coverimg {
             margin: 10px auto;
         }
@@ -565,7 +588,6 @@ footer svg{
         background: transparent;
         border: none;
         box-shadow: none;
-
     }
 
     .menuNav {
@@ -609,6 +631,16 @@ footer svg{
         z-index: 5;
     }
 }
+.instructionContainer {
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 1360px) {
+    .form input {
+        margin-right: 20px;
+    }
+}
 
 @media (max-width: 1360px) {
     .instructions {
@@ -617,21 +649,12 @@ footer svg{
         justify-content: center;
     }
 
-    .instructionContainer {
-        margin: 0 auto;
-        width: 60%;
-    }
-
     .person1Img {
         display: flex;
         justify-content: center;
-        top: 45px;
+        top: 30px;
         left: 0;
         margin: 0 auto;
-    }
-
-    .form input {
-        width: 100%;
     }
 
     form {
@@ -640,19 +663,24 @@ footer svg{
         justify-content: center;
         align-items: center;
         width: 40%;
+        gap: 10px;
     }
 
-    .searchBtn {
-        margin-top: 20px;
+    .searchBarForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 55%;
+        margin-top: 15px;
     }
+}
 
-    .aboutContainer{
-        flex-wrap: wrap;
-        .about{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.aboutContainer {
+    flex-wrap: wrap;
+    .about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -660,12 +688,12 @@ footer svg{
 
 .loader {
     width: 100vw;
-    height: 175vh;
+    height: 200vh;
     position: absolute;
     left: 0;
     top: 15%;
     background: rgba(0, 0, 0, 0.834)
-        url("https://media.giphy.com/media/tDDIeB24eaOr3xhbia/giphy.gif") center
+        url("https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif") center
         no-repeat;
     z-index: 1;
 }
@@ -676,18 +704,25 @@ footer svg{
     text-align: center;
     color: #fff;
     font-size: 100px;
+    font-family: $headingFont;
+    padding: 20px;
 }
 
 // Details.js Page styles
 
 .details {
     margin-block: 20vh;
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
 }
-
-.details .wrapper {
-    width: 100%;
+.bookDetailContainer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    max-width: 265px;
 }
 
 .details h2,
@@ -706,16 +741,19 @@ h3 {
 
 .detailImgContainer,
 .detailContainer {
-    width: 675px;
     border: 2px solid goldenrod;
-    max-height: 1080px;
     box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.521);
+    // width: 100%;
+    max-width: 375px;
+    max-height: 460px;
+    height: 90%;
+    min-width: 295px;
 }
 
 .descriptionContainer {
     height: 100%;
     overflow: scroll;
-    padding: 10px;
+    padding: 8px;
 }
 
 .detailImgContainer img {
@@ -725,18 +763,18 @@ h3 {
 
 .backButton {
     position: absolute;
-    right: 5%;
-    top: -10%;
+    right: 2%;
+    top: 110%;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.favourited{
+.favourited {
     background-color: $pink;
 }
 
-.favourited:hover{
+.favourited:hover {
     box-shadow: $blue 5px 5px;
 }
 
@@ -744,7 +782,7 @@ h3 {
     width: 225px;
     height: 360px;
     position: relative;
-   
+
     .coverImg {
         height: 100%;
         width: 100%;
@@ -756,8 +794,9 @@ h3 {
 }
 
 // DisplayBook.js
-
-
+.loginSection {
+    height: 90vh;
+}
 .loginPage {
     background-color: #f4e6e8;
     max-width: 100%;
@@ -793,59 +832,78 @@ h3 {
     height: fit-content;
 }
 
-.pagination {    
-    ul{
+.pagination {
+    font-size: clamp(0.8rem, 2vw, 2.2rem);
+    ul {
         display: flex;
         justify-content: center;
-    
+        padding-left: 17px;
     }
-    li{
+    li {
         margin-right: 20px;
         list-style: none;
         transition: 0.3s;
     }
-    li:hover{
+    li:hover {
         border-bottom: solid black 1px;
         cursor: pointer;
     }
-    .selected{
+    .selected {
         color: $blue;
     }
 }
-.search{
+.search {
     margin-bottom: 60px;
-    p{
+    p {
         text-align: center;
+        font-size: clamp(0.8rem, 2vw, 2.2rem);
     }
 }
 
-.searchedBooks{
+.errorMessage {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 80vh;
+}
+.errorPage {
+    text-align: center;
+    margin-bottom: 65vh;
+    margin-top: 300px;
+}
+.searchedBooks {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 60px;
-    justify-content:space-around;
-    gap: 60px ;
+    justify-content: space-around;
+    gap: 60px;
     padding: 0;
 }
 
-//favourites page 
+//favourites page
 
 .favourites {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    p {
+        font-weight: bold;
+    }
 }
 
+.percentage {
+    background-color: $green;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .favouritesList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 60px;
-    justify-content:space-around;
+    justify-content: space-around;
     gap: 15px;
-    
 }
 
 .ratingContainer {
@@ -859,8 +917,26 @@ h3 {
 }
 
 .btnContainer {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin: 10px 0 25px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0 25px 0;
+}
+
+@media (min-width: 650px) {
+    .searchBarForm {
+        flex-direction: row;
+    }
+
+    .bookDetailContainer {
+        flex-direction: row;
+        max-width: 1200px;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 100px) {
+    .detailContainer {
+        max-width: 500px;
+    }
 }

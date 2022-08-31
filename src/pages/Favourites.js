@@ -37,14 +37,17 @@ function Favourites() {
     }, [userId]);
 
     function percentage(partialValue, totalValue) {
-        return (Math.round(100 * [partialValue]/totalValue))
+        return Math.round((100 * [partialValue]) / totalValue);
     }
 
     return (
         <section className="favourites">
             <h2>Your Favourites!</h2>
             <p>
-                Books Read: {booksRead}/{books.length} {percentage(booksRead, books.length)}%
+                <span className="percentage">
+                    {percentage(booksRead, books.length)}%
+                </span>{" "}
+                Books Read: {booksRead}/{books.length}
             </p>
             <div className="favouritesContainer">
                 <ul className="favouritesList">
@@ -53,6 +56,6 @@ function Favourites() {
             </div>
         </section>
     );
-} 
+}
 
 export default Favourites;

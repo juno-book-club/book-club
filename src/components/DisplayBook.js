@@ -38,7 +38,7 @@ const DisplayBook = ({ books, markRead }) => {
             setFavKeyValues(tempArray);
         });
 
-         //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
+        //it looks into the user's favourite list in firebase. If it exists, we set bookIds to contain each favourited book's id
         get(userRef).then((snapshot) => {
             if (snapshot.exists()) {
                 listInDatabase = snapshot.val();
@@ -50,7 +50,6 @@ const DisplayBook = ({ books, markRead }) => {
             setBookIds(idArray);
         });
     }, [userId]);
-
 
     //pushes the entire book obj into our user's firebase list
     //we also push the bookId into our bookIds list
@@ -136,7 +135,6 @@ const DisplayBook = ({ books, markRead }) => {
                         return (
                             <li key={book.id}>
                                 <div className="bookCover">
-                               
                                     <Link to={`/details/${book.id}`}>
                                         <img
                                             src={`https://books.google.com/books/publisher/content/images/frontcover/${book.id}?fife=w250-h400&source=gbs_api`}
@@ -148,56 +146,44 @@ const DisplayBook = ({ books, markRead }) => {
                                             }
                                         />
                                     </Link>
-                                        <div className="ratingContainer">
-                                            {/* if rating is not undefined, display it */}
-                                            {book.volumeInfo.averageRating !==
-                                            undefined ? (
-                                                <figcaption>
-                                                    {
-                                                        book.volumeInfo
-                                                            .averageRating
-                                                    }
-                                                    /5
-                                                </figcaption>
-                                            ) : (
-                                                <figcaption>
-                                                 No Rating
-                                                    
-                                                </figcaption>
-                                            )}
-                                        </div>
-                                      
-                                        
+                                    <div className="ratingContainer">
+                                        {/* if rating is not undefined, display it */}
+                                        {book.volumeInfo.averageRating !==
+                                        undefined ? (
+                                            <figcaption>
+                                                {book.volumeInfo.averageRating}
+                                                /5
+                                            </figcaption>
+                                        ) : (
+                                            <figcaption>No Rating</figcaption>
+                                        )}
                                     </div>
-                                    <div className="btnContainer">
-                                        {isAuth && (
-                                            <button
-                                                className="favourited"
-                                                onClick={() => {
-                                                    removeFromFavourites(
-                                                        book.id
-                                                    );
-                                                }}
-                                            >
-                                                Remove
-                                            </button>
-                                        )}
-                                        {markRead && (
-                                            <button
-                                                onClick={() => {
-                                                    updateRead(book.id);
-                                                    // setReadStatus();
-                                                }}
-                                                className={
-                                                    book.read
-                                                        ? "buttonActive"
-                                                        : ""
-                                                }
-                                            >
-                                                mark read
-                                            </button>
-                                        )}
-                                        </div>
+                                </div>
+                                <div className="btnContainer">
+                                    {isAuth && (
+                                        <button
+                                            className="favourited"
+                                            onClick={() => {
+                                                removeFromFavourites(book.id);
+                                            }}
+                                        >
+                                            Remove
+                                        </button>
+                                    )}
+                                    {markRead && (
+                                        <button
+                                            onClick={() => {
+                                                updateRead(book.id);
+                                                // setReadStatus();
+                                            }}
+                                            className={
+                                                book.read ? "buttonActive" : ""
+                                            }
+                                        >
+                                            mark read
+                                        </button>
+                                    )}
+                                </div>
                             </li>
                         );
                     } else {
@@ -211,33 +197,29 @@ const DisplayBook = ({ books, markRead }) => {
                                             className="coverImg"
                                         />
                                     </Link>
-                                        <div className="ratingContainer">
-                                            {book.volumeInfo.averageRating !==
-                                            undefined ? (
-                                                <figcaption>
-                                                    {
-                                                        book.volumeInfo
-                                                            .averageRating
-                                                    }
-                                                    /5
-                                                </figcaption>
-                                            ) : (
-                                                <figcaption>
-                                                    No Rating
-                                                    
-                                                </figcaption>
-                                            )}
-                                        </div>
-                                        {isAuth && (
-                                            <button
-                                                onClick={() => {
-                                                    addToFavourites(book);
-                                                }}
-                                            >
-                                                Add
-                                            </button>
+                                    <div className="ratingContainer">
+                                        {book.volumeInfo.averageRating !==
+                                        undefined ? (
+                                            <figcaption>
+                                                {book.volumeInfo.averageRating}
+                                                /5
+                                            </figcaption>
+                                        ) : (
+                                            <figcaption>No Rating</figcaption>
                                         )}
                                     </div>
+                                </div>
+                                {isAuth && (
+                                    <div className="btnContainer">
+                                        <button
+                                            onClick={() => {
+                                                addToFavourites(book);
+                                            }}
+                                        >
+                                            Add
+                                        </button>
+                                    </div>
+                                )}
                             </li>
                         );
                     }

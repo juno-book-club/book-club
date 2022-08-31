@@ -1,8 +1,7 @@
 import danielPhoto from "../assets/images/danielSelfPort.png";
 import jingruPhoto from "../assets/images/jingruPhoto.PNG";
 import charlesPhoto from "../assets/images/charlesSelfPort.png";
-import sarahPhoto from "../assets/images/sarahPhoto.png"
-import { FaGithub } from "react-icons/fa"
+import sarahPhoto from "../assets/images/sarahPhoto.png";
 
 function About() {
     const us = [
@@ -48,16 +47,20 @@ function About() {
                         />
                         <p>{details.description}</p>
                         <div className="aboutButtons">
-                            <button>
-                                <a target="_blank" href={details.github}>
-                                    Github
-                                </a>
-                            </button>
-                            <button>
-                                <a target="_blank" href={details.portfolio}>
-                                    Portfolio
-                                </a>
-                            </button>
+                            <a
+                                target="_blank"
+                                href={details.github}
+                                rel="noreferrer"
+                            >
+                                <button>Github</button>
+                            </a>
+                            <a
+                                target="_blank"
+                                href={details.portfolio}
+                                rel="noreferrer"
+                            >
+                                <button>Portfolio</button>
+                            </a>
                         </div>
                     </div>
                 );

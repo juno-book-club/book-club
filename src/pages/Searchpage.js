@@ -3,15 +3,14 @@ import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import DisplayBook from "../components/DisplayBook";
 import { useParams, Link } from "react-router-dom";
-import ReactPaginate from 'react-paginate';
-
+import ReactPaginate from "react-paginate";
 
 function SearchPage() {
     const { search } = useParams();
     const [books, setBooks] = useState([]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
     const [userName, setUserName] = useState("");
     const [userId, setUserId] = useState("");
     const [nextPage, setNextPage] = useState(0);
@@ -22,7 +21,7 @@ function SearchPage() {
         setUserName(localStorage.getItem("userName"));
         setUserId(localStorage.getItem("userId"));
     }, [userId, userName]);
-    
+
     const pageResults = 12;
 
     useEffect(() => {
@@ -54,12 +53,12 @@ function SearchPage() {
     }, [search, nextPage]);
 
     // on click i am grabbing index of the pagination library data and multiplying it by the page results because the api call doesnt have pages it has a start index
-    const handlePageClick = ((data) => {
+    const handlePageClick = (data) => {
         //when clicked it grabs the index of what number was clicked
         const pageNumber = data.selected;
         setNextPage(pageNumber * pageResults);
         setPage(pageNumber + 1);
-    })
+    };
 
     return (
         <section className="Home">
@@ -79,30 +78,28 @@ function SearchPage() {
                     </div>
                     <div className="pagination">
                         <ReactPaginate
-                        nextLabel="Next"
-                        previousLabel="Previous"
-                        pageCount={10} 
-                        onPageChange={handlePageClick}
+                            nextLabel="Next"
+                            previousLabel="Previous"
+                            pageCount={10}
+                            onPageChange={handlePageClick}
                         />
                     </div>
-                        <p>Page: {page}</p>
+                    <p>Page: {page}</p>
                 </section>
-            ) : 
-
+            ) : (
                 <Link to="/">
-                <p>
-                    What you searched is not exist, click here to go back to
-                    Home Page
-                </p>
-            </Link>
-            
-            }
+                    <p className="errorMessage">
+                        What you searched is not exist, click here to go back to
+                        Home Page
+                    </p>
+                </Link>
+            )}
 
-            {error && 
+            {error && (
                 <>
-                <h2>{error}</h2>   
+                    <h2>{error}</h2>
                 </>
-            }
+            )}
         </section>
     );
 }
