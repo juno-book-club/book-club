@@ -395,6 +395,7 @@ button:hover {
 
 .form {
     input {
+
         &:active,
         &:focus {
             background-color: lightcyan;
@@ -457,6 +458,7 @@ footer {
     width: 100vw;
     text-align: center;
     position: absolute;
+
     // opacity: 0.8;
     p {
         margin: 0;
@@ -474,6 +476,7 @@ footer svg {
     display: flex;
     margin-bottom: 60px;
     justify-content: center;
+
     p {
         text-align: center;
         max-width: 300px;
@@ -491,6 +494,7 @@ footer svg {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 .aboutContainer h2 {
     text-align: center;
 }
@@ -544,10 +548,12 @@ footer svg {
     .bookCover {
         width: 180px;
         height: 288px;
+
         .coverimg {
             margin: 10px auto;
         }
     }
+
     .favouritesList {
         justify-content: space-around;
         padding-left: 0;
@@ -631,6 +637,7 @@ footer svg {
         z-index: 5;
     }
 }
+
 .instructionContainer {
     margin: 0 auto;
     width: 100%;
@@ -677,6 +684,7 @@ footer svg {
 
 .aboutContainer {
     flex-wrap: wrap;
+
     .about {
         display: flex;
         flex-direction: column;
@@ -692,9 +700,7 @@ footer svg {
     position: absolute;
     left: 0;
     top: 15%;
-    background: rgba(0, 0, 0, 0.834)
-        url("https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif") center
-        no-repeat;
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif") center no-repeat;
     z-index: 1;
 }
 
@@ -712,11 +718,13 @@ footer svg {
 
 .details {
     margin-block: 20vh;
+
     .wrapper {
         display: flex;
         justify-content: center;
     }
 }
+
 .bookDetailContainer {
     display: flex;
     flex-direction: column;
@@ -797,6 +805,7 @@ h3 {
 .loginSection {
     height: 90vh;
 }
+
 .loginPage {
     background-color: #f4e6e8;
     max-width: 100%;
@@ -834,26 +843,32 @@ h3 {
 
 .pagination {
     font-size: clamp(0.8rem, 2vw, 2.2rem);
+
     ul {
         display: flex;
         justify-content: center;
         padding-left: 17px;
     }
+
     li {
         margin-right: 20px;
         list-style: none;
         transition: 0.3s;
     }
+
     li:hover {
         border-bottom: solid black 1px;
         cursor: pointer;
     }
+
     .selected {
         color: $blue;
     }
 }
+
 .search {
     margin-bottom: 60px;
+
     p {
         text-align: center;
         font-size: clamp(0.8rem, 2vw, 2.2rem);
@@ -865,11 +880,13 @@ h3 {
     font-size: 2rem;
     margin-bottom: 80vh;
 }
+
 .errorPage {
     text-align: center;
     margin-bottom: 65vh;
     margin-top: 300px;
 }
+
 .searchedBooks {
     display: flex;
     flex-direction: row;
@@ -886,6 +903,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     p {
         font-weight: bold;
     }
