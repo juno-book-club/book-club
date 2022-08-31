@@ -174,7 +174,6 @@ const DisplayBook = ({ books, markRead }) => {
                                         <button
                                             onClick={() => {
                                                 updateRead(book.id);
-                                                // setReadStatus();
                                             }}
                                             className={
                                                 book.read ? "buttonActive" : ""
