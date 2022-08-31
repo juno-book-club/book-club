@@ -36,35 +36,39 @@ function About() {
     ];
 
     return (
-        <div className="aboutContainer">
-            {us.map((details) => {
-                return (
-                    <div className="about" key={details.name}>
-                        <h2>{details.name}</h2>
-                        <img
-                            src={details.img}
-                            alt={`A headshot of ${details.name}`}
-                        />
-                        <p>{details.description}</p>
-                        <div className="aboutButtons">
-                            <a
-                                target="_blank"
-                                href={details.github}
-                                rel="noreferrer"
-                            >
-                                <button>Github</button>
-                            </a>
-                            <a
-                                target="_blank"
-                                href={details.portfolio}
-                                rel="noreferrer"
-                            >
-                                <button>Portfolio</button>
-                            </a>
+        <div className="aboutTitle">
+            <h2>Meet The Developers</h2>
+
+            <div className="aboutContainer">
+                {us.map((details) => {
+                    return (
+                        <div className="about" key={details.name}>
+                            <h2>{details.name}</h2>
+                            <img
+                                src={details.img}
+                                alt={`A headshot of ${details.name}`}
+                            />
+                            <p>{details.description}</p>
+                            <div className="aboutButtons">
+                                <a
+                                    target="_blank"
+                                    href={details.github}
+                                    rel="noreferrer"
+                                >
+                                    <button>Github</button>
+                                </a>
+                                <a
+                                    target="_blank"
+                                    href={details.portfolio}
+                                    rel="noreferrer"
+                                >
+                                    <button>Portfolio</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }

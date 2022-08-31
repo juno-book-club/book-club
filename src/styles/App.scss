@@ -484,8 +484,8 @@ footer svg {
 }
 
 .aboutTitle {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 @media (min-width: 851px) {
@@ -689,6 +689,7 @@ footer svg {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 80px;
     }
 }
 
@@ -730,7 +731,13 @@ footer svg {
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    max-width: 265px;
+    // max-width: 265px;
+    background-color: $pink;
+    padding: 30px 70px;
+    border-top-left-radius: 65px 70px;
+    border-top-right-radius: 100px 80px;
+    border-bottom-right-radius: 38px 50px;
+    border-bottom-left-radius: 40px 30px;
 }
 
 .details h2,
@@ -749,7 +756,7 @@ h3 {
 
 .detailImgContainer,
 .detailContainer {
-
+    background-color: white;
     // width: 100%;
     max-width: 375px;
     max-height: 460px;
@@ -760,7 +767,7 @@ h3 {
 .descriptionContainer {
     height: 100%;
     overflow: scroll;
-    padding: 8px;
+    padding: 12px;
 }
 
 .detailImgContainer img {
@@ -771,7 +778,7 @@ h3 {
 .backButton {
     position: absolute;
     right: 2%;
-    top: 110%;
+    top: 118%;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
