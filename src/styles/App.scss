@@ -27,7 +27,9 @@ figure,
 main {
     display: block;
 }
-
+main {
+    min-height: 88vh;
+}
 figure {
     margin: 1em 40px;
 }
@@ -396,7 +398,6 @@ button:hover {
 
 .form {
     input {
-
         &:active,
         &:focus {
             background-color: lightcyan;
@@ -415,6 +416,10 @@ button:hover {
 }
 
 // app instructions
+
+.instructionsSection {
+    padding-top: 100px;
+}
 
 .instructionsSection h2 {
     text-align: center;
@@ -578,6 +583,13 @@ footer svg {
         display: none;
         background-color: none;
     }
+
+    button {
+        font-size: 1.2rem;
+        padding: 5px;
+        width: 100px;
+        height: 40px;
+    }
 }
 
 @media (max-width: 1050px) {
@@ -702,7 +714,9 @@ footer svg {
     position: absolute;
     left: 0;
     top: 15%;
-    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif") center no-repeat;
+    background: rgba(0, 0, 0, 0.834)
+        url("https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif") center
+        no-repeat;
     z-index: 1;
 }
 
