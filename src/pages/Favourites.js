@@ -37,6 +37,9 @@ function Favourites() {
     }, [userId]);
 
     function percentage(partialValue, totalValue) {
+        if (isNaN(Math.round((100 * [partialValue]) / totalValue))) {
+            return 0;
+        }
         return Math.round((100 * [partialValue]) / totalValue);
     }
 
