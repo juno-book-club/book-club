@@ -979,3 +979,17 @@ h3 {
         max-width: 500px;
     }
 }
+
+@media (min-width: 450px) {
+    .navBar button {
+        right: 38px;
+        top: 18px;
+        font-size: 1rem;
+    }
+}
+@media (min-width: 600px) {
+    .navBar button {
+        right: clamp(38px, 12vw, 90px);
+        top: 20px;
+    }
+}
